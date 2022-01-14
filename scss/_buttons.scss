@@ -1,0 +1,791 @@
+/*
+-------------------------------------------------------------------------------
+7.  Buttons [hm-07]
+
+Notes:
+    ~ When a focused button is hovered over, only the text color and the 
+    background color is overridden. This is because most button focus effects 
+    tend to be based on border, box shadow, and outline. On the other hand, 
+    when a focused input is hovered over, nothing is overridden, and all the 
+    focus styles are kept unchanged.
+-------------------------------------------------------------------------------
+*/
+
+/* Default button */
+
+.btn {
+    display: inline-block;
+    height: var(--button-height);
+    line-height: var(--button-line-height);
+    padding: var(--button-padding);
+    text-align: center;
+    white-space: nowrap;
+    cursor: pointer;
+    color: var(--lm-button-text-color);
+    background-color: var(--lm-button-bg-color);
+    background-image: var(--lm-button-bg-image);
+    border: var(--button-border-width) solid var(--lm-button-border-color);
+    border-radius: var(--button-border-radius);
+    -moz-box-shadow: var(--lm-button-box-shadow);
+    -webkit-box-shadow: var(--lm-button-box-shadow);
+    box-shadow: var(--lm-button-box-shadow);
+}
+.btn:hover {
+    text-decoration: none;
+    color: var(--lm-button-text-color-hover);
+    background-color: var(--lm-button-bg-color-hover);
+    background-image: var(--lm-button-bg-image-hover);
+    border-color: var(--lm-button-border-color-hover);
+    -moz-box-shadow: var(--lm-button-box-shadow-hover);
+    -webkit-box-shadow: var(--lm-button-box-shadow-hover);
+    box-shadow: var(--lm-button-box-shadow-hover);
+}
+.btn:focus,
+.btn.active {
+    color: var(--lm-button-text-color-focus);
+    background-color: var(--lm-button-bg-color-focus);
+    background-image: var(--lm-button-bg-image-focus);
+    border-color: var(--lm-button-border-color-focus);
+    -moz-box-shadow: var(--lm-button-box-shadow-focus);
+    -webkit-box-shadow: var(--lm-button-box-shadow-focus);
+    box-shadow: var(--lm-button-box-shadow-focus);
+    outline: var(--button-outline-width) var(--button-outline-type) var(--lm-button-outline-color-focus);
+    outline-offset: var(--button-outline-offset);
+}
+.btn:focus:hover,
+.btn.active:hover {
+    /*
+    Only text color and background properties are overridden, while the border 
+    color, box shadow, and the outline of the focus selector is kept.
+    */
+    color: var(--lm-button-text-color-hover);
+    background-color: var(--lm-button-bg-color-hover);
+    background-image: var(--lm-button-bg-image-hover);
+}
+.dark-mode .btn {
+    color: var(--dm-button-text-color);
+    background-color: var(--dm-button-bg-color);
+    background-image: var(--dm-button-bg-image);
+    border-color: var(--dm-button-border-color);
+    -moz-box-shadow: var(--dm-button-box-shadow);
+    -webkit-box-shadow: var(--dm-button-box-shadow);
+    box-shadow: var(--dm-button-box-shadow);
+}
+.dark-mode .btn:hover {
+    color: var(--dm-button-text-color-hover);
+    background-color: var(--dm-button-bg-color-hover);
+    background-image: var(--dm-button-bg-image-hover);
+    border-color: var(--dm-button-border-color-hover);
+    -moz-box-shadow: var(--dm-button-box-shadow-hover);
+    -webkit-box-shadow: var(--dm-button-box-shadow-hover);
+    box-shadow: var(--dm-button-box-shadow-hover);
+}
+.dark-mode .btn:focus,
+.dark-mode .btn.active {
+    color: var(--dm-button-text-color-focus);
+    background-color: var(--dm-button-bg-color-focus);
+    background-image: var(--dm-button-bg-image-focus);
+    border-color: var(--dm-button-border-color-focus);
+    -moz-box-shadow: var(--dm-button-box-shadow-focus);
+    -webkit-box-shadow: var(--dm-button-box-shadow-focus);
+    box-shadow: var(--dm-button-box-shadow-focus);
+    outline-color: var(--dm-button-outline-color-focus);
+}
+.dark-mode .btn:focus:hover,
+.dark-mode .btn.active:hover {
+    /*
+    Only text color and background properties are overridden, while the border 
+    color, box shadow, and the outline of the focus selector is kept.
+    */
+    color: var(--dm-button-text-color-hover);
+    background-color: var(--dm-button-bg-color-hover);
+    background-image: var(--dm-button-bg-image-hover);
+}
+.btn.disabled,
+.btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+.btn.disabled,
+.btn:disabled,
+.btn.disabled:hover,
+.btn.disabled:focus {
+    color: var(--lm-button-text-color);
+    background-color: var(--lm-button-bg-color);
+    background-image: var(--lm-button-bg-image);
+    border-color: var(--lm-button-border-color);
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    outline: none;
+}
+.dark-mode .btn.disabled,
+.dark-mode .btn:disabled,
+.dark-mode .btn.disabled:hover,
+.dark-mode .btn.disabled:focus {
+    color: var(--dm-button-text-color);
+    background-color: var(--dm-button-bg-color);
+    background-image: var(--dm-button-bg-image);
+    border-color: var(--dm-button-border-color);
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    outline: none;
+}
+
+/* Alternate dark mode default button */
+
+.dark-mode .btn.alt-dm {
+    color: var(--dm-button-alt-text-color);
+    background-color: var(--dm-button-alt-bg-color);
+    background-image: var(--dm-button-alt-bg-image);
+    border-color: var(--dm-button-alt-border-color);
+    -moz-box-shadow: var(--dm-button-alt-box-shadow);
+    -webkit-box-shadow: var(--dm-button-alt-box-shadow);
+    box-shadow: var(--dm-button-alt-box-shadow);
+}
+.dark-mode .btn.alt-dm:hover {
+    color: var(--dm-button-alt-text-color-hover);
+    background-color: var(--dm-button-alt-bg-color-hover);
+    background-image: var(--dm-button-alt-bg-image-hover);
+    border-color: var(--dm-button-alt-border-color-hover);
+    -moz-box-shadow: var(--dm-button-alt-box-shadow-hover);
+    -webkit-box-shadow: var(--dm-button-alt-box-shadow-hover);
+    box-shadow: var(--dm-button-alt-box-shadow-hover);
+}
+.dark-mode .btn.alt-dm:focus,
+.dark-mode .btn.alt-dm.active {
+    color: var(--dm-button-alt-text-color-focus);
+    background-color: var(--dm-button-alt-bg-color-focus);
+    background-image: var(--dm-button-alt-bg-image-focus);
+    border-color: var(--dm-button-alt-border-color-focus);
+    -moz-box-shadow: var(--dm-button-alt-box-shadow-focus);
+    -webkit-box-shadow: var(--dm-button-alt-box-shadow-focus);
+    box-shadow: var(--dm-button-alt-box-shadow-focus);
+    outline-color: var(--dm-button-alt-outline-color-focus);
+}
+.dark-mode .btn.alt-dm:focus:hover,
+.dark-mode .btn.alt-dm.active:hover {
+    /*
+    Only text color and background properties are overridden, while the border 
+    color, box shadow, and the outline of the focus selector is kept.
+    */
+    color: var(--dm-button-alt-text-color-hover);
+    background-color: var(--dm-button-alt-bg-color-hover);
+    background-image: var(--dm-button-alt-bg-image-hover);
+}
+.dark-mode .btn.alt-dm.disabled,
+.dark-mode .btn.alt-dm:disabled,
+.dark-mode .btn.alt-dm.disabled:hover,
+.dark-mode .btn.alt-dm.disabled:focus {
+    color: var(--dm-button-alt-text-color);
+    background-color: var(--dm-button-alt-bg-color);
+    background-image: var(--dm-button-alt-bg-image);
+    border-color: var(--dm-button-alt-border-color);
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    outline: none;
+}
+
+/* Small button */
+
+.btn-sm {
+    height: var(--small-button-height);
+    line-height: var(--small-button-line-height);
+    padding: var(--small-button-padding);
+    font-size: var(--small-button-font-size);
+}
+
+/* Large button */
+
+.btn-lg {
+    height: var(--large-button-height);
+    line-height: var(--large-button-line-height);
+    padding: var(--large-button-padding);
+    font-size: var(--large-button-font-size);
+}
+
+/* Block button */
+
+.btn-block {
+    display: block;
+    width: 100%;
+}
+
+/* Link button */
+
+.btn.btn-link {
+    color: var(--lm-button-link-text-color);
+    background-color: var(--lm-button-link-bg-color);
+    background-image: var(--lm-button-link-bg-image);
+    border-color: var(--lm-button-link-border-color);
+    -moz-box-shadow: var(--lm-button-link-box-shadow);
+    -webkit-box-shadow: var(--lm-button-link-box-shadow);
+    box-shadow: var(--lm-button-link-box-shadow);
+}
+.btn.btn-link:hover {
+    color: var(--lm-button-link-text-color-hover);
+    background-color: var(--lm-button-link-bg-color-hover);
+    background-image: var(--lm-button-link-bg-image-hover);
+    border-color: var(--lm-button-link-border-color-hover);
+    -moz-box-shadow: var(--lm-button-link-box-shadow-hover);
+    -webkit-box-shadow: var(--lm-button-link-box-shadow-hover);
+    box-shadow: var(--lm-button-link-box-shadow-hover);
+}
+.btn.btn-link:focus,
+.btn.btn-link.active {
+    color: var(--lm-button-link-text-color-focus);
+    background-color: var(--lm-button-link-bg-color-focus);
+    background-image: var(--lm-button-link-bg-image-focus);
+    border-color: var(--lm-button-link-border-color-focus);
+    -moz-box-shadow: var(--lm-button-link-box-shadow-focus);
+    -webkit-box-shadow: var(--lm-button-link-box-shadow-focus);
+    box-shadow: var(--lm-button-link-box-shadow-focus);
+    outline-color: var(--lm-button-link-outline-color-focus);
+}
+.btn.btn-link:focus:hover,
+.btn.btn-link.active:hover {
+    /*
+    Only text color and background properties are overridden, while the border 
+    color, box shadow, and the outline of the focus selector is kept.
+    */
+    color: var(--lm-button-link-text-color-hover);
+    background-color: var(--lm-button-link-bg-color-hover);
+    background-image: var(--lm-button-link-bg-image-hover);
+}
+.dark-mode .btn.btn-link {
+    color: var(--dm-button-link-text-color);
+    background-color: var(--dm-button-link-bg-color);
+    background-image: var(--dm-button-link-bg-image);
+    border-color: var(--dm-button-link-border-color);
+    -moz-box-shadow: var(--dm-button-link-box-shadow);
+    -webkit-box-shadow: var(--dm-button-link-box-shadow);
+    box-shadow: var(--dm-button-link-box-shadow);
+    -webkit-font-smoothing: auto;
+    -moz-osx-font-smoothing: auto;
+}
+.dark-mode .btn.btn-link:hover {
+    color: var(--dm-button-link-text-color-hover);
+    background-color: var(--dm-button-link-bg-color-hover);
+    background-image: var(--dm-button-link-bg-image-hover);
+    border-color: var(--dm-button-link-border-color-hover);
+    -moz-box-shadow: var(--dm-button-link-box-shadow-hover);
+    -webkit-box-shadow: var(--dm-button-link-box-shadow-hover);
+    box-shadow: var(--dm-button-link-box-shadow-hover);
+}
+.dark-mode .btn.btn-link:focus,
+.dark-mode .btn.btn-link.active {
+    color: var(--dm-button-link-text-color-focus);
+    background-color: var(--dm-button-link-bg-color-focus);
+    background-image: var(--dm-button-link-bg-image-focus);
+    border-color: var(--dm-button-link-border-color-focus);
+    -moz-box-shadow: var(--dm-button-link-box-shadow-focus);
+    -webkit-box-shadow: var(--dm-button-link-box-shadow-focus);
+    box-shadow: var(--dm-button-link-box-shadow-focus);
+    outline-color: var(--dm-button-link-outline-color-focus);
+}
+.dark-mode .btn.btn-link:focus:hover,
+.dark-mode .btn.btn-link.active:hover {
+    /*
+    Only text color and background properties are overridden, while the border 
+    color, box shadow, and the outline of the focus selector is kept.
+    */
+    color: var(--dm-button-link-text-color-hover);
+    background-color: var(--dm-button-link-bg-color-hover);
+    background-image: var(--dm-button-link-bg-image-hover);
+}
+.btn.btn-link.disabled,
+.btn.btn-link:disabled,
+.btn.btn-link.disabled:hover,
+.btn.btn-link.disabled:focus {
+    color: var(--lm-button-link-text-color);
+    background-color: var(--lm-button-link-bg-color);
+    background-image: var(--lm-button-link-bg-image);
+    border-color: var(--lm-button-link-border-color);
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    outline: none;
+}
+.dark-mode .btn.btn-link.disabled,
+.dark-mode .btn.btn-link:disabled,
+.dark-mode .btn.btn-link.disabled:hover,
+.dark-mode .btn.btn-link.disabled:focus {
+    color: var(--dm-button-link-text-color);
+    background-color: var(--dm-button-link-bg-color);
+    background-image: var(--dm-button-link-bg-image);
+    border-color: var(--dm-button-link-border-color);
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    outline: none;
+}
+
+/* Primary button */
+
+.btn.btn-primary {
+    color: var(--lm-button-primary-text-color);
+    background-color: var(--lm-button-primary-bg-color);
+    background-image: var(--lm-button-primary-bg-image);
+    border-color: var(--lm-button-primary-border-color);
+    -moz-box-shadow: var(--lm-button-primary-box-shadow);
+    -webkit-box-shadow: var(--lm-button-primary-box-shadow);
+    box-shadow: var(--lm-button-primary-box-shadow);
+}
+.btn.btn-primary:hover {
+    color: var(--lm-button-primary-text-color-hover);
+    background-color: var(--lm-button-primary-bg-color-hover);
+    background-image: var(--lm-button-primary-bg-image-hover);
+    border-color: var(--lm-button-primary-border-color-hover);
+    -moz-box-shadow: var(--lm-button-primary-box-shadow-hover);
+    -webkit-box-shadow: var(--lm-button-primary-box-shadow-hover);
+    box-shadow: var(--lm-button-primary-box-shadow-hover);
+}
+.btn.btn-primary:focus,
+.btn.btn-primary.active {
+    color: var(--lm-button-primary-text-color-focus);
+    background-color: var(--lm-button-primary-bg-color-focus);
+    background-image: var(--lm-button-primary-bg-image-focus);
+    border-color: var(--lm-button-primary-border-color-focus);
+    -moz-box-shadow: var(--lm-button-primary-box-shadow-focus);
+    -webkit-box-shadow: var(--lm-button-primary-box-shadow-focus);
+    box-shadow: var(--lm-button-primary-box-shadow-focus);
+    outline-color: var(--lm-button-primary-outline-color-focus);
+}
+.btn.btn-primary:focus:hover,
+.btn.btn-primary.active:hover {
+    /*
+    Only text color and background properties are overridden, while the border 
+    color, box shadow, and the outline of the focus selector is kept.
+    */
+    color: var(--lm-button-primary-text-color-hover);
+    background-color: var(--lm-button-primary-bg-color-hover);
+    background-image: var(--lm-button-primary-bg-image-hover);
+}
+.dark-mode .btn.btn-primary {
+    color: var(--dm-button-primary-text-color);
+    background-color: var(--dm-button-primary-bg-color);
+    background-image: var(--dm-button-primary-bg-image);
+    border-color: var(--dm-button-primary-border-color);
+    -moz-box-shadow: var(--dm-button-primary-box-shadow);
+    -webkit-box-shadow: var(--dm-button-primary-box-shadow);
+    box-shadow: var(--dm-button-primary-box-shadow);
+    -webkit-font-smoothing: auto;
+    -moz-osx-font-smoothing: auto;
+}
+.dark-mode .btn.btn-primary:hover {
+    color: var(--dm-button-primary-text-color-hover);
+    background-color: var(--dm-button-primary-bg-color-hover);
+    background-image: var(--dm-button-primary-bg-image-hover);
+    border-color: var(--dm-button-primary-border-color-hover);
+    -moz-box-shadow: var(--dm-button-primary-box-shadow-hover);
+    -webkit-box-shadow: var(--dm-button-primary-box-shadow-hover);
+    box-shadow: var(--dm-button-primary-box-shadow-hover);
+}
+.dark-mode .btn.btn-primary:focus,
+.dark-mode .btn.btn-primary.active {
+    color: var(--dm-button-primary-text-color-focus);
+    background-color: var(--dm-button-primary-bg-color-focus);
+    background-image: var(--dm-button-primary-bg-image-focus);
+    border-color: var(--dm-button-primary-border-color-focus);
+    -moz-box-shadow: var(--dm-button-primary-box-shadow-focus);
+    -webkit-box-shadow: var(--dm-button-primary-box-shadow-focus);
+    box-shadow: var(--dm-button-primary-box-shadow-focus);
+    outline-color: var(--dm-button-primary-outline-color-focus);
+}
+.dark-mode .btn.btn-primary:focus:hover,
+.dark-mode .btn.btn-primary.active:hover {
+    /*
+    Only text color and background properties are overridden, while the border 
+    color, box shadow, and the outline of the focus selector is kept.
+    */
+    color: var(--dm-button-primary-text-color-hover);
+    background-color: var(--dm-button-primary-bg-color-hover);
+    background-image: var(--dm-button-primary-bg-image-hover);
+}
+.btn.btn-primary.disabled,
+.btn.btn-primary:disabled,
+.btn.btn-primary.disabled:hover,
+.btn.btn-primary.disabled:focus {
+    color: var(--lm-button-primary-text-color);
+    background-color: var(--lm-button-primary-bg-color);
+    background-image: var(--lm-button-primary-bg-image);
+    border-color: var(--lm-button-primary-border-color);
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    outline: none;
+}
+.dark-mode .btn.btn-primary.disabled,
+.dark-mode .btn.btn-primary:disabled,
+.dark-mode .btn.btn-primary.disabled:hover,
+.dark-mode .btn.btn-primary.disabled:focus {
+    color: var(--dm-button-primary-text-color);
+    background-color: var(--dm-button-primary-bg-color);
+    background-image: var(--dm-button-primary-bg-image);
+    border-color: var(--dm-button-primary-border-color);
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    outline: none;
+}
+
+/* Success button */
+
+.btn.btn-success {
+    color: var(--lm-button-success-text-color);
+    background-color: var(--lm-button-success-bg-color);
+    background-image: var(--lm-button-success-bg-image);
+    border-color: var(--lm-button-success-border-color);
+    -moz-box-shadow: var(--lm-button-success-box-shadow);
+    -webkit-box-shadow: var(--lm-button-success-box-shadow);
+    box-shadow: var(--lm-button-success-box-shadow);
+}
+.btn.btn-success:hover {
+    color: var(--lm-button-success-text-color-hover);
+    background-color: var(--lm-button-success-bg-color-hover);
+    background-image: var(--lm-button-success-bg-image-hover);
+    border-color: var(--lm-button-success-border-color-hover);
+    -moz-box-shadow: var(--lm-button-success-box-shadow-hover);
+    -webkit-box-shadow: var(--lm-button-success-box-shadow-hover);
+    box-shadow: var(--lm-button-success-box-shadow-hover);
+}
+.btn.btn-success:focus,
+.btn.btn-success.active {
+    color: var(--lm-button-success-text-color-focus);
+    background-color: var(--lm-button-success-bg-color-focus);
+    background-image: var(--lm-button-success-bg-image-focus);
+    border-color: var(--lm-button-success-border-color-focus);
+    -moz-box-shadow: var(--lm-button-success-box-shadow-focus);
+    -webkit-box-shadow: var(--lm-button-success-box-shadow-focus);
+    box-shadow: var(--lm-button-success-box-shadow-focus);
+    outline-color: var(--lm-button-success-outline-color-focus);
+}
+.btn.btn-success:focus:hover,
+.btn.btn-success.active:hover {
+    /*
+    Only text color and background properties are overridden, while the border 
+    color, box shadow, and the outline of the focus selector is kept.
+    */
+    color: var(--lm-button-success-text-color-hover);
+    background-color: var(--lm-button-success-bg-color-hover);
+    background-image: var(--lm-button-success-bg-image-hover);
+}
+.dark-mode .btn.btn-success {
+    color: var(--dm-button-success-text-color);
+    background-color: var(--dm-button-success-bg-color);
+    background-image: var(--dm-button-success-bg-image);
+    border-color: var(--dm-button-success-border-color);
+    -moz-box-shadow: var(--dm-button-success-box-shadow);
+    -webkit-box-shadow: var(--dm-button-success-box-shadow);
+    box-shadow: var(--dm-button-success-box-shadow);
+    -webkit-font-smoothing: auto;
+    -moz-osx-font-smoothing: auto;
+}
+.dark-mode .btn.btn-success:hover {
+    color: var(--dm-button-success-text-color-hover);
+    background-color: var(--dm-button-success-bg-color-hover);
+    background-image: var(--dm-button-success-bg-image-hover);
+    border-color: var(--dm-button-success-border-color-hover);
+    -moz-box-shadow: var(--dm-button-success-box-shadow-hover);
+    -webkit-box-shadow: var(--dm-button-success-box-shadow-hover);
+    box-shadow: var(--dm-button-success-box-shadow-hover);
+}
+.dark-mode .btn.btn-success:focus,
+.dark-mode .btn.btn-success.active {
+    color: var(--dm-button-success-text-color-focus);
+    background-color: var(--dm-button-success-bg-color-focus);
+    background-image: var(--dm-button-success-bg-image-focus);
+    border-color: var(--dm-button-success-border-color-focus);
+    -moz-box-shadow: var(--dm-button-success-box-shadow-focus);
+    -webkit-box-shadow: var(--dm-button-success-box-shadow-focus);
+    box-shadow: var(--dm-button-success-box-shadow-focus);
+    outline-color: var(--dm-button-success-outline-color-focus);
+}
+.dark-mode .btn.btn-success:focus:hover,
+.dark-mode .btn.btn-success.active:hover {
+    /*
+    Only text color and background properties are overridden, while the border 
+    color, box shadow, and the outline of the focus selector is kept.
+    */
+    color: var(--dm-button-success-text-color-hover);
+    background-color: var(--dm-button-success-bg-color-hover);
+    background-image: var(--dm-button-success-bg-image-hover);
+}
+.btn.btn-success.disabled,
+.btn.btn-success:disabled,
+.btn.btn-success.disabled:hover,
+.btn.btn-success.disabled:focus {
+    color: var(--lm-button-success-text-color);
+    background-color: var(--lm-button-success-bg-color);
+    background-image: var(--lm-button-success-bg-image);
+    border-color: var(--lm-button-success-border-color);
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    outline: none;
+}
+.dark-mode .btn.btn-success.disabled,
+.dark-mode .btn.btn-success:disabled,
+.dark-mode .btn.btn-success.disabled:hover,
+.dark-mode .btn.btn-success.disabled:focus {
+    color: var(--dm-button-success-text-color);
+    background-color: var(--dm-button-success-bg-color);
+    background-image: var(--dm-button-success-bg-image);
+    border-color: var(--dm-button-success-border-color);
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    outline: none;
+}
+
+/* Secondary button */
+
+.btn.btn-secondary {
+    color: var(--lm-button-secondary-text-color);
+    background-color: var(--lm-button-secondary-bg-color);
+    background-image: var(--lm-button-secondary-bg-image);
+    border-color: var(--lm-button-secondary-border-color);
+    -moz-box-shadow: var(--lm-button-secondary-box-shadow);
+    -webkit-box-shadow: var(--lm-button-secondary-box-shadow);
+    box-shadow: var(--lm-button-secondary-box-shadow);
+}
+.btn.btn-secondary:hover {
+    color: var(--lm-button-secondary-text-color-hover);
+    background-color: var(--lm-button-secondary-bg-color-hover);
+    background-image: var(--lm-button-secondary-bg-image-hover);
+    border-color: var(--lm-button-secondary-border-color-hover);
+    -moz-box-shadow: var(--lm-button-secondary-box-shadow-hover);
+    -webkit-box-shadow: var(--lm-button-secondary-box-shadow-hover);
+    box-shadow: var(--lm-button-secondary-box-shadow-hover);
+}
+.btn.btn-secondary:focus,
+.btn.btn-secondary.active {
+    color: var(--lm-button-secondary-text-color-focus);
+    background-color: var(--lm-button-secondary-bg-color-focus);
+    background-image: var(--lm-button-secondary-bg-image-focus);
+    border-color: var(--lm-button-secondary-border-color-focus);
+    -moz-box-shadow: var(--lm-button-secondary-box-shadow-focus);
+    -webkit-box-shadow: var(--lm-button-secondary-box-shadow-focus);
+    box-shadow: var(--lm-button-secondary-box-shadow-focus);
+    outline-color: var(--lm-button-secondary-outline-color-focus);
+}
+.btn.btn-secondary:focus:hover,
+.btn.btn-secondary.active:hover {
+    /*
+    Only text color and background properties are overridden, while the border 
+    color, box shadow, and the outline of the focus selector is kept.
+    */
+    color: var(--lm-button-secondary-text-color-hover);
+    background-color: var(--lm-button-secondary-bg-color-hover);
+    background-image: var(--lm-button-secondary-bg-image-hover);
+}
+.dark-mode .btn.btn-secondary {
+    color: var(--dm-button-secondary-text-color);
+    background-color: var(--dm-button-secondary-bg-color);
+    background-image: var(--dm-button-secondary-bg-image);
+    border-color: var(--dm-button-secondary-border-color);
+    -moz-box-shadow: var(--dm-button-secondary-box-shadow);
+    -webkit-box-shadow: var(--dm-button-secondary-box-shadow);
+    box-shadow: var(--dm-button-secondary-box-shadow);
+    -webkit-font-smoothing: auto;
+    -moz-osx-font-smoothing: auto;
+}
+.dark-mode .btn.btn-secondary:hover {
+    color: var(--dm-button-secondary-text-color-hover);
+    background-color: var(--dm-button-secondary-bg-color-hover);
+    background-image: var(--dm-button-secondary-bg-image-hover);
+    border-color: var(--dm-button-secondary-border-color-hover);
+    -moz-box-shadow: var(--dm-button-secondary-box-shadow-hover);
+    -webkit-box-shadow: var(--dm-button-secondary-box-shadow-hover);
+    box-shadow: var(--dm-button-secondary-box-shadow-hover);
+}
+.dark-mode .btn.btn-secondary:focus,
+.dark-mode .btn.btn-secondary.active {
+    color: var(--dm-button-secondary-text-color-focus);
+    background-color: var(--dm-button-secondary-bg-color-focus);
+    background-image: var(--dm-button-secondary-bg-image-focus);
+    border-color: var(--dm-button-secondary-border-color-focus);
+    -moz-box-shadow: var(--dm-button-secondary-box-shadow-focus);
+    -webkit-box-shadow: var(--dm-button-secondary-box-shadow-focus);
+    box-shadow: var(--dm-button-secondary-box-shadow-focus);
+    outline-color: var(--dm-button-secondary-outline-color-focus);
+}
+.dark-mode .btn.btn-secondary:focus:hover,
+.dark-mode .btn.btn-secondary.active:hover {
+    /*
+    Only text color and background properties are overridden, while the border 
+    color, box shadow, and the outline of the focus selector is kept.
+    */
+    color: var(--dm-button-secondary-text-color-hover);
+    background-color: var(--dm-button-secondary-bg-color-hover);
+    background-image: var(--dm-button-secondary-bg-image-hover);
+}
+.btn.btn-secondary.disabled,
+.btn.btn-secondary:disabled,
+.btn.btn-secondary.disabled:hover,
+.btn.btn-secondary.disabled:focus {
+    color: var(--lm-button-secondary-text-color);
+    background-color: var(--lm-button-secondary-bg-color);
+    background-image: var(--lm-button-secondary-bg-image);
+    border-color: var(--lm-button-secondary-border-color);
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    outline: none;
+}
+.dark-mode .btn.btn-secondary.disabled,
+.dark-mode .btn.btn-secondary:disabled,
+.dark-mode .btn.btn-secondary.disabled:hover,
+.dark-mode .btn.btn-secondary.disabled:focus {
+    color: var(--dm-button-secondary-text-color);
+    background-color: var(--dm-button-secondary-bg-color);
+    background-image: var(--dm-button-secondary-bg-image);
+    border-color: var(--dm-button-secondary-border-color);
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    outline: none;
+}
+
+/* Danger button */
+
+.btn.btn-danger {
+    color: var(--lm-button-danger-text-color);
+    background-color: var(--lm-button-danger-bg-color);
+    background-image: var(--lm-button-danger-bg-image);
+    border-color: var(--lm-button-danger-border-color);
+    -moz-box-shadow: var(--lm-button-danger-box-shadow);
+    -webkit-box-shadow: var(--lm-button-danger-box-shadow);
+    box-shadow: var(--lm-button-danger-box-shadow);
+}
+.btn.btn-danger:hover {
+    color: var(--lm-button-danger-text-color-hover);
+    background-color: var(--lm-button-danger-bg-color-hover);
+    background-image: var(--lm-button-danger-bg-image-hover);
+    border-color: var(--lm-button-danger-border-color-hover);
+    -moz-box-shadow: var(--lm-button-danger-box-shadow-hover);
+    -webkit-box-shadow: var(--lm-button-danger-box-shadow-hover);
+    box-shadow: var(--lm-button-danger-box-shadow-hover);
+}
+.btn.btn-danger:focus,
+.btn.btn-danger.active {
+    color: var(--lm-button-danger-text-color-focus);
+    background-color: var(--lm-button-danger-bg-color-focus);
+    background-image: var(--lm-button-danger-bg-image-focus);
+    border-color: var(--lm-button-danger-border-color-focus);
+    -moz-box-shadow: var(--lm-button-danger-box-shadow-focus);
+    -webkit-box-shadow: var(--lm-button-danger-box-shadow-focus);
+    box-shadow: var(--lm-button-danger-box-shadow-focus);
+    outline-color: var(--lm-button-danger-outline-color-focus);
+}
+.btn.btn-danger:focus:hover,
+.btn.btn-danger.active:hover {
+    /*
+    Only text color and background properties are overridden, while the border 
+    color, box shadow, and the outline of the focus selector is kept.
+    */
+    color: var(--lm-button-danger-text-color-hover);
+    background-color: var(--lm-button-danger-bg-color-hover);
+    background-image: var(--lm-button-danger-bg-image-hover);
+}
+.dark-mode .btn.btn-danger {
+    color: var(--dm-button-danger-text-color);
+    background-color: var(--dm-button-danger-bg-color);
+    background-image: var(--dm-button-danger-bg-image);
+    border-color: var(--dm-button-danger-border-color);
+    -moz-box-shadow: var(--dm-button-danger-box-shadow);
+    -webkit-box-shadow: var(--dm-button-danger-box-shadow);
+    box-shadow: var(--dm-button-danger-box-shadow);
+    -webkit-font-smoothing: auto;
+    -moz-osx-font-smoothing: auto;
+}
+.dark-mode .btn.btn-danger:hover {
+    color: var(--dm-button-danger-text-color-hover);
+    background-color: var(--dm-button-danger-bg-color-hover);
+    background-image: var(--dm-button-danger-bg-image-hover);
+    border-color: var(--dm-button-danger-border-color-hover);
+    -moz-box-shadow: var(--dm-button-danger-box-shadow-hover);
+    -webkit-box-shadow: var(--dm-button-danger-box-shadow-hover);
+    box-shadow: var(--dm-button-danger-box-shadow-hover);
+}
+.dark-mode .btn.btn-danger:focus,
+.dark-mode .btn.btn-danger.active {
+    color: var(--dm-button-danger-text-color-focus);
+    background-color: var(--dm-button-danger-bg-color-focus);
+    background-image: var(--dm-button-danger-bg-image-focus);
+    border-color: var(--dm-button-danger-border-color-focus);
+    -moz-box-shadow: var(--dm-button-danger-box-shadow-focus);
+    -webkit-box-shadow: var(--dm-button-danger-box-shadow-focus);
+    box-shadow: var(--dm-button-danger-box-shadow-focus);
+    outline-color: var(--dm-button-danger-outline-color-focus);
+}
+.dark-mode .btn.btn-danger:focus:hover,
+.dark-mode .btn.btn-danger.active:hover {
+    /*
+    Only text color and background properties are overridden, while the border 
+    color, box shadow, and the outline of the focus selector is kept.
+    */
+    color: var(--dm-button-danger-text-color-hover);
+    background-color: var(--dm-button-danger-bg-color-hover);
+    background-image: var(--dm-button-danger-bg-image-hover);
+}
+.btn.btn-danger.disabled,
+.btn.btn-danger:disabled,
+.btn.btn-danger.disabled:hover,
+.btn.btn-danger.disabled:focus {
+    color: var(--lm-button-danger-text-color);
+    background-color: var(--lm-button-danger-bg-color);
+    background-image: var(--lm-button-danger-bg-image);
+    border-color: var(--lm-button-danger-border-color);
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    outline: none;
+}
+.dark-mode .btn.btn-danger.disabled,
+.dark-mode .btn.btn-danger:disabled,
+.dark-mode .btn.btn-danger.disabled:hover,
+.dark-mode .btn.btn-danger.disabled:focus {
+    color: var(--dm-button-danger-text-color);
+    background-color: var(--dm-button-danger-bg-color);
+    background-image: var(--dm-button-danger-bg-image);
+    border-color: var(--dm-button-danger-border-color);
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    outline: none;
+}
+
+/* Square button */
+
+.btn-square {
+    width: var(--button-height);
+    padding-left: 0;
+    padding-right: 0;
+}
+.btn-square.btn-sm {
+    width: var(--small-button-height);
+    padding-left: 0;
+    padding-right: 0;
+}
+.btn-square.btn-lg {
+    width: var(--large-button-height);
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/* Rounded button */
+
+.btn-rounded {
+    border-radius: var(--button-rounded-border-radius);
+}
+.btn-rounded.btn-sm {
+    border-radius: var(--small-button-rounded-border-radius);
+}
+.btn-rounded.btn-lg {
+    border-radius: var(--large-button-rounded-border-radius);
+}
+
+

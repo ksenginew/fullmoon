@@ -1,0 +1,181 @@
+/*
+-------------------------------------------------------------------------------
+15. Navbar content [hm-15]
+-------------------------------------------------------------------------------
+*/
+
+.navbar .container,
+.navbar .container-sm,
+.navbar .container-md,
+.navbar .container-lg,
+.navbar .container-xl,
+.navbar .container-fluid {
+    width: 100%;
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    padding-left: var(--navbar-container-horizontal-padding);
+    padding-right: var(--navbar-container-horizontal-padding);
+}
+@media (max-width: 576px) {
+    .navbar .container,
+    .navbar .container-sm,
+    .navbar .container-md,
+    .navbar .container-lg,
+    .navbar .container-xl,
+    .navbar .container-fluid {
+        padding-left: var(--navbar-container-horizontal-padding-xs);
+        padding-right: var(--navbar-container-horizontal-padding-xs);
+    }
+}
+.navbar-brand,
+.navbar-nav,
+.navbar-text,
+.navbar-content {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    min-width: 0;
+}
+.navbar-brand:not(:first-child),
+.navbar-nav:not(:first-child),
+.navbar-text:not(:first-child),
+.navbar-content:not(:first-child),
+.navbar > .form-inline:not(:first-child) {
+    margin-left: var(--navbar-content-horizontal-margin);
+}
+
+/* Navbar text */
+
+.navbar-text {
+    color: var(--lm-navbar-text-color);
+}
+.dark-mode .navbar-text {
+    color: var(--dm-navbar-text-color);
+}
+
+/* Navbar nav */
+
+.navbar-nav {
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    height: var(--navbar-height);
+}
+.nav-item {
+    height: 100%;
+    margin-bottom: 0;
+}
+.nav-link {
+    cursor: pointer; /* Needed if used without the href attribute, for example, as dropdown toggle */
+    display: inline-block;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    white-space: nowrap;
+    padding-left: var(--navbar-link-horizontal-padding);
+    padding-right: var(--navbar-link-horizontal-padding);
+    color: var(--lm-navbar-link-text-color);
+    background-color: var(--lm-navbar-link-bg-color);
+}
+.dark-mode .nav-link {
+    color: var(--dm-navbar-link-text-color);
+    background-color: var(--dm-navbar-link-bg-color);
+}
+.nav-link:hover {
+    color: var(--lm-navbar-link-text-color-hover);
+    background-color: var(--lm-navbar-link-bg-color-hover);
+    text-decoration: none;
+}
+.dark-mode .nav-link:hover {
+    color: var(--dm-navbar-link-text-color-hover);
+    background-color: var(--dm-navbar-link-bg-color-hover);
+}
+.nav-item.active > .nav-link,
+.nav-item.show > .nav-link {
+    color: var(--lm-navbar-link-active-text-color);
+    background-color: var(--lm-navbar-link-active-bg-color);
+}
+.dark-mode .nav-item.active > .nav-link,
+.dark-mode .nav-item.show > .nav-link {
+    color: var(--dm-navbar-link-active-text-color);
+    background-color: var(--dm-navbar-link-active-bg-color);
+    -webkit-font-smoothing: auto;
+    -moz-osx-font-smoothing: auto;
+}
+.nav-item.active > .nav-link:hover,
+.nav-item.show > .nav-link:hover {
+    color: var(--lm-navbar-link-active-text-color-hover);
+    background-color: var(--lm-navbar-link-active-bg-color-hover);
+}
+.dark-mode .nav-item.active > .nav-link:hover,
+.dark-mode .nav-item.show > .nav-link:hover {
+    color: var(--dm-navbar-link-active-text-color-hover);
+    background-color: var(--dm-navbar-link-active-bg-color-hover);
+}
+.navbar-nav:first-child > .nav-item:first-child > .nav-link {
+    padding-left: 0;
+}
+.navbar-nav:last-child > .nav-item:last-child > .nav-link {
+    padding-right: 0;
+}
+
+/* Navbar brand */
+
+.navbar-brand {
+    font-size: var(--navbar-brand-font-size);
+    font-weight: var(--navbar-brand-font-weight);
+    color: var(--lm-navbar-brand-text-color);
+}
+.dark-mode .navbar-brand {
+    color: var(--dm-navbar-brand-text-color);
+}
+.navbar-brand:hover {
+    color: var(--lm-navbar-brand-text-color-hover);
+    text-decoration: none;
+}
+.dark-mode .navbar-brand:hover {
+    color: var(--dm-navbar-brand-text-color-hover);
+}
+.navbar-brand img {
+    height: var(--navbar-brand-image-height);
+    margin-right: var(--navbar-brand-image-margin-right);
+}
+
+/* Navbar action button */
+
+.navbar .btn-action {
+    width: var(--navbar-action-button-width);
+    padding-left: var(--navbar-action-button-horizontal-padding);
+    padding-right: var(--navbar-action-button-horizontal-padding);
+}
+
+/* Navbar minimum widths for inline forms (Required for IE) */
+
+.navbar > .form-inline > .form-control,
+.navbar > .form-inline > .form-group .form-control {
+    min-width: var(--navbar-input-min-width);
+}
+.navbar > .form-inline > .input-group {
+    min-width: var(--navbar-input-group-min-width);
+}
+@media (max-width: 576px) {
+    .navbar > .form-inline > .form-control,
+    .navbar > .form-inline > .form-group .form-control {
+        min-width: var(--navbar-input-min-width-xs);
+    }
+    .navbar > .form-inline > .input-group {
+        min-width: var(--navbar-input-group-min-width-xs);
+    }
+}
+
+

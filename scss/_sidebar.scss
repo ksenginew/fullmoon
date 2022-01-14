@@ -1,0 +1,189 @@
+/*
+-------------------------------------------------------------------------------
+16. Sidebar content [hm-16]
+-------------------------------------------------------------------------------
+*/
+
+.sidebar-menu {
+    margin-top: var(--sidebar-menu-vertical-margin);
+    margin-bottom: var(--sidebar-menu-vertical-margin);
+}
+
+/* Sidebar content */
+
+.sidebar-content {
+    display: block;
+    padding: var(--sidebar-content-padding);
+    margin: var(--sidebar-content-margin);
+}
+.sidebar-content > ul,
+.sidebar-content > ol {
+    margin-left: 0;
+}
+
+/* Sidebar divider */
+
+.sidebar-divider {
+    padding: var(--sidebar-divider-padding);
+    margin: var(--sidebar-divider-margin);
+    height: var(--sidebar-divider-height);
+    background-color: var(--lm-sidebar-divider-bg-color);
+}
+.dark-mode .sidebar-divider {
+    background-color: var(--dm-sidebar-divider-bg-color);
+}
+
+/* Sidebar link */
+
+.sidebar-link {
+    display: block;
+    padding: var(--sidebar-link-padding);
+    margin: var(--sidebar-link-margin);
+    min-height: var(--sidebar-link-height);
+    height: auto;
+    color: var(--lm-sidebar-link-text-color);
+    background-color: var(--lm-sidebar-link-bg-color);
+    border: var(--sidebar-link-border-width) solid var(--lm-sidebar-link-border-color);
+    border-radius: var(--sidebar-link-border-radius);
+}
+.sidebar-link:hover {
+    text-decoration: none;
+    color: var(--lm-sidebar-link-text-color-hover);
+    background-color: var(--lm-sidebar-link-bg-color-hover);
+    border-color: var(--lm-sidebar-link-border-color-hover);
+}
+.dark-mode .sidebar-link {
+    color: var(--dm-sidebar-link-text-color);
+    background-color: var(--dm-sidebar-link-bg-color);
+    border-color: var(--dm-sidebar-link-border-color);
+}
+.dark-mode .sidebar-link:hover {
+    color: var(--dm-sidebar-link-text-color-hover);
+    background-color: var(--dm-sidebar-link-bg-color-hover);
+    border-color: var(--dm-sidebar-link-border-color-hover);
+}
+.sidebar-link.active {
+    color: var(--lm-sidebar-link-text-color-active);
+    background-color: var(--lm-sidebar-link-bg-color-active);
+    border-color: var(--lm-sidebar-link-border-color-active);
+}
+.sidebar-link.active:hover {
+    color: var(--lm-sidebar-link-text-color-active-hover);
+    background-color: var(--lm-sidebar-link-bg-color-active-hover);
+    border-color: var(--lm-sidebar-link-border-color-active-hover);
+}
+.dark-mode .sidebar-link.active {
+    color: var(--dm-sidebar-link-text-color-active);
+    background-color: var(--dm-sidebar-link-bg-color-active);
+    border-color: var(--dm-sidebar-link-border-color-active);
+    -webkit-font-smoothing: auto;
+    -moz-osx-font-smoothing: auto;
+}
+.dark-mode .sidebar-link.active:hover {
+    color: var(--dm-sidebar-link-text-color-active-hover);
+    background-color: var(--dm-sidebar-link-bg-color-active-hover);
+    border-color: var(--dm-sidebar-link-border-color-active-hover);
+}
+
+/* Sidebar title */
+
+.sidebar-title {
+    padding: var(--sidebar-title-padding);
+    margin: var(--sidebar-title-margin);
+    font-size: var(--sidebar-title-font-size);
+    font-weight: var(--sidebar-title-font-weight);
+    color: var(--lm-sidebar-title-text-color);
+}
+.dark-mode .sidebar-title {
+    color: var(--dm-sidebar-title-text-color);
+}
+
+/* Sidebar link with icon */
+
+.sidebar-link-with-icon {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+}
+.sidebar-icon {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    width: var(--sidebar-icon-width-height);
+    height: var(--sidebar-icon-width-height);
+    font-size: var(--sidebar-icon-font-size);
+    margin-right: var(--sidebar-icon-margin-right);
+    color: var(--lm-sidebar-icon-text-color);
+    background-color: var(--lm-sidebar-icon-bg-color);
+    border: var(--sidebar-icon-border-width) solid var(--lm-sidebar-icon-border-color);
+    border-radius: var(--sidebar-icon-border-radius);
+}
+.sidebar-link-with-icon:hover .sidebar-icon {
+    color: var(--lm-sidebar-icon-text-color-hover);
+    background-color: var(--lm-sidebar-icon-bg-color-hover);
+    border-color: var(--lm-sidebar-icon-border-color-hover);
+}
+.dark-mode .sidebar-icon {
+    color: var(--dm-sidebar-icon-text-color);
+    background-color: var(--dm-sidebar-icon-bg-color);
+    border-color: var(--dm-sidebar-icon-border-color);
+}
+.dark-mode .sidebar-link-with-icon:hover .sidebar-icon {
+    color: var(--dm-sidebar-icon-text-color-hover);
+    background-color: var(--dm-sidebar-icon-bg-color-hover);
+    border-color: var(--dm-sidebar-icon-border-color-hover);
+}
+.sidebar-link-with-icon.active .sidebar-icon {
+    color: var(--lm-sidebar-icon-text-color-active);
+    background-color: var(--lm-sidebar-icon-bg-color-active);
+    border-color: var(--lm-sidebar-icon-border-color-active);
+}
+.sidebar-link-with-icon.active:hover .sidebar-icon {
+    color: var(--lm-sidebar-icon-text-color-active-hover);
+    background-color: var(--lm-sidebar-icon-bg-color-active-hover);
+    border-color: var(--lm-sidebar-icon-border-color-active-hover);
+}
+.dark-mode .sidebar-link-with-icon.active .sidebar-icon {
+    color: var(--dm-sidebar-icon-text-color-active);
+    background-color: var(--dm-sidebar-icon-bg-color-active);
+    border-color: var(--dm-sidebar-icon-border-color-active);
+}
+.dark-mode .sidebar-link-with-icon.active:hover .sidebar-icon {
+    color: var(--dm-sidebar-icon-text-color-active-hover);
+    background-color: var(--dm-sidebar-icon-bg-color-active-hover);
+    border-color: var(--dm-sidebar-icon-border-color-active-hover);
+}
+
+/* Sidebar brand */
+
+.sidebar-brand {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: var(--sidebar-brand-padding);
+    margin: var(--sidebar-brand-margin);
+    font-size: var(--sidebar-brand-font-size);
+    font-weight: var(--sidebar-brand-font-weight);
+    color: var(--lm-sidebar-brand-text-color);
+}
+.dark-mode .sidebar-brand {
+    color: var(--dm-sidebar-brand-text-color);
+}
+.sidebar-brand:hover {
+    color: var(--lm-sidebar-brand-text-color-hover);
+    text-decoration: none;
+}
+.dark-mode .sidebar-brand:hover {
+    color: var(--dm-sidebar-brand-text-color-hover);
+}
+.sidebar-brand img {
+    height: var(--sidebar-brand-image-height);
+    margin-right: var(--sidebar-brand-image-margin-right);
+}
+
+

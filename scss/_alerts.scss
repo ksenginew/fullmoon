@@ -1,0 +1,220 @@
+/*
+-------------------------------------------------------------------------------
+14. Alerts [hm-14]
+-------------------------------------------------------------------------------
+*/
+
+.alert {
+    position: relative;
+    padding: var(--alert-padding);
+    color: var(--lm-alert-text-color);
+    background-color: var(--lm-alert-bg-color);
+    background-image: var(--lm-alert-bg-image);
+    border: var(--alert-border-width) solid var(--lm-alert-border-color);
+    border-radius: var(--alert-border-radius);
+}
+.dark-mode .alert {
+    color: var(--dm-alert-text-color);
+    background-color: var(--dm-alert-bg-color);
+    background-image: var(--dm-alert-bg-image);
+    border-color: var(--dm-alert-border-color);
+}
+.alert-heading,
+.dark-mode .alert-heading {
+    color: inherit;
+    font-size: var(--alert-heading-font-size);
+    font-weight: var(--alert-heading-font-weight);
+    margin: var(--alert-heading-margin);
+}
+.alert-link,
+.dark-mode .alert-link {
+    cursor: pointer;
+    color: inherit;
+    text-decoration: underline;
+}
+.alert-link:hover,
+.dark-mode .alert-link:hover {
+    color: inherit;
+    opacity: 0.75;
+}
+.alert .close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    color: inherit;
+    padding: var(--alert-close-padding);
+    line-height: var(--alert-close-line-height);
+    font-size: var(--alert-close-font-size);
+    background-color: transparent;
+    border-color: transparent;
+}
+.alert .close:focus {
+    outline: var(--alert-close-outline-width) var(--alert-close-outline-type) var(--lm-alert-close-outline-color-focus);
+    outline-offset: var(--alert-close-outline-offset);
+}
+.dark-mode .alert .close:focus {
+    outline-color: var(--dm-alert-close-outline-color-focus);
+}
+.alert.dispose {
+    display: none;
+}
+
+/* Sticky alerts */
+
+.sticky-alerts .alert {
+    display: none;
+    width: var(--sticky-alert-width);
+    margin-top: 1rem;
+    right: -50rem; /* Hidden by default */
+    -moz-box-shadow: var(--sticky-alert-box-shadow);
+    -webkit-box-shadow: var(--sticky-alert-box-shadow);
+    box-shadow: var(--sticky-alert-box-shadow);
+}
+.sticky-alerts .alert.show {
+    right: 0;
+    -webkit-transition: right .4s cubic-bezier(.25, .8, .25, 1);
+    transition: right .4s cubic-bezier(.25, .8, .25, 1);
+}
+.sticky-alerts .alert.fade {
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: visibility 0s .4s, opacity .4s linear;
+    transition: visibility 0s .4s, opacity .4s linear;
+}
+.sticky-alerts .alert.alert-block {
+	display: block;
+}
+.sticky-alerts .alert.alert-block.dispose {
+	display: none;
+}
+
+/* Filled alerts (primary, success, secondary, danger) */
+
+/* Light mode */
+
+.alert.alert-primary.filled,
+.alert.alert-primary.filled-lm {
+    color: var(--lm-alert-filled-primary-text-color);
+    background-color: var(--lm-alert-filled-primary-bg-color);
+    background-image: var(--lm-alert-filled-primary-bg-image);
+    border-color: var(--lm-alert-filled-primary-border-color);
+}
+.alert.alert-success.filled,
+.alert.alert-success.filled-lm {
+    color: var(--lm-alert-filled-success-text-color);
+    background-color: var(--lm-alert-filled-success-bg-color);
+    background-image: var(--lm-alert-filled-success-bg-image);
+    border-color: var(--lm-alert-filled-success-border-color);
+}
+.alert.alert-secondary.filled,
+.alert.alert-secondary.filled-lm {
+    color: var(--lm-alert-filled-secondary-text-color);
+    background-color: var(--lm-alert-filled-secondary-bg-color);
+    background-image: var(--lm-alert-filled-secondary-bg-image);
+    border-color: var(--lm-alert-filled-secondary-border-color);
+}
+.alert.alert-danger.filled,
+.alert.alert-danger.filled-lm {
+    color: var(--lm-alert-filled-danger-text-color);
+    background-color: var(--lm-alert-filled-danger-bg-color);
+    background-image: var(--lm-alert-filled-danger-bg-image);
+    border-color: var(--lm-alert-filled-danger-border-color);
+}
+
+/* Dark mode */
+
+.dark-mode .alert.alert-primary.filled,
+.dark-mode .alert.alert-primary.filled-dm {
+    color: var(--dm-alert-filled-primary-text-color);
+    background-color: var(--dm-alert-filled-primary-bg-color);
+    background-image: var(--dm-alert-filled-primary-bg-image);
+    border-color: var(--dm-alert-filled-primary-border-color);
+    -webkit-font-smoothing: auto;
+    -moz-osx-font-smoothing: auto;
+}
+.dark-mode .alert.alert-success.filled,
+.dark-mode .alert.alert-success.filled-dm {
+    color: var(--dm-alert-filled-success-text-color);
+    background-color: var(--dm-alert-filled-success-bg-color);
+    background-image: var(--dm-alert-filled-success-bg-image);
+    border-color: var(--dm-alert-filled-success-border-color);
+    -webkit-font-smoothing: auto;
+    -moz-osx-font-smoothing: auto;
+}
+.dark-mode .alert.alert-secondary.filled,
+.dark-mode .alert.alert-secondary.filled-dm {
+    color: var(--dm-alert-filled-secondary-text-color);
+    background-color: var(--dm-alert-filled-secondary-bg-color);
+    background-image: var(--dm-alert-filled-secondary-bg-image);
+    border-color: var(--dm-alert-filled-secondary-border-color);
+    -webkit-font-smoothing: auto;
+    -moz-osx-font-smoothing: auto;
+}
+.dark-mode .alert.alert-danger.filled,
+.dark-mode .alert.alert-danger.filled-dm {
+    color: var(--dm-alert-filled-danger-text-color);
+    background-color: var(--dm-alert-filled-danger-bg-color);
+    background-image: var(--dm-alert-filled-danger-bg-image);
+    border-color: var(--dm-alert-filled-danger-border-color);
+    -webkit-font-smoothing: auto;
+    -moz-osx-font-smoothing: auto;
+}
+
+/* Contextual alerts (primary, success, secondary, danger) */
+
+/* Light mode */
+
+.alert.alert-primary {
+    color: var(--lm-alert-primary-text-color);
+    background-color: var(--lm-alert-primary-bg-color);
+    background-image: var(--lm-alert-primary-bg-image);
+    border-color: var(--lm-alert-primary-border-color);
+}
+.alert.alert-success {
+    color: var(--lm-alert-success-text-color);
+    background-color: var(--lm-alert-success-bg-color);
+    background-image: var(--lm-alert-success-bg-image);
+    border-color: var(--lm-alert-success-border-color);
+}
+.alert.alert-secondary {
+    color: var(--lm-alert-secondary-text-color);
+    background-color: var(--lm-alert-secondary-bg-color);
+    background-image: var(--lm-alert-secondary-bg-image);
+    border-color: var(--lm-alert-secondary-border-color);
+}
+.alert.alert-danger {
+    color: var(--lm-alert-danger-text-color);
+    background-color: var(--lm-alert-danger-bg-color);
+    background-image: var(--lm-alert-danger-bg-image);
+    border-color: var(--lm-alert-danger-border-color);
+}
+
+/* Dark mode */
+
+.dark-mode .alert.alert-primary {
+    color: var(--dm-alert-primary-text-color);
+    background-color: var(--dm-alert-primary-bg-color);
+    background-image: var(--dm-alert-primary-bg-image);
+    border-color: var(--dm-alert-primary-border-color);
+}
+.dark-mode .alert.alert-success {
+    color: var(--dm-alert-success-text-color);
+    background-color: var(--dm-alert-success-bg-color);
+    background-image: var(--dm-alert-success-bg-image);
+    border-color: var(--dm-alert-success-border-color);
+}
+.dark-mode .alert.alert-secondary {
+    color: var(--dm-alert-secondary-text-color);
+    background-color: var(--dm-alert-secondary-bg-color);
+    background-image: var(--dm-alert-secondary-bg-image);
+    border-color: var(--dm-alert-secondary-border-color);
+}
+.dark-mode .alert.alert-danger {
+    color: var(--dm-alert-danger-text-color);
+    background-color: var(--dm-alert-danger-bg-color);
+    background-image: var(--dm-alert-danger-bg-image);
+    border-color: var(--dm-alert-danger-border-color);
+}
+
+
