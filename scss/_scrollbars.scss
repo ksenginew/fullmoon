@@ -1,0 +1,301 @@
+/*
+-------------------------------------------------------------------------------
+3.  Scrollbars [hm-03]
+
+Notes:
+    ~ Any scrollbars on the body itself is not affected. This is because the 
+    page-wrapper is always expected, as the entire framework is built around 
+    it.
+    ~ Only styled on screens larger than 768px, because mobiles and tablets 
+    have disappearing scrollbars, which look great most of the time.
+    ~ The webkit scrollbars work on webkit based browsers, such as Chrome, 
+    Safari, Brave, and the new Microsoft Edge.
+    ~ The custom CSS scrollbars work only on Firefox as of 2020. It is a very 
+    new specification.
+-------------------------------------------------------------------------------
+*/
+
+@media (min-width: 769px) {
+    /* Base scrollbar */
+
+    .with-custom-webkit-scrollbars *::-webkit-scrollbar {
+        width: var(--webkit-scrollbar-width-height);
+        height: var(--webkit-scrollbar-width-height);
+        background-color: var(--lm-webkit-scrollbar-bg-color);
+    }
+    .dark-mode.with-custom-webkit-scrollbars *::-webkit-scrollbar {
+        background-color: var(--dm-webkit-scrollbar-bg-color);
+    }
+    .with-custom-webkit-scrollbars *::-webkit-scrollbar-track:vertical {
+        border-left: var(--webkit-scrollbar-track-border-width) solid var(--lm-webkit-scrollbar-track-border-color);
+    }
+    .with-custom-webkit-scrollbars *::-webkit-scrollbar-track:horizontal {
+        border-top: var(--webkit-scrollbar-track-border-width) solid var(--lm-webkit-scrollbar-track-border-color);
+    }
+    .dark-mode.with-custom-webkit-scrollbars *::-webkit-scrollbar-track {
+        border-color: var(--dm-webkit-scrollbar-track-border-color);
+    }
+    .with-custom-webkit-scrollbars *::-webkit-scrollbar-thumb {
+        min-width: var(--webkit-scrollbar-thumb-min-width-height);
+        min-height: var(--webkit-scrollbar-thumb-min-width-height);
+        background-color: var(--lm-webkit-scrollbar-thumb-bg-color);
+        border: var(--webkit-scrollbar-thumb-border-width) solid var(--lm-webkit-scrollbar-thumb-border-color);
+        -moz-background-clip: content;     /* Firefox 3.6 */
+        -webkit-background-clip: content;  /* Safari 4? Chrome 6? */
+        background-clip: content-box;
+        border-radius: var(--webkit-scrollbar-thumb-border-radius);
+    }
+    .with-custom-webkit-scrollbars *::-webkit-scrollbar-thumb:hover {
+        background-color: var(--lm-webkit-scrollbar-thumb-bg-color-hover);
+        border-color: var(--lm-webkit-scrollbar-thumb-border-color-hover);
+    }
+    .dark-mode.with-custom-webkit-scrollbars *::-webkit-scrollbar-thumb {
+        background-color: var(--dm-webkit-scrollbar-thumb-bg-color);
+        border-color: var(--dm-webkit-scrollbar-thumb-border-color);
+    }
+    .dark-mode.with-custom-webkit-scrollbars *::-webkit-scrollbar-thumb:hover {
+        background-color: var(--dm-webkit-scrollbar-thumb-bg-color-hover);
+        border-color: var(--dm-webkit-scrollbar-thumb-border-color-hover);
+    }
+    .with-custom-webkit-scrollbars *::-webkit-scrollbar-corner {
+        background-color: var(--lm-webkit-scrollbar-corner-bg-color);
+        border-left: var(--webkit-scrollbar-corner-border-width) solid var(--lm-webkit-scrollbar-corner-border-color);
+        border-top: var(--webkit-scrollbar-corner-border-width) solid var(--lm-webkit-scrollbar-corner-border-color);
+    }
+    .dark-mode.with-custom-webkit-scrollbars *::-webkit-scrollbar-corner {
+        background-color: var(--dm-webkit-scrollbar-corner-bg-color);
+        border-color: var(--dm-webkit-scrollbar-corner-border-color);
+    }
+
+    .with-custom-css-scrollbars * {
+        scrollbar-width: var(--css-scrollbar-width);
+        scrollbar-color: var(--lm-css-scrollbar-color);
+    }
+    .dark-mode.with-custom-css-scrollbars * {
+        scrollbar-color: var(--dm-css-scrollbar-color);
+    }
+
+    /* Sidebar scrollbar */
+
+    .with-custom-webkit-scrollbars .sidebar::-webkit-scrollbar {
+        width: var(--sidebar-webkit-scrollbar-width-height);
+        height: var(--sidebar-webkit-scrollbar-width-height);
+        background-color: var(--lm-sidebar-webkit-scrollbar-bg-color);
+    }
+    .dark-mode.with-custom-webkit-scrollbars .sidebar::-webkit-scrollbar {
+        background-color: var(--dm-sidebar-webkit-scrollbar-bg-color);
+    }
+    .with-custom-webkit-scrollbars .sidebar::-webkit-scrollbar-track {
+        border-width: var(--sidebar-webkit-scrollbar-track-border-width);
+        border-color: var(--lm-sidebar-webkit-scrollbar-track-border-color);
+    }
+    .dark-mode.with-custom-webkit-scrollbars .sidebar::-webkit-scrollbar-track {
+        border-color: var(--dm-sidebar-webkit-scrollbar-track-border-color);
+    }
+    .with-custom-webkit-scrollbars .sidebar::-webkit-scrollbar-thumb {
+        background-color: var(--lm-sidebar-webkit-scrollbar-thumb-bg-color);
+        border-width: var(--sidebar-webkit-scrollbar-thumb-border-width);
+        border-color: var(--lm-sidebar-webkit-scrollbar-thumb-border-color);
+        border-radius: var(--sidebar-webkit-scrollbar-thumb-border-radius);
+    }
+    .with-custom-webkit-scrollbars .sidebar::-webkit-scrollbar-thumb:hover {
+        background-color: var(--lm-sidebar-webkit-scrollbar-thumb-bg-color-hover);
+        border-color: var(--lm-sidebar-webkit-scrollbar-thumb-border-color-hover);
+    }
+    .dark-mode.with-custom-webkit-scrollbars .sidebar::-webkit-scrollbar-thumb {
+        background-color: var(--dm-sidebar-webkit-scrollbar-thumb-bg-color);
+        border-color: var(--dm-sidebar-webkit-scrollbar-thumb-border-color);
+    }
+    .dark-mode.with-custom-webkit-scrollbars .sidebar::-webkit-scrollbar-thumb:hover {
+        background-color: var(--dm-sidebar-webkit-scrollbar-thumb-bg-color-hover);
+        border-color: var(--dm-sidebar-webkit-scrollbar-thumb-border-color-hover);
+    }
+    .with-custom-webkit-scrollbars .sidebar::-webkit-scrollbar-corner {
+        background-color: var(--lm-sidebar-webkit-scrollbar-corner-bg-color);
+        border-width: var(--sidebar-webkit-scrollbar-corner-border-width);
+        border-color: var(--lm-sidebar-webkit-scrollbar-corner-border-color);
+    }
+    .dark-mode.with-custom-webkit-scrollbars .sidebar::-webkit-scrollbar-corner {
+        background-color: var(--dm-sidebar-webkit-scrollbar-corner-bg-color);
+        border-color: var(--dm-sidebar-webkit-scrollbar-corner-border-color);
+    }
+
+    .with-custom-css-scrollbars .sidebar {
+        scrollbar-width: var(--sidebar-css-scrollbar-width);
+        scrollbar-color: var(--lm-sidebar-css-scrollbar-color);
+    }
+    .dark-mode.with-custom-css-scrollbars .sidebar {
+        scrollbar-color: var(--dm-sidebar-css-scrollbar-color);
+    }
+
+    /* Modal scrollbar */
+    
+    .with-custom-webkit-scrollbars .modal-dialog::-webkit-scrollbar {
+        width: var(--modal-webkit-scrollbar-width-height);
+        height: var(--modal-webkit-scrollbar-width-height);
+        background-color: var(--lm-modal-webkit-scrollbar-bg-color);
+    }
+    .dark-mode.with-custom-webkit-scrollbars .modal-dialog::-webkit-scrollbar {
+        background-color: var(--dm-modal-webkit-scrollbar-bg-color);
+    }
+    .with-custom-webkit-scrollbars .modal-dialog::-webkit-scrollbar-track {
+        border-width: var(--modal-webkit-scrollbar-track-border-width);
+        border-color: var(--lm-modal-webkit-scrollbar-track-border-color);
+    }
+    .dark-mode.with-custom-webkit-scrollbars .modal-dialog::-webkit-scrollbar-track {
+        border-color: var(--dm-modal-webkit-scrollbar-track-border-color);
+    }
+    .with-custom-webkit-scrollbars .modal-dialog::-webkit-scrollbar-thumb {
+        background-color: var(--lm-modal-webkit-scrollbar-thumb-bg-color);
+        border-width: var(--modal-webkit-scrollbar-thumb-border-width);
+        border-color: var(--lm-modal-webkit-scrollbar-thumb-border-color);
+        border-radius: var(--modal-webkit-scrollbar-thumb-border-radius);
+    }
+    .with-custom-webkit-scrollbars .modal-dialog::-webkit-scrollbar-thumb:hover {
+        background-color: var(--lm-modal-webkit-scrollbar-thumb-bg-color-hover);
+        border-color: var(--lm-modal-webkit-scrollbar-thumb-border-color-hover);
+    }
+    .dark-mode.with-custom-webkit-scrollbars .modal-dialog::-webkit-scrollbar-thumb {
+        background-color: var(--dm-modal-webkit-scrollbar-thumb-bg-color);
+        border-color: var(--dm-modal-webkit-scrollbar-thumb-border-color);
+    }
+    .dark-mode.with-custom-webkit-scrollbars .modal-dialog::-webkit-scrollbar-thumb:hover {
+        background-color: var(--dm-modal-webkit-scrollbar-thumb-bg-color-hover);
+        border-color: var(--dm-modal-webkit-scrollbar-thumb-border-color-hover);
+    }
+    .with-custom-webkit-scrollbars .modal-dialog::-webkit-scrollbar-corner {
+        background-color: var(--lm-modal-webkit-scrollbar-corner-bg-color);
+        border-width: var(--modal-webkit-scrollbar-corner-border-width);
+        border-color: var(--lm-modal-webkit-scrollbar-corner-border-color);
+    }
+    .dark-mode.with-custom-webkit-scrollbars .modal-dialog::-webkit-scrollbar-corner {
+        background-color: var(--dm-modal-webkit-scrollbar-corner-bg-color);
+        border-color: var(--dm-modal-webkit-scrollbar-corner-border-color);
+    }
+
+    .with-custom-css-scrollbars .modal-dialog {
+        scrollbar-width: var(--modal-css-scrollbar-width);
+        scrollbar-color: var(--lm-modal-css-scrollbar-color);
+    }
+    .dark-mode.with-custom-css-scrollbars .modal-dialog {
+        scrollbar-color: var(--dm-modal-css-scrollbar-color);
+    }
+
+    /* Full screen modal scrollbar */
+    
+    .with-custom-webkit-scrollbars .modal-full .modal-dialog::-webkit-scrollbar {
+        width: var(--modal-full-webkit-scrollbar-width-height);
+        height: var(--modal-full-webkit-scrollbar-width-height);
+        background-color: var(--lm-modal-full-webkit-scrollbar-bg-color);
+    }
+    .dark-mode.with-custom-webkit-scrollbars .modal-full .modal-dialog::-webkit-scrollbar {
+        background-color: var(--dm-modal-full-webkit-scrollbar-bg-color);
+    }
+    .with-custom-webkit-scrollbars .modal-full .modal-dialog::-webkit-scrollbar-track {
+        border-width: var(--modal-full-webkit-scrollbar-track-border-width);
+        border-color: var(--lm-modal-full-webkit-scrollbar-track-border-color);
+    }
+    .dark-mode.with-custom-webkit-scrollbars .modal-full .modal-dialog::-webkit-scrollbar-track {
+        border-color: var(--dm-modal-full-webkit-scrollbar-track-border-color);
+    }
+    .with-custom-webkit-scrollbars .modal-full .modal-dialog::-webkit-scrollbar-thumb {
+        background-color: var(--lm-modal-full-webkit-scrollbar-thumb-bg-color);
+        border-width: var(--modal-full-webkit-scrollbar-thumb-border-width);
+        border-color: var(--lm-modal-full-webkit-scrollbar-thumb-border-color);
+        border-radius: var(--modal-full-webkit-scrollbar-thumb-border-radius);
+    }
+    .with-custom-webkit-scrollbars .modal-full .modal-dialog::-webkit-scrollbar-thumb:hover {
+        background-color: var(--lm-modal-full-webkit-scrollbar-thumb-bg-color-hover);
+        border-color: var(--lm-modal-full-webkit-scrollbar-thumb-border-color-hover);
+    }
+    .dark-mode.with-custom-webkit-scrollbars .modal-full .modal-dialog::-webkit-scrollbar-thumb {
+        background-color: var(--dm-modal-full-webkit-scrollbar-thumb-bg-color);
+        border-color: var(--dm-modal-full-webkit-scrollbar-thumb-border-color);
+    }
+    .dark-mode.with-custom-webkit-scrollbars .modal-full .modal-dialog::-webkit-scrollbar-thumb:hover {
+        background-color: var(--dm-modal-full-webkit-scrollbar-thumb-bg-color-hover);
+        border-color: var(--dm-modal-full-webkit-scrollbar-thumb-border-color-hover);
+    }
+    .with-custom-webkit-scrollbars .modal-full .modal-dialog::-webkit-scrollbar-corner {
+        background-color: var(--lm-modal-full-webkit-scrollbar-corner-bg-color);
+        border-width: var(--modal-full-webkit-scrollbar-corner-border-width);
+        border-color: var(--lm-modal-full-webkit-scrollbar-corner-border-color);
+    }
+    .dark-mode.with-custom-webkit-scrollbars .modal-full .modal-dialog::-webkit-scrollbar-corner {
+        background-color: var(--dm-modal-full-webkit-scrollbar-corner-bg-color);
+        border-color: var(--dm-modal-full-webkit-scrollbar-corner-border-color);
+    }
+
+    .with-custom-css-scrollbars .modal-full .modal-dialog {
+        scrollbar-width: var(--modal-full-css-scrollbar-width);
+        scrollbar-color: var(--lm-modal-full-css-scrollbar-color);
+    }
+    .dark-mode.with-custom-css-scrollbars .modal-full .modal-dialog {
+        scrollbar-color: var(--dm-modal-full-css-scrollbar-color);
+    }
+
+    /* Card scrollbar */
+
+    .with-custom-webkit-scrollbars .card::-webkit-scrollbar {
+        width: var(--card-webkit-scrollbar-width-height);
+        height: var(--card-webkit-scrollbar-width-height);
+        background-color: var(--lm-card-webkit-scrollbar-bg-color);
+    }
+    .dark-mode.with-custom-webkit-scrollbars .card::-webkit-scrollbar {
+        background-color: var(--dm-card-webkit-scrollbar-bg-color);
+    }
+    .with-custom-webkit-scrollbars .card::-webkit-scrollbar-track {
+        border-width: var(--card-webkit-scrollbar-track-border-width);
+        border-color: var(--lm-card-webkit-scrollbar-track-border-color);
+    }
+    .dark-mode.with-custom-webkit-scrollbars .card::-webkit-scrollbar-track {
+        border-color: var(--dm-card-webkit-scrollbar-track-border-color);
+    }
+    .with-custom-webkit-scrollbars .card::-webkit-scrollbar-thumb {
+        background-color: var(--lm-card-webkit-scrollbar-thumb-bg-color);
+        border-width: var(--card-webkit-scrollbar-thumb-border-width);
+        border-color: var(--lm-card-webkit-scrollbar-thumb-border-color);
+        border-radius: var(--card-webkit-scrollbar-thumb-border-radius);
+    }
+    .with-custom-webkit-scrollbars .card::-webkit-scrollbar-thumb:hover {
+        background-color: var(--lm-card-webkit-scrollbar-thumb-bg-color-hover);
+        border-color: var(--lm-card-webkit-scrollbar-thumb-border-color-hover);
+    }
+    .dark-mode.with-custom-webkit-scrollbars .card::-webkit-scrollbar-thumb {
+        background-color: var(--dm-card-webkit-scrollbar-thumb-bg-color);
+        border-color: var(--dm-card-webkit-scrollbar-thumb-border-color);
+    }
+    .dark-mode.with-custom-webkit-scrollbars .card::-webkit-scrollbar-thumb:hover {
+        background-color: var(--dm-card-webkit-scrollbar-thumb-bg-color-hover);
+        border-color: var(--dm-card-webkit-scrollbar-thumb-border-color-hover);
+    }
+    .with-custom-webkit-scrollbars .card::-webkit-scrollbar-corner {
+        background-color: var(--lm-card-webkit-scrollbar-corner-bg-color);
+        border-width: var(--card-webkit-scrollbar-corner-border-width);
+        border-color: var(--lm-card-webkit-scrollbar-corner-border-color);
+    }
+    .dark-mode.with-custom-webkit-scrollbars .card::-webkit-scrollbar-corner {
+        background-color: var(--dm-card-webkit-scrollbar-corner-bg-color);
+        border-color: var(--dm-card-webkit-scrollbar-corner-border-color);
+    }
+
+    .with-custom-css-scrollbars .card {
+        scrollbar-width: var(--card-css-scrollbar-width);
+        scrollbar-color: var(--lm-card-css-scrollbar-color);
+    }
+    .dark-mode.with-custom-css-scrollbars .card {
+        scrollbar-color: var(--dm-card-css-scrollbar-color);
+    }
+
+    /* CSS scrollbar with transparent track (utility class) */
+
+    .with-custom-css-scrollbars .css-scrollbar-transparent-track {
+        scrollbar-width: var(--utility-transparent-track-css-scrollbar-width) !important;
+        scrollbar-color: var(--lm-utility-transparent-track-css-scrollbar-color) !important;
+    }
+    .dark-mode.with-custom-css-scrollbars .css-scrollbar-transparent-track {
+        scrollbar-color: var(--dm-utility-transparent-track-css-scrollbar-color) !important;
+    }
+}
+
+

@@ -1,0 +1,173 @@
+/*
+-------------------------------------------------------------------------------
+13. Modal [hm-13]
+-------------------------------------------------------------------------------
+*/
+
+.modal {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: var(--lm-modal-overlay-bg-color);
+    -webkit-transition: all .4s cubic-bezier(.25, .8, .25, 1);
+    transition: all .4s cubic-bezier(.25, .8, .25, 1);
+    z-index: 99;
+    outline: none;
+}
+.dark-mode .modal {
+    background-color: var(--dm-modal-overlay-bg-color);
+}
+.modal-dialog {
+    position: absolute;
+    display: -ms-flexbox;
+    display: flex;
+    flex-direction: column;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    /* This hack corrects the scrollable modal content on IE. */
+    .modal.ie-scroll-fix .modal-dialog {
+        display: block;
+    }
+}
+.modal-content {
+    margin: auto;
+    width: var(--modal-content-width);
+    max-width: 100%;
+    padding: var(--modal-content-padding);
+    color: var(--lm-modal-content-text-color);
+    background-color: var(--lm-modal-content-bg-color);
+    background-image: var(--lm-modal-content-bg-image);
+    border: var(--modal-content-border-width) solid var(--lm-modal-content-border-color);
+    border-radius: var(--modal-content-border-radius);
+    -moz-box-shadow: var(--lm-modal-content-box-shadow);
+    -webkit-box-shadow: var(--lm-modal-content-box-shadow);
+    box-shadow: var(--lm-modal-content-box-shadow);
+}
+.dark-mode .modal-content {
+    color: var(--dm-modal-content-text-color);
+    background-color: var(--dm-modal-content-bg-color);
+    background-image: var(--dm-modal-content-bg-image);
+    border-color: var(--dm-modal-content-border-color);
+    -moz-box-shadow: var(--dm-modal-content-box-shadow);
+    -webkit-box-shadow: var(--dm-modal-content-box-shadow);
+    box-shadow: var(--dm-modal-content-box-shadow);
+}
+@media (max-width: 576px) {
+    .modal-content {
+        padding: var(--modal-content-padding-xs);
+    }
+}
+.modal-title {
+    font-size: var(--modal-title-font-size);
+    font-weight: var(--modal-title-font-weight);
+    margin-top: 0;
+}
+.modal-content-media,
+.dark-mode .modal-content-media {
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+.modal-content-media img,
+.modal-content-media video {
+    display: block;
+}
+.modal-full .modal-content {
+    width: 100%;
+    border: none;
+    border-radius: 0;
+    padding: var(--modal-full-content-padding);
+    color: var(--lm-modal-full-content-text-color);
+    background-color: var(--lm-modal-full-content-bg-color);
+    background-image: var(--lm-modal-full-content-bg-image);
+}
+.dark-mode .modal-full .modal-content {
+    color: var(--dm-modal-full-content-text-color);
+    background-color: var(--dm-modal-full-content-bg-color);
+    background-image: var(--dm-modal-full-content-bg-image);
+}
+@media (max-width: 576px) {
+    .modal-full .modal-content {
+        padding: var(--modal-full-content-padding-xs);
+    }
+}
+.modal-content .close {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    position: fixed;
+    cursor: pointer;
+    top: -100%;
+    left: 1rem;
+    z-index: 10;
+    padding: 0;
+    -webkit-transition: all .4s cubic-bezier(.25, .8, .25, 1);
+    transition: all .4s cubic-bezier(.25, .8, .25, 1);
+    font-size: var(--modal-close-font-size);
+    width: var(--modal-close-width-height);
+    height: var(--modal-close-width-height);
+    color: var(--lm-modal-close-text-color);
+    background-color: var(--lm-modal-close-bg-color);
+    border-radius: var(--modal-close-border-radius);
+    border-color: transparent;
+}
+.modal-content .close:hover {
+    text-decoration: none;
+    color: var(--lm-modal-close-text-color-hover);
+    background-color: var(--lm-modal-close-bg-color-hover);
+}
+.dark-mode .modal-content .close {
+    color: var(--dm-modal-close-text-color);
+    background-color: var(--dm-modal-close-bg-color);
+}
+.dark-mode .modal-content .close:hover {
+    color: var(--dm-modal-close-text-color-hover);
+    background-color: var(--dm-modal-close-bg-color-hover);
+}
+.modal-content .close:focus {
+    -webkit-transition: none;
+    transition: none;
+    outline: var(--modal-close-outline-width) var(--modal-close-outline-type) var(--lm-modal-close-outline-color-focus);
+    outline-offset: var(--modal-close-outline-offset);
+}
+.dark-mode .modal-content .close:focus {
+    outline-color: var(--dm-modal-close-outline-color-focus);
+}
+
+/* Showing modals */
+
+.modal:target,
+.modal.show {
+    top: 0;
+}
+.modal:target ~ .page-wrapper .sidebar,
+.modal:target ~ .page-wrapper .content-wrapper,
+.modal.show ~ .page-wrapper .sidebar,
+.modal.show ~ .page-wrapper .content-wrapper {
+    overflow: hidden;
+}
+.modal:target .modal-dialog,
+.modal.show .modal-dialog {
+    top: 0;
+}
+.modal:target .modal-content .close,
+.modal.show .modal-content .close {
+    top: 1rem;
+}
+
+

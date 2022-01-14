@@ -1,0 +1,52 @@
+{
+    "name": "fullmoon",
+    "version": "0.0.1",
+    "description": "Front-end framework with a built-in dark mode and full customizability using CSS variables; great for building dashboards and tools",
+    "source": "js/index.js",
+    "main": "dist/js/fullmoon.js",
+    "module": "dist/js/fullmoon.esm.js",
+    "scripts": {
+        "css:build-fmt": "sass scss/fullmoon.scss dist/css/fullmoon.css",
+        "css:build-min": "sass scss/fullmoon.scss dist/css/fullmoon.min.css --style=compressed",
+        "css:build": "pnpm run css:build-fmt && pnpm run css:build-min",
+        "watch": "pnpm run css:build-fmt -- --watch",
+        "js:build": "microbundle",
+        "js:watch": "microbundle --watch",
+        "build": "pnpm run css:build && pnpm run js:build",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ksenginew/fullmoon.git"
+    },
+    "keywords": [
+        "halfmoon",
+        "fullmoon",
+        "css",
+        "javascript",
+        "dark-theme",
+        "dark-mode",
+        "dashboard",
+        "web-framework",
+        "css-framework",
+        "css-variables",
+        "css-custom-properties"
+    ],
+    "author": "Kavindu Santhusa",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/ksenginew/fullmoon/issues"
+    },
+    "homepage": "https://github.com/ksenginew/fullmoon#readme",
+    "devDependencies": {
+        "microbundle": "^0.14.2",
+        "sass": "^1.48.0"
+    },
+    "style": "dist/css/fullmoon.min.css",
+    "sass": "scss/fullmoon.scss",
+    "files": [
+        "scss",
+        "dist",
+        "src"
+    ]
+}
