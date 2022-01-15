@@ -10,11 +10,18 @@ module.exports = context => {
   return {
     map: context.file.dirname.includes('examples') ? false : mapConfig,
     plugins: {
-      'postcss-combine-duplicated-selectors',
-      'postcss-sort-media-queries',
-      autoprefixer: {
-        cascade: false
+      'preset-env': {
+        stage: 1,
+        autoprefixer: {
+          cascade: false
+        },
+        features: {
+          'color-mod-function': {unresolved: 'ignore'},
+          'custom-properties': false,
+        },
       },
+      'combine-duplicated-selectors',
+      'sort-media-queries',
       rtlcss: context.env === 'RTL'
     }
   }
