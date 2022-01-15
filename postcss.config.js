@@ -6,7 +6,7 @@ const mapConfig = {
   sourcesContent: true
 }
 
-module.exports = context => {
+module.exports = (context) => {
   return {
     map: context.file.dirname.includes('examples') ? false : mapConfig,
     plugins: {
@@ -16,12 +16,12 @@ module.exports = context => {
           cascade: false
         },
         features: {
-          'color-mod-function': {unresolved: 'ignore'},
-          'custom-properties': false,
-        },
+          'color-mod-function': { unresolved: 'ignore' },
+          'custom-properties': false
+        }
       },
-      'combine-duplicated-selectors',
-      'sort-media-queries',
+      'combine-duplicated-selectors': true,
+      'sort-media-queries': true,
       rtlcss: context.env === 'RTL'
     }
   }
