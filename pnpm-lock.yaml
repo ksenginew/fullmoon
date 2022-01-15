@@ -7,6 +7,8 @@ specifiers:
   microbundle: ^0.14.2
   postcss: ^8.4.5
   postcss-cli: ^9.1.0
+  postcss-combine-duplicated-selectors: ^10.0.3
+  postcss-sort-media-queries: ^4.2.1
   rtlcss: ^3.5.0
   sass: ^1.48.0
 
@@ -17,6 +19,8 @@ devDependencies:
   microbundle: 0.14.2
   postcss: 8.4.5
   postcss-cli: 9.1.0_postcss@8.4.5
+  postcss-combine-duplicated-selectors: 10.0.3_postcss@8.4.5
+  postcss-sort-media-queries: 4.2.1_postcss@8.4.5
   rtlcss: 3.5.0
   sass: 1.48.0
 
@@ -2949,6 +2953,16 @@ packages:
       postcss-value-parser: 4.2.0
     dev: true
 
+  /postcss-combine-duplicated-selectors/10.0.3_postcss@8.4.5:
+    resolution: {integrity: sha512-IP0BmwFloCskv7DV7xqvzDXqMHpwdczJa6ZvIW8abgHdcIHs9mCJX2ltFhu3EwA51ozp13DByng30+Ke+eIExA==}
+    engines: {node: ^10.0.0 || ^12.0.0 || >=14.0.0}
+    peerDependencies:
+      postcss: ^8.1.0
+    dependencies:
+      postcss: 8.4.5
+      postcss-selector-parser: 6.0.8
+    dev: true
+
   /postcss-convert-values/5.0.2_postcss@8.4.5:
     resolution: {integrity: sha512-KQ04E2yadmfa1LqXm7UIDwW1ftxU/QWZmz6NKnHnUvJ3LEYbbcX6i329f/ig+WnEByHegulocXrECaZGLpL8Zg==}
     engines: {node: ^10 || ^12 || >=14.0}
@@ -3275,6 +3289,16 @@ packages:
     dependencies:
       cssesc: 3.0.0
       util-deprecate: 1.0.2
+    dev: true
+
+  /postcss-sort-media-queries/4.2.1_postcss@8.4.5:
+    resolution: {integrity: sha512-9VYekQalFZ3sdgcTjXMa0dDjsfBVHXlraYJEMiOJ/2iMmI2JGCMavP16z3kWOaRu8NSaJCTgVpB/IVpH5yT9YQ==}
+    engines: {node: '>=10.0.0'}
+    peerDependencies:
+      postcss: ^8.4.4
+    dependencies:
+      postcss: 8.4.5
+      sort-css-media-queries: 2.0.4
     dev: true
 
   /postcss-svgo/5.0.3_postcss@8.4.5:
@@ -3607,6 +3631,11 @@ packages:
   /slash/4.0.0:
     resolution: {integrity: sha512-3dOsAHXXUkQTpOYcoAxLIorMTp4gIQr5IW3iVb7A7lFIp0VHhnynm9izx6TssdrIcVIESAlVjtnO2K8bg+Coew==}
     engines: {node: '>=12'}
+    dev: true
+
+  /sort-css-media-queries/2.0.4:
+    resolution: {integrity: sha512-PAIsEK/XupCQwitjv7XxoMvYhT7EAfyzI3hsy/MyDgTvc+Ft55ctdkctJLOy6cQejaIC+zjpUL4djFVm2ivOOw==}
+    engines: {node: '>= 6.3.0'}
     dev: true
 
   /source-map-js/1.0.1:

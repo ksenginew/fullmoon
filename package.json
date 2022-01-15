@@ -45,6 +45,8 @@
         "microbundle": "^0.14.2",
         "postcss": "^8.4.5",
         "postcss-cli": "^9.1.0",
+        "postcss-combine-duplicated-selectors": "^10.0.3",
+        "postcss-sort-media-queries": "^4.2.1",
         "rtlcss": "^3.5.0",
         "sass": "^1.48.0"
     },
