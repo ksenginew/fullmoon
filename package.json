@@ -6,13 +6,13 @@
     "main": "dist/js/fullmoon.js",
     "module": "dist/js/fullmoon.esm.js",
     "scripts": {
-        "css:build-fmt": "sass scss/fullmoon.scss dist/css/fullmoon.css",
-        "css:build-min": "sass scss/fullmoon.scss dist/css/fullmoon.min.css --style=compressed",
-        "css:build": "pnpm run css:build-fmt && pnpm run css:build-min",
-        "watch": "pnpm run css:build-fmt -- --watch",
-        "js:build": "microbundle",
-        "js:watch": "microbundle --watch",
-        "build": "pnpm run css:build && pnpm run js:build",
+        "css": "pnpm run css-compile && pnpm run css-prefix && pnpm run css-rtl && pnpm run css-minify",
+        "css-compile": "sass --style expanded --source-map --embed-sources --no-error-css scss/:dist/css/",
+        "css-rtl": "cross-env NODE_ENV=RTL postcss --config postcss.config.js --dir \"dist/css\" --ext \".rtl.css\" \"dist/css/*.css\" \"!dist/css/*.min.css\" \"!dist/css/*.rtl.css\"",
+        "css-minify": "cleancss -O1 --format breakWith=lf --with-rebase --source-map --source-map-inline-sources --output dist/css/ --batch --batch-suffix \".min\" \"dist/css/*.css\" \"!dist/css/*.min.css\"",
+        "css-prefix": "postcss --config build/postcss.config.js --replace \"dist/css/*.css\" \"!dist/css/*.rtl*.css\" \"!dist/css/*.min.css\"",
+        "js": "microbundle",
+        "build": "pnpm run css && pnpm run js",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "repository": {
@@ -39,7 +39,16 @@
     },
     "homepage": "https://github.com/ksenginew/fullmoon#readme",
     "devDependencies": {
+        "autoprefixer": "^10.4.2",
+        "clean-css-cli": "^5.5.0",
+        "cross-env": "^7.0.3",
         "microbundle": "^0.14.2",
+        "postcss": "^8.4.5",
+        "postcss-cli": "^9.1.0",
+        "postcss-combine-duplicated-selectors": "^10.0.3",
+        "postcss-preset-env": "^7.2.3",
+        "postcss-sort-media-queries": "^4.2.1",
+        "rtlcss": "^3.5.0",
         "sass": "^1.48.0"
     },
     "style": "dist/css/fullmoon.min.css",

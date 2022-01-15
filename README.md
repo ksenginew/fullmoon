@@ -1,4 +1,4 @@
-_This is the main branch of the repo, which contains the latest stable release. For the ongoing development, see the [develop branch](https://github.com/ksenginew/fullmon/tree/develop)._
+_This is the main branch of the repo, which contains the latest stable release. For the ongoing development, see the [develop branch](https://github.com/ksenginew/fullmoon/tree/develop)._
 
 # Fullmoon
 
