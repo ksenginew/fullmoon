@@ -16,7 +16,6 @@ module.exports = (context) => {
           cascade: false
         },
         features: {
-          'color-mod-function': { unresolved: 'ignore' },
           'custom-properties': false
         }
       },
