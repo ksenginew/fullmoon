@@ -10,7 +10,7 @@ module.exports = (context) => {
   return {
     map: context.file.dirname.includes('examples') ? false : mapConfig,
     plugins: {
-      'preset-env': {
+      'postcss-preset-env': {
         stage: 1,
         autoprefixer: {
           cascade: false
@@ -20,8 +20,8 @@ module.exports = (context) => {
           'custom-properties': false
         }
       },
-      'combine-duplicated-selectors': true,
-      'sort-media-queries': true,
+      'postcss-combine-duplicated-selectors': true,
+      'postcss-sort-media-queries': true,
       rtlcss: context.env === 'RTL'
     }
   }
