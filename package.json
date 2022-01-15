@@ -6,13 +6,12 @@
     "main": "dist/js/fullmoon.js",
     "module": "dist/js/fullmoon.esm.js",
     "scripts": {
-        "css:build-fmt": "sass scss/fullmoon.scss dist/css/fullmoon.css",
-        "css:build-min": "sass scss/fullmoon.scss dist/css/fullmoon.min.css --style=compressed",
-        "css:build": "pnpm run css:build-fmt && pnpm run css:build-min",
-        "watch": "pnpm run css:build-fmt -- --watch",
-        "js:build": "microbundle",
-        "js:watch": "microbundle --watch",
-        "build": "pnpm run css:build && pnpm run js:build",
+        "build": "pnpm run css && pnpm run js",
+        "js": "microbundle",
+        "css": "gulp build",
+        "start": "gulp",
+        "lint": "stylelint \"styles/**/*.pcss\"",
+        "lint:fix": "stylelint \"styles/**/*.pcss\" --fix",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "repository": {
