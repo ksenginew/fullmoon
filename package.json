@@ -39,7 +39,13 @@
     },
     "homepage": "https://github.com/ksenginew/fullmoon#readme",
     "devDependencies": {
+        "autoprefixer": "^10.4.2",
+        "clean-css-cli": "^5.5.0",
+        "cross-env": "^7.0.3",
         "microbundle": "^0.14.2",
+        "postcss": "^8.4.5",
+        "postcss-cli": "^9.1.0",
+        "rtlcss": "^3.5.0",
         "sass": "^1.48.0"
     },
     "style": "dist/css/fullmoon.min.css",
