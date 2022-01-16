@@ -1,120 +1,48 @@
-/*
--------------------------------------------------------------------------------
-24. Progress [hm-24]
--------------------------------------------------------------------------------
-*/
+// Disable animation if transitions are disabled
+
+// scss-docs-start progress-keyframes
+@if $enable-transitions {
+  @keyframes progress-bar-stripes {
+    0% { background-position-x: $progress-height; }
+  }
+}
+// scss-docs-end progress-keyframes
 
 .progress {
-    display: -ms-flexbox;
-    display: flex;
-    overflow: hidden;
-    height: var(--progress-height);
-    font-size: var(--progress-font-size);
-    line-height: var(--progress-line-height);
-    border-radius: var(--progress-border-radius);
-    background-color: var(--lm-progress-bg-color);
+  display: flex;
+  height: $progress-height;
+  overflow: hidden; // force rounded corners by cropping it
+  @include font-size($progress-font-size);
+  background-color: $progress-bg;
+  @include border-radius($progress-border-radius);
+  @include box-shadow($progress-box-shadow);
 }
-.dark-mode .progress {
-    background-color: var(--dm-progress-bg-color);
-}
-
-/* Progress bar */
 
 .progress-bar {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -ms-flex-pack: center;
-    justify-content: center;
-    overflow: hidden;
-    text-align: center;
-    white-space: nowrap;
-    color: var(--lm-progress-bar-text-color);
-    background-color: var(--lm-progress-bar-bg-color);
-    border-radius: inherit;
-}
-.dark-mode .progress-bar {
-    color: var(--dm-progress-bar-text-color);
-    background-color: var(--dm-progress-bar-bg-color);
-    -webkit-font-smoothing: auto;
-    -moz-osx-font-smoothing: auto;
-}
-.progress-bar:not(:only-child) {
-    border-radius: 0;
-}
-.progress-bar:not(:only-child):last-child {
-    border-top-right-radius: inherit;
-    border-bottom-right-radius: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  color: $progress-bar-color;
+  text-align: center;
+  white-space: nowrap;
+  background-color: $progress-bar-bg;
+  @include transition($progress-bar-transition);
 }
 
-/* Progress group */
-
-.progress-group {
-    position: relative;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    -ms-flex-align: center;
-    align-items: center;
-    width: 100%;
-}
-.progress-group > .progress {
-    position: relative;
-    -ms-flex: 1 1 0%;
-    flex: 1 1 0%;
-    min-width: 0;
-    margin-bottom: 0;
-}
-.progress-group-label {
-    font-size: var(--progress-group-label-font-size);
-}
-.progress-group > .progress,
-.progress-group > .progress-group-label {
-    margin-left: var(--progress-group-item-margin);
-    margin-right: var(--progress-group-item-margin);
-}
-.progress-group > .progress:first-child,
-.progress-group > .progress-group-label:first-child {
-    margin-left: 0;
-}
-.progress-group > .progress:last-child,
-.progress-group > .progress-group-label:last-child {
-    margin-right: 0;
+.progress-bar-striped {
+  @include gradient-striped();
+  background-size: $progress-height $progress-height;
 }
 
-/* Progress bar animated */
+@if $enable-transitions {
+  .progress-bar-animated {
+    animation: $progress-bar-animation-timing progress-bar-stripes;
 
-.progress-bar-animated {
-    position: relative;
-}
-.progress-bar-animated::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border-radius: inherit;
-    background: var(--lm-progress-bar-animated-highlight-bg-color);
-    transform: translateX(-100%);
-    animation: progress-bar-shine 2s infinite;
-}
-.dark-mode .progress-bar-animated::before {
-    background: var(--dm-progress-bar-animated-highlight-bg-color);
-}
-.progress-bar-animated.highlight-dark::before {
-    background: var(--lm-progress-bar-animated-highlight-dark-bg-color);
-}
-.dark-mode .progress-bar-animated.highlight-dark::before {
-    background: var(--dm-progress-bar-animated-highlight-dark-bg-color);
-}
-@keyframes progress-bar-shine {
-    to {
-        transform: translateX(0);
-        opacity: 0.1;
+    @if $enable-reduced-motion {
+      @media (prefers-reduced-motion: reduce) {
+        animation: none;
+      }
     }
+  }
 }
-
-

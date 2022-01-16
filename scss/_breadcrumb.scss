@@ -1,49 +1,28 @@
-/*
--------------------------------------------------------------------------------
-18. Breadcrumb [hm-18]
--------------------------------------------------------------------------------
-*/
-
 .breadcrumb {
-    padding: var(--breadcrumb-padding);
-    background-color: var(--lm-breadcrumb-bg-color);
-    border: var(--breadcrumb-border-width) solid var(--lm-breadcrumb-border-color);
-    border-radius: var(--breadcrumb-border-radius);
+  display: flex;
+  flex-wrap: wrap;
+  padding: $breadcrumb-padding-y $breadcrumb-padding-x;
+  margin-bottom: $breadcrumb-margin-bottom;
+  @include font-size($breadcrumb-font-size);
+  list-style: none;
+  background-color: $breadcrumb-bg;
+  @include border-radius($breadcrumb-border-radius);
 }
-.dark-mode .breadcrumb {
-    background-color: var(--dm-breadcrumb-bg-color);
-    border-color: var(--dm-breadcrumb-border-color);
-}
+
 .breadcrumb-item {
-    display: inline-block;
-    list-style: none;
-    margin-bottom: 0;
-}
-.breadcrumb-item:before {
-    content: var(--breadcrumb-separator-content);
-    margin-left: var(--breadcrumb-separator-margin-left);
-    margin-right: var(--breadcrumb-separator-margin-right);
-}
-.breadcrumb-item:first-child:before {
-    display: none;
-}
-.breadcrumb-item.active a {
-    pointer-events: none;
-    color: inherit;
-}
-.dark-mode .breadcrumb-item a {
-    /* 
-    Links are NOT antialiased because they are NOT light text on a dark bg.
-    */ 
-    -webkit-font-smoothing: auto;
-    -moz-osx-font-smoothing: auto;
-}
-.dark-mode .breadcrumb-item.active a {
-    /*
-    Active links ARE antialiased because they ARE light text on a dark bg.
-    */ 
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
+  // The separator between breadcrumbs (by default, a forward-slash: "/")
+  + .breadcrumb-item {
+    padding-left: $breadcrumb-item-padding-x;
 
+    &::before {
+      float: left; // Suppress inline spacings and underlining of the separator
+      padding-right: $breadcrumb-item-padding-x;
+      color: $breadcrumb-divider-color;
+      content: var(--#{$variable-prefix}breadcrumb-divider, escape-svg($breadcrumb-divider)) #{"/* rtl:"} var(--#{$variable-prefix}breadcrumb-divider, escape-svg($breadcrumb-divider-flipped)) #{"*/"};
+    }
+  }
 
+  &.active {
+    color: $breadcrumb-active-color;
+  }
+}

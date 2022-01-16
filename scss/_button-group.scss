@@ -1,318 +1,139 @@
-/*
--------------------------------------------------------------------------------
-22. Button group [hm-22]
--------------------------------------------------------------------------------
-*/
-
+// Make the div behave like a button
 .btn-group,
 .btn-group-vertical {
+  position: relative;
+  display: inline-flex;
+  vertical-align: middle; // match .btn alignment given font-size hack above
+
+  > .btn {
     position: relative;
-    display: -ms-inline-flexbox;
-    display: inline-flex;
-    vertical-align: middle;
-}
-.btn-group > .btn,
-.btn-group-vertical > .btn {
-    position: relative;
-    -ms-flex: 1 1 auto;
     flex: 1 1 auto;
-}
-.btn-group > .btn:focus, .btn-group > .btn:active, .btn-group > .btn.active,
-.btn-group-vertical > .btn:focus,
-.btn-group-vertical > .btn:active,
-.btn-group-vertical > .btn.active {
+  }
+
+  // Bring the hover, focused, and "active" buttons to the front to overlay
+  // the borders properly
+  > .btn-check:checked + .btn,
+  > .btn-check:focus + .btn,
+  > .btn:hover,
+  > .btn:focus,
+  > .btn:active,
+  > .btn.active {
     z-index: 1;
-}
-.btn-group > .btn:not(:first-child),
-.btn-group > .btn-group:not(:first-child) {
-    margin-left: calc((-1) * var(--button-border-width));
-}
-.btn-group > .btn:not(:last-child):not([data-toggle="dropdown"]),
-.btn-group > .btn-group:not(:last-child) > .btn {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-}
-.btn-group > .btn:not(:first-child),
-.btn-group > .btn-group:not(:first-child) > .btn {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-}
-.btn-group-vertical {
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -ms-flex-align: start;
-    align-items: flex-start;
-    -ms-flex-pack: center;
-    justify-content: center;
-}
-.btn-group-vertical > .btn,
-.btn-group-vertical > .btn-group {
-    width: 100%;
-}
-.btn-group-vertical > .btn:not(:first-child),
-.btn-group-vertical > .btn-group:not(:first-child) {
-    margin-top: calc((-1) * var(--button-border-width));
-}
-.btn-group-vertical > .btn:not(:last-child):not([data-toggle="dropdown"]),
-.btn-group-vertical > .btn-group:not(:last-child) > .btn {
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
-}
-.btn-group-vertical > .btn:not(:first-child),
-.btn-group-vertical > .btn-group:not(:first-child) > .btn {
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
+  }
 }
 
-/* Remove box shadow for button group vertical (except last button) */
-
-.btn-group-vertical > .btn:not(:last-child):not([data-toggle="dropdown"]):not(:focus):not(.active),
-.btn-group-vertical > .btn-group:not(:last-child) > .btn:not(:focus):not(.active) {
-    -moz-box-shadow: none;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-}
-
-/* Button group sizing */
-
-.btn-group-sm > .btn {
-    height: var(--small-button-height);
-    line-height: var(--small-button-line-height);
-    padding: var(--small-button-padding);
-    font-size: var(--small-button-font-size);
-}
-.btn-group-lg > .btn {
-    height: var(--large-button-height);
-    line-height: var(--large-button-line-height);
-    padding: var(--large-button-padding);
-    font-size: var(--large-button-font-size);
-}
-.btn-group-sm > .btn-square {
-    width: var(--small-button-height);
-    padding-left: 0;
-    padding-right: 0;
-}
-.btn-group-lg > .btn-square {
-    width: var(--large-button-height);
-    padding-left: 0;
-    padding-right: 0;
-}
-.btn-group-sm > .btn-rounded {
-    border-radius: var(--small-button-rounded-border-radius);
-}
-.btn-group-lg > .btn-rounded {
-    border-radius: var(--large-button-rounded-border-radius);
-}
-
-/* Button toolbar */
-
+// Optional: Group multiple button groups together for a toolbar
 .btn-toolbar {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    -ms-flex-pack: start;
-    justify-content: flex-start;
-}
-.btn-toolbar .input-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+
+  .input-group {
     width: auto;
+  }
 }
 
-/* Button toolbar minimum width for input groups (Required for IE) */
+.btn-group {
+  // Prevent double borders when buttons are next to each other
+  > .btn:not(:first-child),
+  > .btn-group:not(:first-child) {
+    margin-left: -$btn-border-width;
+  }
 
-.btn-toolbar .input-group {
-    min-width: var(--button-toolbar-input-group-min-width);
-}
-@media (max-width: 576px) {
-    .btn-toolbar .input-group {
-        min-width: var(--button-toolbar-input-group-min-width-xs);
-    }
-}
+  // Reset rounded corners
+  > .btn:not(:last-child):not(.dropdown-toggle),
+  > .btn-group:not(:last-child) > .btn {
+    @include border-end-radius(0);
+  }
 
-/* Buttons (only border colors) */
-
-.btn-group > .btn,
-.btn-group-vertical > .btn {
-    border-color: var(--lm-button-group-button-border-color);
-}
-.btn-group > .btn:hover,
-.btn-group-vertical > .btn:hover {
-    border-color: var(--lm-button-group-button-border-color-hover);
-}
-.btn-group > .btn:focus,
-.btn-group-vertical > .btn:focus,
-.btn-group > .btn.active,
-.btn-group-vertical > .btn.active {
-    border-color: var(--lm-button-group-button-border-color-focus);
-}
-.dark-mode .btn-group > .btn,
-.dark-mode .btn-group-vertical > .btn {
-    border-color: var(--dm-button-group-button-border-color);
-}
-.dark-mode .btn-group > .btn:hover,
-.dark-mode .btn-group-vertical > .btn:hover {
-    border-color: var(--dm-button-group-button-border-color-hover);
-}
-.dark-mode .btn-group > .btn:focus,
-.dark-mode .btn-group-vertical > .btn:focus,
-.dark-mode .btn-group > .btn.active,
-.dark-mode .btn-group-vertical > .btn.active {
-    border-color: var(--dm-button-group-button-border-color-focus);
+  // The left radius should be 0 if the button is:
+  // - the "third or more" child
+  // - the second child and the previous element isn't `.btn-check` (making it the first child visually)
+  // - part of a btn-group which isn't the first child
+  > .btn:nth-child(n + 3),
+  > :not(.btn-check) + .btn,
+  > .btn-group:not(:first-child) > .btn {
+    @include border-start-radius(0);
+  }
 }
 
-/* Link button */
+// Sizing
+//
+// Remix the default button sizing classes into new ones for easier manipulation.
 
-.btn-group > .btn.btn-link,
-.btn-group-vertical > .btn.btn-link {
-    border-color: var(--lm-button-group-button-link-border-color);
-}
-.btn-group > .btn.btn-link:hover,
-.btn-group-vertical > .btn.btn-link:hover {
-    border-color: var(--lm-button-group-button-link-border-color-hover);
-}
-.btn-group > .btn.btn-link:focus,
-.btn-group-vertical > .btn.btn-link:focus,
-.btn-group > .btn.btn-link.active,
-.btn-group-vertical > .btn.btn-link.active {
-    border-color: var(--lm-button-group-button-link-border-color-focus);
-}
-.dark-mode .btn-group > .btn.btn-link,
-.dark-mode .btn-group-vertical > .btn.btn-link {
-    border-color: var(--dm-button-group-button-link-border-color);
-}
-.dark-mode .btn-group > .btn.btn-link:hover,
-.dark-mode .btn-group-vertical > .btn.btn-link:hover {
-    border-color: var(--dm-button-group-button-link-border-color-hover);
-}
-.dark-mode .btn-group > .btn.btn-link:focus,
-.dark-mode .btn-group-vertical > .btn.btn-link:focus,
-.dark-mode .btn-group > .btn.btn-link.active,
-.dark-mode .btn-group-vertical > .btn.btn-link.active {
-    border-color: var(--dm-button-group-button-link-border-color-focus);
+.btn-group-sm > .btn { @extend .btn-sm; }
+.btn-group-lg > .btn { @extend .btn-lg; }
+
+
+//
+// Split button dropdowns
+//
+
+.dropdown-toggle-split {
+  padding-right: $btn-padding-x * .75;
+  padding-left: $btn-padding-x * .75;
+
+  &::after,
+  .dropup &::after,
+  .dropend &::after {
+    margin-left: 0;
+  }
+
+  .dropstart &::before {
+    margin-right: 0;
+  }
 }
 
-/* Primary button */
-
-.btn-group > .btn.btn-primary,
-.btn-group-vertical > .btn.btn-primary {
-    border-color: var(--lm-button-group-button-primary-border-color);
-}
-.btn-group > .btn.btn-primary:hover,
-.btn-group-vertical > .btn.btn-primary:hover {
-    border-color: var(--lm-button-group-button-primary-border-color-hover);
-}
-.btn-group > .btn.btn-primary:focus,
-.btn-group-vertical > .btn.btn-primary:focus,
-.btn-group > .btn.btn-primary.active,
-.btn-group-vertical > .btn.btn-primary.active {
-    border-color: var(--lm-button-group-button-primary-border-color-focus);
-}
-.dark-mode .btn-group > .btn.btn-primary,
-.dark-mode .btn-group-vertical > .btn.btn-primary {
-    border-color: var(--dm-button-group-button-primary-border-color);
-}
-.dark-mode .btn-group > .btn.btn-primary:hover,
-.dark-mode .btn-group-vertical > .btn.btn-primary:hover {
-    border-color: var(--dm-button-group-button-primary-border-color-hover);
-}
-.dark-mode .btn-group > .btn.btn-primary:focus,
-.dark-mode .btn-group-vertical > .btn.btn-primary:focus,
-.dark-mode .btn-group > .btn.btn-primary.active,
-.dark-mode .btn-group-vertical > .btn.btn-primary.active {
-    border-color: var(--dm-button-group-button-primary-border-color-focus);
+.btn-sm + .dropdown-toggle-split {
+  padding-right: $btn-padding-x-sm * .75;
+  padding-left: $btn-padding-x-sm * .75;
 }
 
-/* Success button */
-
-.btn-group > .btn.btn-success,
-.btn-group-vertical > .btn.btn-success {
-    border-color: var(--lm-button-group-button-success-border-color);
-}
-.btn-group > .btn.btn-success:hover,
-.btn-group-vertical > .btn.btn-success:hover {
-    border-color: var(--lm-button-group-button-success-border-color-hover);
-}
-.btn-group > .btn.btn-success:focus,
-.btn-group-vertical > .btn.btn-success:focus,
-.btn-group > .btn.btn-success.active,
-.btn-group-vertical > .btn.btn-success.active {
-    border-color: var(--lm-button-group-button-success-border-color-focus);
-}
-.dark-mode .btn-group > .btn.btn-success,
-.dark-mode .btn-group-vertical > .btn.btn-success {
-    border-color: var(--dm-button-group-button-success-border-color);
-}
-.dark-mode .btn-group > .btn.btn-success:hover,
-.dark-mode .btn-group-vertical > .btn.btn-success:hover {
-    border-color: var(--dm-button-group-button-success-border-color-hover);
-}
-.dark-mode .btn-group > .btn.btn-success:focus,
-.dark-mode .btn-group-vertical > .btn.btn-success:focus,
-.dark-mode .btn-group > .btn.btn-success.active,
-.dark-mode .btn-group-vertical > .btn.btn-success.active {
-    border-color: var(--dm-button-group-button-success-border-color-focus);
-}
-
-/* Secondary button */
-
-.btn-group > .btn.btn-secondary,
-.btn-group-vertical > .btn.btn-secondary {
-    border-color: var(--lm-button-group-button-secondary-border-color);
-}
-.btn-group > .btn.btn-secondary:hover,
-.btn-group-vertical > .btn.btn-secondary:hover {
-    border-color: var(--lm-button-group-button-secondary-border-color-hover);
-}
-.btn-group > .btn.btn-secondary:focus,
-.btn-group-vertical > .btn.btn-secondary:focus,
-.btn-group > .btn.btn-secondary.active,
-.btn-group-vertical > .btn.btn-secondary.active {
-    border-color: var(--lm-button-group-button-secondary-border-color-focus);
-}
-.dark-mode .btn-group > .btn.btn-secondary,
-.dark-mode .btn-group-vertical > .btn.btn-secondary {
-    border-color: var(--dm-button-group-button-secondary-border-color);
-}
-.dark-mode .btn-group > .btn.btn-secondary:hover,
-.dark-mode .btn-group-vertical > .btn.btn-secondary:hover {
-    border-color: var(--dm-button-group-button-secondary-border-color-hover);
-}
-.dark-mode .btn-group > .btn.btn-secondary:focus,
-.dark-mode .btn-group-vertical > .btn.btn-secondary:focus,
-.dark-mode .btn-group > .btn.btn-secondary.active,
-.dark-mode .btn-group-vertical > .btn.btn-secondary.active {
-    border-color: var(--dm-button-group-button-secondary-border-color-focus);
-}
-
-/* Danger button */
-
-.btn-group > .btn.btn-danger,
-.btn-group-vertical > .btn.btn-danger {
-    border-color: var(--lm-button-group-button-danger-border-color);
-}
-.btn-group > .btn.btn-danger:hover,
-.btn-group-vertical > .btn.btn-danger:hover {
-    border-color: var(--lm-button-group-button-danger-border-color-hover);
-}
-.btn-group > .btn.btn-danger:focus,
-.btn-group-vertical > .btn.btn-danger:focus,
-.btn-group > .btn.btn-danger.active,
-.btn-group-vertical > .btn.btn-danger.active {
-    border-color: var(--lm-button-group-button-danger-border-color-focus);
-}
-.dark-mode .btn-group > .btn.btn-danger,
-.dark-mode .btn-group-vertical > .btn.btn-danger {
-    border-color: var(--dm-button-group-button-danger-border-color);
-}
-.dark-mode .btn-group > .btn.btn-danger:hover,
-.dark-mode .btn-group-vertical > .btn.btn-danger:hover {
-    border-color: var(--dm-button-group-button-danger-border-color-hover);
-}
-.dark-mode .btn-group > .btn.btn-danger:focus,
-.dark-mode .btn-group-vertical > .btn.btn-danger:focus,
-.dark-mode .btn-group > .btn.btn-danger.active,
-.dark-mode .btn-group-vertical > .btn.btn-danger.active {
-    border-color: var(--dm-button-group-button-danger-border-color-focus);
+.btn-lg + .dropdown-toggle-split {
+  padding-right: $btn-padding-x-lg * .75;
+  padding-left: $btn-padding-x-lg * .75;
 }
 
 
+// The clickable button for toggling the menu
+// Set the same inset shadow as the :active state
+.btn-group.show .dropdown-toggle {
+  @include box-shadow($btn-active-box-shadow);
+
+  // Show no shadow for `.btn-link` since it has no other button styles.
+  &.btn-link {
+    @include box-shadow(none);
+  }
+}
+
+
+//
+// Vertical button groups
+//
+
+.btn-group-vertical {
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+
+  > .btn,
+  > .btn-group {
+    width: 100%;
+  }
+
+  > .btn:not(:first-child),
+  > .btn-group:not(:first-child) {
+    margin-top: -$btn-border-width;
+  }
+
+  // Reset rounded corners
+  > .btn:not(:last-child):not(.dropdown-toggle),
+  > .btn-group:not(:last-child) > .btn {
+    @include border-bottom-radius(0);
+  }
+
+  > .btn ~ .btn,
+  > .btn-group:not(:first-child) > .btn {
+    @include border-top-radius(0);
+  }
+}

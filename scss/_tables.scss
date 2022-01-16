@@ -1,239 +1,155 @@
-/*
--------------------------------------------------------------------------------
-10. Tables [hm-10]
--------------------------------------------------------------------------------
-*/
+//
+// Basic Bootstrap table
+//
 
-.table-responsive {
-    overflow-x: auto;
-}
-.table-responsive .table th,
-.table-responsive .table td {
-    white-space: nowrap;
-}
 .table {
-    width: 100%;
-}
-.table thead tr {
-    border-bottom: var(--table-head-row-border-bottom-border-width) solid var(--lm-table-border-color);
-}
-.dark-mode .table thead tr {
-    border-color: var(--dm-table-border-color);
-}
-.table tfoot tr {
-    border-top: var(--table-foot-row-border-top-border-width) solid var(--lm-table-border-color);
-}
-.dark-mode .table tfoot tr {
-    border-color: var(--dm-table-border-color);
-}
-.table tbody tr:not(:last-child) {
-    border-bottom: var(--table-border-width) solid var(--lm-table-border-color);
-}
-.dark-mode .table tbody tr:not(:last-child) {
-    border-color: var(--dm-table-border-color);
-}
-.table th {
-    font-weight: var(--table-header-cell-font-weight);
-}
-.table th,
-.table td {
-    text-align: left;
-}
-.table th,
-.table td {
-    padding: var(--table-padding);
-}
+  --#{$variable-prefix}table-bg: #{$table-bg};
+  --#{$variable-prefix}table-accent-bg: #{$table-accent-bg};
+  --#{$variable-prefix}table-striped-color: #{$table-striped-color};
+  --#{$variable-prefix}table-striped-bg: #{$table-striped-bg};
+  --#{$variable-prefix}table-active-color: #{$table-active-color};
+  --#{$variable-prefix}table-active-bg: #{$table-active-bg};
+  --#{$variable-prefix}table-hover-color: #{$table-hover-color};
+  --#{$variable-prefix}table-hover-bg: #{$table-hover-bg};
 
-/* No outer padding */
+  width: 100%;
+  margin-bottom: $spacer;
+  color: $table-color;
+  vertical-align: $table-cell-vertical-align;
+  border-color: $table-border-color;
 
-.table-no-outer-padding th:first-child,
-.table-no-outer-padding td:first-child {
-    padding-left: 0;
-}
-.table-no-outer-padding th:last-child,
-.table-no-outer-padding td:last-child {
-    padding-right: 0;
-}
+  // Target th & td
+  // We need the child combinator to prevent styles leaking to nested tables which doesn't have a `.table` class.
+  // We use the universal selectors here to simplify the selector (else we would need 6 different selectors).
+  // Another advantage is that this generates less code and makes the selector less specific making it easier to override.
+  // stylelint-disable-next-line selector-max-universal
+  > :not(caption) > * > * {
+    padding: $table-cell-padding-y $table-cell-padding-x;
+    background-color: var(--#{$variable-prefix}table-bg);
+    border-bottom-width: $table-border-width;
+    box-shadow: inset 0 0 0 9999px var(--#{$variable-prefix}table-accent-bg);
+  }
 
-/* Bordered table */
+  > tbody {
+    vertical-align: inherit;
+  }
 
-.table-bordered,
-.table-outer-bordered {
-    border: var(--table-border-width) solid var(--lm-table-border-color);
-}
-.dark-mode .table-bordered,
-.dark-mode .table-outer-bordered {
-    border-color: var(--dm-table-border-color);
-}
-.table-bordered th:not(:last-child),
-.table-bordered td:not(:last-child),
-.table-inner-bordered th:not(:last-child),
-.table-inner-bordered td:not(:last-child) {
-    border-right: var(--table-border-width) solid var(--lm-table-border-color);
-}
-.dark-mode .table-bordered th:not(:last-child),
-.dark-mode .table-bordered td:not(:last-child),
-.dark-mode .table-inner-bordered th:not(:last-child),
-.dark-mode .table-inner-bordered td:not(:last-child) {
-    border-color: var(--dm-table-border-color);
-}
+  > thead {
+    vertical-align: bottom;
+  }
 
-/* Hoverable table */
-
-.table-hover tbody tr:hover th,
-.table-hover tbody tr:hover td {
-    background-color: var(--lm-table-hoverable-bg-color-hover);
-}
-.dark-mode .table-hover tbody tr:hover th,
-.dark-mode .table-hover tbody tr:hover td {
-    background-color: var(--dm-table-hoverable-bg-color-hover);
-}
-
-/* Striped table */
-
-.table-striped tbody tr:nth-child(odd),
-.table-striped tbody tr:nth-child(odd) {
-    background-color: var(--lm-table-striped-bg-color);
-}
-.dark-mode .table-striped tbody tr:nth-child(odd),
-.dark-mode .table-striped tbody tr:nth-child(odd) {
-    background-color: var(--dm-table-striped-bg-color);
-}
-
-/* Primary, success, secondary, danger table rows. */
-
-/* Light mode */
-
-.table tbody tr.table-primary,
-.table-striped tbody tr.table-primary,
-.table-bordered tbody tr.table-primary,
-.table-inner-bordered tbody tr.table-primary {
-    color: var(--lm-table-primary-text-color);
-    background-color: var(--lm-table-primary-bg-color);
-    border-color: var(--lm-table-primary-row-border-color);
-}
-.table tbody tr.table-primary th,
-.table tbody tr.table-primary td,
-.table-bordered tbody tr.table-primary th,
-.table-bordered tbody tr.table-primary td,
-.table-inner-bordered tbody tr.table-primary th,
-.table-inner-bordered tbody tr.table-primary td {
-    border-color: var(--lm-table-primary-cell-border-color);
-}
-.table tbody tr.table-success,
-.table-striped tbody tr.table-success,
-.table-bordered tbody tr.table-success,
-.table-inner-bordered tbody tr.table-success {
-    color: var(--lm-table-success-text-color);
-    background-color: var(--lm-table-success-bg-color);
-    border-color: var(--lm-table-success-row-border-color);
-}
-.table tbody tr.table-success th,
-.table tbody tr.table-success td,
-.table-bordered tbody tr.table-success th,
-.table-bordered tbody tr.table-success td,
-.table-inner-bordered tbody tr.table-success th,
-.table-inner-bordered tbody tr.table-success td {
-    border-color: var(--lm-table-success-cell-border-color);
-}
-.table tbody tr.table-secondary,
-.table-striped tbody tr.table-secondary,
-.table-bordered tbody tr.table-secondary,
-.table-inner-bordered tbody tr.table-secondary {
-    color: var(--lm-table-secondary-text-color);
-    background-color: var(--lm-table-secondary-bg-color);
-    border-color: var(--lm-table-secondary-row-border-color);
-}
-.table tbody tr.table-secondary th,
-.table tbody tr.table-secondary td,
-.table-bordered tbody tr.table-secondary th,
-.table-bordered tbody tr.table-secondary td,
-.table-inner-bordered tbody tr.table-secondary th,
-.table-inner-bordered tbody tr.table-secondary td {
-    border-color: var(--lm-table-secondary-cell-border-color);
-}
-.table tbody tr.table-danger,
-.table-striped tbody tr.table-danger,
-.table-bordered tbody tr.table-danger,
-.table-inner-bordered tbody tr.table-danger {
-    color: var(--lm-table-danger-text-color);
-    background-color: var(--lm-table-danger-bg-color);
-    border-color: var(--lm-table-danger-row-border-color);
-}
-.table tbody tr.table-danger th,
-.table tbody tr.table-danger td,
-.table-bordered tbody tr.table-danger th,
-.table-bordered tbody tr.table-danger td,
-.table-inner-bordered tbody tr.table-danger th,
-.table-inner-bordered tbody tr.table-danger td {
-    border-color: var(--lm-table-danger-cell-border-color);
-}
-
-/* Dark mode */
-
-.dark-mode .table tbody tr.table-primary,
-.dark-mode .table-striped tbody tr.table-primary,
-.dark-mode .table-bordered tbody tr.table-primary,
-.dark-mode .table-inner-bordered tbody tr.table-primary {
-    color: var(--dm-table-primary-text-color);
-    background-color: var(--dm-table-primary-bg-color);
-    border-color: var(--dm-table-primary-row-border-color);
-}
-.dark-mode .table tbody tr.table-primary th,
-.dark-mode .table tbody tr.table-primary td,
-.dark-mode .table-bordered tbody tr.table-primary th,
-.dark-mode .table-bordered tbody tr.table-primary td,
-.dark-mode .table-inner-bordered tbody tr.table-primary th,
-.dark-mode .table-inner-bordered tbody tr.table-primary td {
-    border-color: var(--dm-table-primary-cell-border-color);
-}
-.dark-mode .table tbody tr.table-success,
-.dark-mode .table-striped tbody tr.table-success,
-.dark-mode .table-bordered tbody tr.table-success,
-.dark-mode .table-inner-bordered tbody tr.table-success {
-    color: var(--dm-table-success-text-color);
-    background-color: var(--dm-table-success-bg-color);
-    border-color: var(--dm-table-success-row-border-color);
-}
-.dark-mode .table tbody tr.table-success th,
-.dark-mode .table tbody tr.table-success td,
-.dark-mode .table-bordered tbody tr.table-success th,
-.dark-mode .table-bordered tbody tr.table-success td,
-.dark-mode .table-inner-bordered tbody tr.table-success th,
-.dark-mode .table-inner-bordered tbody tr.table-success td {
-    border-color: var(--dm-table-success-cell-border-color);
-}
-.dark-mode .table tbody tr.table-secondary,
-.dark-mode .table-striped tbody tr.table-secondary,
-.dark-mode .table-bordered tbody tr.table-secondary,
-.dark-mode .table-inner-bordered tbody tr.table-secondary {
-    color: var(--dm-table-secondary-text-color);
-    background-color: var(--dm-table-secondary-bg-color);
-    border-color: var(--dm-table-secondary-row-border-color);
-}
-.dark-mode .table tbody tr.table-secondary th,
-.dark-mode .table tbody tr.table-secondary td,
-.dark-mode .table-bordered tbody tr.table-secondary th,
-.dark-mode .table-bordered tbody tr.table-secondary td,
-.dark-mode .table-inner-bordered tbody tr.table-secondary th,
-.dark-mode .table-inner-bordered tbody tr.table-secondary td {
-    border-color: var(--dm-table-secondary-cell-border-color);
-}
-.dark-mode .table tbody tr.table-danger,
-.dark-mode .table-striped tbody tr.table-danger,
-.dark-mode .table-bordered tbody tr.table-danger,
-.dark-mode .table-inner-bordered tbody tr.table-danger {
-    color: var(--dm-table-danger-text-color);
-    background-color: var(--dm-table-danger-bg-color);
-    border-color: var(--dm-table-danger-row-border-color);
-}
-.dark-mode .table tbody tr.table-danger th,
-.dark-mode .table tbody tr.table-danger td,
-.dark-mode .table-bordered tbody tr.table-danger th,
-.dark-mode .table-bordered tbody tr.table-danger td,
-.dark-mode .table-inner-bordered tbody tr.table-danger th,
-.dark-mode .table-inner-bordered tbody tr.table-danger td {
-    border-color: var(--dm-table-danger-cell-border-color);
+  // Highlight border color between thead, tbody and tfoot.
+  > :not(:first-child) {
+    border-top: (2 * $table-border-width) solid $table-group-separator-color;
+  }
 }
 
 
+//
+// Change placement of captions with a class
+//
+
+.caption-top {
+  caption-side: top;
+}
+
+
+//
+// Condensed table w/ half padding
+//
+
+.table-sm {
+  // stylelint-disable-next-line selector-max-universal
+  > :not(caption) > * > * {
+    padding: $table-cell-padding-y-sm $table-cell-padding-x-sm;
+  }
+}
+
+
+// Border versions
+//
+// Add or remove borders all around the table and between all the columns.
+//
+// When borders are added on all sides of the cells, the corners can render odd when
+// these borders do not have the same color or if they are semi-transparent.
+// Therefor we add top and border bottoms to the `tr`s and left and right borders
+// to the `td`s or `th`s
+
+.table-bordered {
+  > :not(caption) > * {
+    border-width: $table-border-width 0;
+
+    // stylelint-disable-next-line selector-max-universal
+    > * {
+      border-width: 0 $table-border-width;
+    }
+  }
+}
+
+.table-borderless {
+  // stylelint-disable-next-line selector-max-universal
+  > :not(caption) > * > * {
+    border-bottom-width: 0;
+  }
+
+  > :not(:first-child) {
+    border-top-width: 0;
+  }
+}
+
+// Zebra-striping
+//
+// Default zebra-stripe styles (alternating gray and transparent backgrounds)
+
+.table-striped {
+  > tbody > tr:nth-of-type(#{$table-striped-order}) > * {
+    --#{$variable-prefix}table-accent-bg: var(--#{$variable-prefix}table-striped-bg);
+    color: var(--#{$variable-prefix}table-striped-color);
+  }
+}
+
+// Active table
+//
+// The `.table-active` class can be added to highlight rows or cells
+
+.table-active {
+  --#{$variable-prefix}table-accent-bg: var(--#{$variable-prefix}table-active-bg);
+  color: var(--#{$variable-prefix}table-active-color);
+}
+
+// Hover effect
+//
+// Placed here since it has to come after the potential zebra striping
+
+.table-hover {
+  > tbody > tr:hover > * {
+    --#{$variable-prefix}table-accent-bg: var(--#{$variable-prefix}table-hover-bg);
+    color: var(--#{$variable-prefix}table-hover-color);
+  }
+}
+
+
+// Table variants
+//
+// Table variants set the table cell backgrounds, border colors
+// and the colors of the striped, hovered & active tables
+
+@each $color, $value in $table-variants {
+  @include table-variant($color, $value);
+}
+
+// Responsive tables
+//
+// Generate series of `.table-responsive-*` classes for configuring the screen
+// size of where your table will overflow.
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+  @include media-breakpoint-down($breakpoint) {
+    .table-responsive#{$infix} {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+  }
+}
