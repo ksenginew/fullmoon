@@ -4,13 +4,13 @@
 
 .btn {
   display: inline-block;
-  font-family:var(--#{$variable-prefix}btn-font-family, $btn-font-family);
-  font-weight:var(--#{$variable-prefix}btn-font-weight, $btn-font-weight);
-  line-height:var(--#{$variable-prefix}btn-line-height, $btn-line-height);
-  color:var(--#{$variable-prefix}body-color, $body-color);
+  font-family: var(--#{$variable-prefix}btn-font-family, $btn-font-family);
+  font-weight: var(--#{$variable-prefix}btn-font-weight, $btn-font-weight);
+  line-height: var(--#{$variable-prefix}btn-line-height, $btn-line-height);
+  color: var(--#{$variable-prefix}body-color, $body-color);
   text-align: center;
   text-decoration: if($link-decoration == none, null, none);
-  white-space:var(--#{$variable-prefix}btn-white-space, $btn-white-space);
+  white-space: var(--#{$variable-prefix}btn-white-space, $btn-white-space);
   vertical-align: middle;
   cursor: if($enable-button-pointers, pointer, null);
   user-select: none;
@@ -20,14 +20,14 @@
   @include transition($btn-transition);
 
   &:hover {
-    color:var(--#{$variable-prefix}body-color, $body-color);
+    color: var(--#{$variable-prefix}body-color, $body-color);
     text-decoration: if($link-hover-decoration == underline, none, null);
   }
 
   .btn-check:focus + &,
   &:focus {
     outline: 0;
-    box-shadow:var(--#{$variable-prefix}btn-focus-box-shadow, $btn-focus-box-shadow);
+    box-shadow: var(--#{$variable-prefix}btn-focus-box-shadow, $btn-focus-box-shadow);
   }
 
   .btn-check:checked + &,
@@ -45,7 +45,7 @@
   &.disabled,
   fieldset:disabled & {
     pointer-events: none;
-    opacity:var(--#{$variable-prefix}btn-disabled-opacity, $btn-disabled-opacity);
+    opacity: var(--#{$variable-prefix}btn-disabled-opacity, $btn-disabled-opacity);
     @include box-shadow(none);
   }
 }
@@ -76,22 +76,22 @@
 
 // Make a button look and behave like a link
 .btn-link {
-  font-weight:var(--#{$variable-prefix}font-weight-normal, $font-weight-normal);
-  color:var(--#{$variable-prefix}btn-link-color, $btn-link-color);
-  text-decoration:var(--#{$variable-prefix}link-decoration, $link-decoration);
+  font-weight: var(--#{$variable-prefix}font-weight-normal, $font-weight-normal);
+  color: var(--#{$variable-prefix}btn-link-color, $btn-link-color);
+  text-decoration: var(--#{$variable-prefix}link-decoration, $link-decoration);
 
   &:hover {
-    color:var(--#{$variable-prefix}btn-link-hover-color, $btn-link-hover-color);
-    text-decoration:var(--#{$variable-prefix}link-hover-decoration, $link-hover-decoration);
+    color: var(--#{$variable-prefix}btn-link-hover-color, $btn-link-hover-color);
+    text-decoration: var(--#{$variable-prefix}link-hover-decoration, $link-hover-decoration);
   }
 
   &:focus {
-    text-decoration:var(--#{$variable-prefix}link-hover-decoration, $link-hover-decoration);
+    text-decoration: var(--#{$variable-prefix}link-hover-decoration, $link-hover-decoration);
   }
 
   &:disabled,
   &.disabled {
-    color:var(--#{$variable-prefix}btn-link-disabled-color, $btn-link-disabled-color);
+    color: var(--#{$variable-prefix}btn-link-disabled-color, $btn-link-disabled-color);
   }
 
   // No need for an active state here

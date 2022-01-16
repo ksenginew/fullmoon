@@ -68,14 +68,14 @@ body {
 
 hr {
   margin: $hr-margin-y 0;
-  color:var(--#{$variable-prefix}hr-color, $hr-color); // 1
+  color: var(--#{$variable-prefix}hr-color, $hr-color); // 1
   background-color: currentColor;
   border: 0;
-  opacity:var(--#{$variable-prefix}hr-opacity, $hr-opacity);
+  opacity: var(--#{$variable-prefix}hr-opacity, $hr-opacity);
 }
 
 hr:not([size]) {
-  height:var(--#{$variable-prefix}hr-height, $hr-height); // 2
+  height: var(--#{$variable-prefix}hr-height, $hr-height); // 2
 }
 
 
@@ -87,12 +87,12 @@ hr:not([size]) {
 
 %heading {
   margin-top: 0; // 1
-  margin-bottom:var(--#{$variable-prefix}headings-margin-bottom, $headings-margin-bottom);
-  font-family:var(--#{$variable-prefix}headings-font-family, $headings-font-family);
-  font-style:var(--#{$variable-prefix}headings-font-style, $headings-font-style);
-  font-weight:var(--#{$variable-prefix}headings-font-weight, $headings-font-weight);
-  line-height:var(--#{$variable-prefix}headings-line-height, $headings-line-height);
-  color:var(--#{$variable-prefix}headings-color, $headings-color);
+  margin-bottom: var(--#{$variable-prefix}headings-margin-bottom, $headings-margin-bottom);
+  font-family: var(--#{$variable-prefix}headings-font-family, $headings-font-family);
+  font-style: var(--#{$variable-prefix}headings-font-style, $headings-font-style);
+  font-weight: var(--#{$variable-prefix}headings-font-weight, $headings-font-weight);
+  line-height: var(--#{$variable-prefix}headings-line-height, $headings-line-height);
+  color: var(--#{$variable-prefix}headings-color, $headings-color);
 }
 
 h1 {
@@ -133,7 +133,7 @@ h6 {
 
 p {
   margin-top: 0;
-  margin-bottom:var(--#{$variable-prefix}paragraph-margin-bottom, $paragraph-margin-bottom);
+  margin-bottom: var(--#{$variable-prefix}paragraph-margin-bottom, $paragraph-margin-bottom);
 }
 
 
@@ -183,7 +183,7 @@ ul ol {
 }
 
 dt {
-  font-weight:var(--#{$variable-prefix}dt-font-weight, $dt-font-weight);
+  font-weight: var(--#{$variable-prefix}dt-font-weight, $dt-font-weight);
 }
 
 // 1. Undo browser default
@@ -207,7 +207,7 @@ blockquote {
 
 b,
 strong {
-  font-weight:var(--#{$variable-prefix}font-weight-bolder, $font-weight-bolder);
+  font-weight: var(--#{$variable-prefix}font-weight-bolder, $font-weight-bolder);
 }
 
 
@@ -223,8 +223,8 @@ small {
 // Mark
 
 mark {
-  padding:var(--#{$variable-prefix}mark-padding, $mark-padding);
-  background-color:var(--#{$variable-prefix}mark-bg, $mark-bg);
+  padding: var(--#{$variable-prefix}mark-padding, $mark-padding);
+  background-color: var(--#{$variable-prefix}mark-bg, $mark-bg);
 }
 
 
@@ -248,12 +248,12 @@ sup { top: -.5em; }
 // Links
 
 a {
-  color:var(--#{$variable-prefix}link-color, $link-color);
-  text-decoration:var(--#{$variable-prefix}link-decoration, $link-decoration);
+  color: var(--#{$variable-prefix}link-color, $link-color);
+  text-decoration: var(--#{$variable-prefix}link-decoration, $link-decoration);
 
   &:hover {
-    color:var(--#{$variable-prefix}link-hover-color, $link-hover-color);
-    text-decoration:var(--#{$variable-prefix}link-hover-decoration, $link-hover-decoration);
+    color: var(--#{$variable-prefix}link-hover-color, $link-hover-color);
+    text-decoration: var(--#{$variable-prefix}link-hover-decoration, $link-hover-decoration);
   }
 }
 
@@ -277,7 +277,7 @@ pre,
 code,
 kbd,
 samp {
-  font-family:var(--#{$variable-prefix}font-family-code, $font-family-code);
+  font-family: var(--#{$variable-prefix}font-family-code, $font-family-code);
   @include font-size(1em); // Correct the odd `em` font sizing in all browsers.
   direction: ltr #{"/* rtl:ignore */"};
   unicode-bidi: bidi-override;
@@ -293,7 +293,7 @@ pre {
   margin-bottom: 1rem; // 2
   overflow: auto; // 3
   @include font-size($code-font-size);
-  color:var(--#{$variable-prefix}pre-color, $pre-color);
+  color: var(--#{$variable-prefix}pre-color, $pre-color);
 
   // Account for some code outputs that place code tags in pre tags
   code {
@@ -305,7 +305,7 @@ pre {
 
 code {
   @include font-size($code-font-size);
-  color:var(--#{$variable-prefix}code-color, $code-color);
+  color: var(--#{$variable-prefix}code-color, $code-color);
   word-wrap: break-word;
 
   // Streamline the style when inside anchors to avoid broken underline and more
@@ -315,16 +315,16 @@ code {
 }
 
 kbd {
-  padding:var(--#{$variable-prefix}kbd-padding-y, $kbd-padding-y)var(--#{$variable-prefix}kbd-padding-x, $kbd-padding-x);
+  padding: var(--#{$variable-prefix}kbd-padding-y, $kbd-padding-y) var(--#{$variable-prefix}kbd-padding-x, $kbd-padding-x);
   @include font-size($kbd-font-size);
-  color:var(--#{$variable-prefix}kbd-color, $kbd-color);
-  background-color:var(--#{$variable-prefix}kbd-bg, $kbd-bg);
+  color: var(--#{$variable-prefix}kbd-color, $kbd-color);
+  background-color: var(--#{$variable-prefix}kbd-bg, $kbd-bg);
   @include border-radius($border-radius-sm);
 
   kbd {
     padding: 0;
     @include font-size(1em);
-    font-weight:var(--#{$variable-prefix}nested-kbd-font-weight, $nested-kbd-font-weight);
+    font-weight: var(--#{$variable-prefix}nested-kbd-font-weight, $nested-kbd-font-weight);
   }
 }
 
@@ -356,9 +356,9 @@ table {
 }
 
 caption {
-  padding-top:var(--#{$variable-prefix}table-cell-padding-y, $table-cell-padding-y);
-  padding-bottom:var(--#{$variable-prefix}table-cell-padding-y, $table-cell-padding-y);
-  color:var(--#{$variable-prefix}table-caption-color, $table-caption-color);
+  padding-top: var(--#{$variable-prefix}table-cell-padding-y, $table-cell-padding-y);
+  padding-bottom: var(--#{$variable-prefix}table-cell-padding-y, $table-cell-padding-y);
+  color: var(--#{$variable-prefix}table-caption-color, $table-caption-color);
   text-align: left;
 }
 
@@ -367,7 +367,7 @@ caption {
 // 3. Fix alignment for Safari
 
 th {
-  font-weight:var(--#{$variable-prefix}table-th-font-weight, $table-th-font-weight); // 1
+  font-weight: var(--#{$variable-prefix}table-th-font-weight, $table-th-font-weight); // 1
   text-align: inherit; // 2
   text-align: -webkit-match-parent; // 3
 }
@@ -506,9 +506,9 @@ legend {
   float: left; // 1
   width: 100%;
   padding: 0;
-  margin-bottom:var(--#{$variable-prefix}legend-margin-bottom, $legend-margin-bottom);
+  margin-bottom: var(--#{$variable-prefix}legend-margin-bottom, $legend-margin-bottom);
   @include font-size($legend-font-size);
-  font-weight:var(--#{$variable-prefix}legend-font-weight, $legend-font-weight);
+  font-weight: var(--#{$variable-prefix}legend-font-weight, $legend-font-weight);
   line-height: inherit;
 
   + * {

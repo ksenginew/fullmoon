@@ -13,10 +13,10 @@
   --#{$variable-prefix}table-hover-bg: #{$table-hover-bg};
 
   width: 100%;
-  margin-bottom:var(--#{$variable-prefix}spacer, $spacer);
-  color:var(--#{$variable-prefix}table-color, $table-color);
-  vertical-align:var(--#{$variable-prefix}table-cell-vertical-align, $table-cell-vertical-align);
-  border-color:var(--#{$variable-prefix}table-border-color, $table-border-color);
+  margin-bottom: var(--#{$variable-prefix}spacer, $spacer);
+  color: var(--#{$variable-prefix}table-color, $table-color);
+  vertical-align: var(--#{$variable-prefix}table-cell-vertical-align, $table-cell-vertical-align);
+  border-color: var(--#{$variable-prefix}table-border-color, $table-border-color);
 
   // Target th & td
   // We need the child combinator to prevent styles leaking to nested tables which doesn't have a `.table` class.
@@ -24,9 +24,9 @@
   // Another advantage is that this generates less code and makes the selector less specific making it easier to override.
   // stylelint-disable-next-line selector-max-universal
   > :not(caption) > * > * {
-    padding:var(--#{$variable-prefix}table-cell-padding-y, $table-cell-padding-y)var(--#{$variable-prefix}table-cell-padding-x, $table-cell-padding-x);
+    padding: var(--#{$variable-prefix}table-cell-padding-y, $table-cell-padding-y) var(--#{$variable-prefix}table-cell-padding-x, $table-cell-padding-x);
     background-color: var(--#{$variable-prefix}table-bg);
-    border-bottom-width:var(--#{$variable-prefix}table-border-width, $table-border-width);
+    border-bottom-width: var(--#{$variable-prefix}table-border-width, $table-border-width);
     box-shadow: inset 0 0 0 9999px var(--#{$variable-prefix}table-accent-bg);
   }
 
@@ -61,7 +61,7 @@
 .table-sm {
   // stylelint-disable-next-line selector-max-universal
   > :not(caption) > * > * {
-    padding:var(--#{$variable-prefix}table-cell-padding-y-sm, $table-cell-padding-y-sm)var(--#{$variable-prefix}table-cell-padding-x-sm, $table-cell-padding-x-sm);
+    padding: var(--#{$variable-prefix}table-cell-padding-y-sm, $table-cell-padding-y-sm) var(--#{$variable-prefix}table-cell-padding-x-sm, $table-cell-padding-x-sm);
   }
 }
 

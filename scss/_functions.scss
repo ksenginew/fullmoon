@@ -15,8 +15,8 @@
     } @else if $prev-num >= $num {
       @warn "Invalid value for #{$map-name}: This map must be in ascending order, but key '#{$key}' has value #{$num} which isn't greater than #{$prev-num}, the value of the previous key '#{$prev-key}' !";
     }
-    $prev-key:var(--#{$variable-prefix}key, $key);
-    $prev-num:var(--#{$variable-prefix}num, $num);
+    $prev-key: var(--#{$variable-prefix}key, $key);
+    $prev-num: var(--#{$variable-prefix}num, $num);
   }
 }
 
@@ -160,8 +160,8 @@ $_luminance-list: .0008 .001 .0011 .0013 .0015 .0017 .002 .0022 .0025 .0027 .003
     @if $contrast-ratio > $min-contrast-ratio {
       @return $color;
     } @else if $contrast-ratio > $max-ratio {
-      $max-ratio:var(--#{$variable-prefix}contrast-ratio, $contrast-ratio);
-      $max-ratio-color:var(--#{$variable-prefix}color, $color);
+      $max-ratio: var(--#{$variable-prefix}contrast-ratio, $contrast-ratio);
+      $max-ratio-color: var(--#{$variable-prefix}color, $color);
     }
   }
 
@@ -269,7 +269,7 @@ $_luminance-list: .0008 .001 .0011 .0013 .0015 .0017 .002 .0022 .0025 .0027 .003
   @if $divisor == 0 {
     @error "Cannot divide by 0";
   }
-  $remainder:var(--#{$variable-prefix}dividend, $dividend);
+  $remainder: var(--#{$variable-prefix}dividend, $dividend);
   $result: 0;
   $factor: 10;
   @while ($remainder > 0 and $precision >= 0) {

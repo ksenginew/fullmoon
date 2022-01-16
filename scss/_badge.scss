@@ -5,11 +5,11 @@
 
 .badge {
   display: inline-block;
-  padding:var(--#{$variable-prefix}badge-padding-y, $badge-padding-y)var(--#{$variable-prefix}badge-padding-x, $badge-padding-x);
+  padding: var(--#{$variable-prefix}badge-padding-y, $badge-padding-y) var(--#{$variable-prefix}badge-padding-x, $badge-padding-x);
   @include font-size($badge-font-size);
-  font-weight:var(--#{$variable-prefix}badge-font-weight, $badge-font-weight);
+  font-weight: var(--#{$variable-prefix}badge-font-weight, $badge-font-weight);
   line-height: 1;
-  color:var(--#{$variable-prefix}badge-color, $badge-color);
+  color: var(--#{$variable-prefix}badge-color, $badge-color);
   text-align: center;
   white-space: nowrap;
   vertical-align: baseline;

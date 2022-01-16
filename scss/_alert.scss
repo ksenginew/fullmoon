@@ -4,8 +4,8 @@
 
 .alert {
   position: relative;
-  padding:var(--#{$variable-prefix}alert-padding-y, $alert-padding-y)var(--#{$variable-prefix}alert-padding-x, $alert-padding-x);
-  margin-bottom:var(--#{$variable-prefix}alert-margin-bottom, $alert-margin-bottom);
+  padding: var(--#{$variable-prefix}alert-padding-y, $alert-padding-y) var(--#{$variable-prefix}alert-padding-x, $alert-padding-x);
+  margin-bottom: var(--#{$variable-prefix}alert-margin-bottom, $alert-margin-bottom);
   border: $alert-border-width solid transparent;
   @include border-radius($alert-border-radius);
 }
@@ -18,7 +18,7 @@
 
 // Provide class for links that match alerts
 .alert-link {
-  font-weight:var(--#{$variable-prefix}alert-link-font-weight, $alert-link-font-weight);
+  font-weight: var(--#{$variable-prefix}alert-link-font-weight, $alert-link-font-weight);
 }
 
 
@@ -27,7 +27,7 @@
 // Expand the right padding and account for the close button's positioning.
 
 .alert-dismissible {
-  padding-right:var(--#{$variable-prefix}alert-dismissible-padding-r, $alert-dismissible-padding-r);
+  padding-right: var(--#{$variable-prefix}alert-dismissible-padding-r, $alert-dismissible-padding-r);
 
   // Adjust close link position
   .btn-close {
