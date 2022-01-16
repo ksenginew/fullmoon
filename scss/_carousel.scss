@@ -97,22 +97,22 @@
   display: flex; // 1. allow flex styles
   align-items: center; // 2. vertically center contents
   justify-content: center; // 3. horizontally center contents
-  width: $carousel-control-width;
+  width:var(--#{$variable-prefix}carousel-control-width, $carousel-control-width);
   padding: 0;
-  color: $carousel-control-color;
+  color:var(--#{$variable-prefix}carousel-control-color, $carousel-control-color);
   text-align: center;
   background: none;
   border: 0;
-  opacity: $carousel-control-opacity;
+  opacity:var(--#{$variable-prefix}carousel-control-opacity, $carousel-control-opacity);
   @include transition($carousel-control-transition);
 
   // Hover/focus state
   &:hover,
   &:focus {
-    color: $carousel-control-color;
+    color:var(--#{$variable-prefix}carousel-control-color, $carousel-control-color);
     text-decoration: none;
     outline: 0;
-    opacity: $carousel-control-hover-opacity;
+    opacity:var(--#{$variable-prefix}carousel-control-hover-opacity, $carousel-control-hover-opacity);
   }
 }
 .carousel-control-prev {
@@ -128,8 +128,8 @@
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
   display: inline-block;
-  width: $carousel-control-icon-width;
-  height: $carousel-control-icon-width;
+  width:var(--#{$variable-prefix}carousel-control-icon-width, $carousel-control-icon-width);
+  height:var(--#{$variable-prefix}carousel-control-icon-width, $carousel-control-icon-width);
   background-repeat: no-repeat;
   background-position: 50%;
   background-size: 100% 100%;
@@ -165,33 +165,33 @@
   justify-content: center;
   padding: 0;
   // Use the .carousel-control's width as margin so we don't overlay those
-  margin-right: $carousel-control-width;
+  margin-right:var(--#{$variable-prefix}carousel-control-width, $carousel-control-width);
   margin-bottom: 1rem;
-  margin-left: $carousel-control-width;
+  margin-left:var(--#{$variable-prefix}carousel-control-width, $carousel-control-width);
   list-style: none;
 
   [data-bs-target] {
     box-sizing: content-box;
     flex: 0 1 auto;
-    width: $carousel-indicator-width;
-    height: $carousel-indicator-height;
+    width:var(--#{$variable-prefix}carousel-indicator-width, $carousel-indicator-width);
+    height:var(--#{$variable-prefix}carousel-indicator-height, $carousel-indicator-height);
     padding: 0;
-    margin-right: $carousel-indicator-spacer;
-    margin-left: $carousel-indicator-spacer;
+    margin-right:var(--#{$variable-prefix}carousel-indicator-spacer, $carousel-indicator-spacer);
+    margin-left:var(--#{$variable-prefix}carousel-indicator-spacer, $carousel-indicator-spacer);
     text-indent: -999px;
     cursor: pointer;
-    background-color: $carousel-indicator-active-bg;
+    background-color:var(--#{$variable-prefix}carousel-indicator-active-bg, $carousel-indicator-active-bg);
     background-clip: padding-box;
     border: 0;
     // Use transparent borders to increase the hit area by 10px on top and bottom.
     border-top: $carousel-indicator-hit-area-height solid transparent;
     border-bottom: $carousel-indicator-hit-area-height solid transparent;
-    opacity: $carousel-indicator-opacity;
+    opacity:var(--#{$variable-prefix}carousel-indicator-opacity, $carousel-indicator-opacity);
     @include transition($carousel-indicator-transition);
   }
 
   .active {
-    opacity: $carousel-indicator-active-opacity;
+    opacity:var(--#{$variable-prefix}carousel-indicator-active-opacity, $carousel-indicator-active-opacity);
   }
 }
 
@@ -203,11 +203,11 @@
 .carousel-caption {
   position: absolute;
   right: (100% - $carousel-caption-width) * .5;
-  bottom: $carousel-caption-spacer;
+  bottom:var(--#{$variable-prefix}carousel-caption-spacer, $carousel-caption-spacer);
   left: (100% - $carousel-caption-width) * .5;
-  padding-top: $carousel-caption-padding-y;
-  padding-bottom: $carousel-caption-padding-y;
-  color: $carousel-caption-color;
+  padding-top:var(--#{$variable-prefix}carousel-caption-padding-y, $carousel-caption-padding-y);
+  padding-bottom:var(--#{$variable-prefix}carousel-caption-padding-y, $carousel-caption-padding-y);
+  color:var(--#{$variable-prefix}carousel-caption-color, $carousel-caption-color);
   text-align: center;
 }
 
@@ -216,14 +216,14 @@
 .carousel-dark {
   .carousel-control-prev-icon,
   .carousel-control-next-icon {
-    filter: $carousel-dark-control-icon-filter;
+    filter:var(--#{$variable-prefix}carousel-dark-control-icon-filter, $carousel-dark-control-icon-filter);
   }
 
   .carousel-indicators [data-bs-target] {
-    background-color: $carousel-dark-indicator-active-bg;
+    background-color:var(--#{$variable-prefix}carousel-dark-indicator-active-bg, $carousel-dark-indicator-active-bg);
   }
 
   .carousel-caption {
-    color: $carousel-dark-caption-color;
+    color:var(--#{$variable-prefix}carousel-dark-caption-color, $carousel-dark-caption-color);
   }
 }

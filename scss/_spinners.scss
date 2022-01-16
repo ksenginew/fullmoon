@@ -10,9 +10,9 @@
 
 .spinner-border {
   display: inline-block;
-  width: $spinner-width;
-  height: $spinner-height;
-  vertical-align: $spinner-vertical-align;
+  width:var(--#{$variable-prefix}spinner-width, $spinner-width);
+  height:var(--#{$variable-prefix}spinner-height, $spinner-height);
+  vertical-align:var(--#{$variable-prefix}spinner-vertical-align, $spinner-vertical-align);
   border: $spinner-border-width solid currentColor;
   border-right-color: transparent;
   // stylelint-disable-next-line property-disallowed-list
@@ -21,9 +21,9 @@
 }
 
 .spinner-border-sm {
-  width: $spinner-width-sm;
-  height: $spinner-height-sm;
-  border-width: $spinner-border-width-sm;
+  width:var(--#{$variable-prefix}spinner-width-sm, $spinner-width-sm);
+  height:var(--#{$variable-prefix}spinner-height-sm, $spinner-height-sm);
+  border-width:var(--#{$variable-prefix}spinner-border-width-sm, $spinner-border-width-sm);
 }
 
 //
@@ -44,9 +44,9 @@
 
 .spinner-grow {
   display: inline-block;
-  width: $spinner-width;
-  height: $spinner-height;
-  vertical-align: $spinner-vertical-align;
+  width:var(--#{$variable-prefix}spinner-width, $spinner-width);
+  height:var(--#{$variable-prefix}spinner-height, $spinner-height);
+  vertical-align:var(--#{$variable-prefix}spinner-vertical-align, $spinner-vertical-align);
   background-color: currentColor;
   // stylelint-disable-next-line property-disallowed-list
   border-radius: 50%;
@@ -55,8 +55,8 @@
 }
 
 .spinner-grow-sm {
-  width: $spinner-width-sm;
-  height: $spinner-height-sm;
+  width:var(--#{$variable-prefix}spinner-width-sm, $spinner-width-sm);
+  height:var(--#{$variable-prefix}spinner-height-sm, $spinner-height-sm);
 }
 
 @if $enable-reduced-motion {

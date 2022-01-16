@@ -4,7 +4,7 @@
   vertical-align: middle;
   cursor: wait;
   background-color: currentColor;
-  opacity: $placeholder-opacity-max;
+  opacity:var(--#{$variable-prefix}placeholder-opacity-max, $placeholder-opacity-max);
 
   &.btn::before {
     display: inline-block;
@@ -34,7 +34,7 @@
 
 @keyframes placeholder-glow {
   50% {
-    opacity: $placeholder-opacity-min;
+    opacity:var(--#{$variable-prefix}placeholder-opacity-min, $placeholder-opacity-min);
   }
 }
 

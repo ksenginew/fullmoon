@@ -1,13 +1,13 @@
 .toast {
-  width: $toast-max-width;
+  width:var(--#{$variable-prefix}toast-max-width, $toast-max-width);
   max-width: 100%;
   @include font-size($toast-font-size);
-  color: $toast-color;
+  color:var(--#{$variable-prefix}toast-color, $toast-color);
   pointer-events: auto;
-  background-color: $toast-background-color;
+  background-color:var(--#{$variable-prefix}toast-background-color, $toast-background-color);
   background-clip: padding-box;
   border: $toast-border-width solid $toast-border-color;
-  box-shadow: $toast-box-shadow;
+  box-shadow:var(--#{$variable-prefix}toast-box-shadow, $toast-box-shadow);
   @include border-radius($toast-border-radius);
 
   &.showing {
@@ -25,27 +25,27 @@
   pointer-events: none;
 
   > :not(:last-child) {
-    margin-bottom: $toast-spacing;
+    margin-bottom:var(--#{$variable-prefix}toast-spacing, $toast-spacing);
   }
 }
 
 .toast-header {
   display: flex;
   align-items: center;
-  padding: $toast-padding-y $toast-padding-x;
-  color: $toast-header-color;
-  background-color: $toast-header-background-color;
+  padding:var(--#{$variable-prefix}toast-padding-y, $toast-padding-y)var(--#{$variable-prefix}toast-padding-x, $toast-padding-x);
+  color:var(--#{$variable-prefix}toast-header-color, $toast-header-color);
+  background-color:var(--#{$variable-prefix}toast-header-background-color, $toast-header-background-color);
   background-clip: padding-box;
   border-bottom: $toast-border-width solid $toast-header-border-color;
   @include border-top-radius(subtract($toast-border-radius, $toast-border-width));
 
   .btn-close {
     margin-right: $toast-padding-x * -.5;
-    margin-left: $toast-padding-x;
+    margin-left:var(--#{$variable-prefix}toast-padding-x, $toast-padding-x);
   }
 }
 
 .toast-body {
-  padding: $toast-padding-x; // apply to both vertical and horizontal
+  padding:var(--#{$variable-prefix}toast-padding-x, $toast-padding-x); // apply to both vertical and horizontal
   word-wrap: break-word;
 }

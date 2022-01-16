@@ -1,9 +1,9 @@
 // Base class
 .tooltip {
   position: absolute;
-  z-index: $zindex-tooltip;
+  z-index:var(--#{$variable-prefix}zindex-tooltip, $zindex-tooltip);
   display: block;
-  margin: $tooltip-margin;
+  margin:var(--#{$variable-prefix}tooltip-margin, $tooltip-margin);
   // Our parent element can be arbitrary since tooltips are by default inserted as a sibling of their target element.
   // So reset our font and text properties to avoid inheriting weird values.
   @include reset-text();
@@ -12,13 +12,13 @@
   word-wrap: break-word;
   opacity: 0;
 
-  &.show { opacity: $tooltip-opacity; }
+  &.show { opacity:var(--#{$variable-prefix}tooltip-opacity, $tooltip-opacity); }
 
   .tooltip-arrow {
     position: absolute;
     display: block;
-    width: $tooltip-arrow-width;
-    height: $tooltip-arrow-height;
+    width:var(--#{$variable-prefix}tooltip-arrow-width, $tooltip-arrow-width);
+    height:var(--#{$variable-prefix}tooltip-arrow-height, $tooltip-arrow-height);
 
     &::before {
       position: absolute;
@@ -38,7 +38,7 @@
     &::before {
       top: -1px;
       border-width: $tooltip-arrow-height ($tooltip-arrow-width * .5) 0;
-      border-top-color: $tooltip-arrow-color;
+      border-top-color:var(--#{$variable-prefix}tooltip-arrow-color, $tooltip-arrow-color);
     }
   }
 }
@@ -48,13 +48,13 @@
 
   .tooltip-arrow {
     left: 0;
-    width: $tooltip-arrow-height;
-    height: $tooltip-arrow-width;
+    width:var(--#{$variable-prefix}tooltip-arrow-height, $tooltip-arrow-height);
+    height:var(--#{$variable-prefix}tooltip-arrow-width, $tooltip-arrow-width);
 
     &::before {
       right: -1px;
       border-width: ($tooltip-arrow-width * .5) $tooltip-arrow-height ($tooltip-arrow-width * .5) 0;
-      border-right-color: $tooltip-arrow-color;
+      border-right-color:var(--#{$variable-prefix}tooltip-arrow-color, $tooltip-arrow-color);
     }
   }
 }
@@ -68,7 +68,7 @@
     &::before {
       bottom: -1px;
       border-width: 0 ($tooltip-arrow-width * .5) $tooltip-arrow-height;
-      border-bottom-color: $tooltip-arrow-color;
+      border-bottom-color:var(--#{$variable-prefix}tooltip-arrow-color, $tooltip-arrow-color);
     }
   }
 }
@@ -78,13 +78,13 @@
 
   .tooltip-arrow {
     right: 0;
-    width: $tooltip-arrow-height;
-    height: $tooltip-arrow-width;
+    width:var(--#{$variable-prefix}tooltip-arrow-height, $tooltip-arrow-height);
+    height:var(--#{$variable-prefix}tooltip-arrow-width, $tooltip-arrow-width);
 
     &::before {
       left: -1px;
       border-width: ($tooltip-arrow-width * .5) 0 ($tooltip-arrow-width * .5) $tooltip-arrow-height;
-      border-left-color: $tooltip-arrow-color;
+      border-left-color:var(--#{$variable-prefix}tooltip-arrow-color, $tooltip-arrow-color);
     }
   }
 }
@@ -106,10 +106,10 @@
 
 // Wrapper for the tooltip content
 .tooltip-inner {
-  max-width: $tooltip-max-width;
-  padding: $tooltip-padding-y $tooltip-padding-x;
-  color: $tooltip-color;
+  max-width:var(--#{$variable-prefix}tooltip-max-width, $tooltip-max-width);
+  padding:var(--#{$variable-prefix}tooltip-padding-y, $tooltip-padding-y)var(--#{$variable-prefix}tooltip-padding-x, $tooltip-padding-x);
+  color:var(--#{$variable-prefix}tooltip-color, $tooltip-color);
   text-align: center;
-  background-color: $tooltip-bg;
+  background-color:var(--#{$variable-prefix}tooltip-bg, $tooltip-bg);
   @include border-radius($tooltip-border-radius);
 }

@@ -28,15 +28,15 @@
 
 .lead {
   @include font-size($lead-font-size);
-  font-weight: $lead-font-weight;
+  font-weight:var(--#{$variable-prefix}lead-font-weight, $lead-font-weight);
 }
 
 // Type display classes
 @each $display, $font-size in $display-font-sizes {
   .display-#{$display} {
     @include font-size($font-size);
-    font-weight: $display-font-weight;
-    line-height: $display-line-height;
+    font-weight:var(--#{$variable-prefix}display-font-weight, $display-font-weight);
+    line-height:var(--#{$variable-prefix}display-line-height, $display-line-height);
   }
 }
 
@@ -67,7 +67,7 @@
   display: inline-block;
 
   &:not(:last-child) {
-    margin-right: $list-inline-padding;
+    margin-right:var(--#{$variable-prefix}list-inline-padding, $list-inline-padding);
   }
 }
 
@@ -84,7 +84,7 @@
 
 // Blockquotes
 .blockquote {
-  margin-bottom: $blockquote-margin-y;
+  margin-bottom:var(--#{$variable-prefix}blockquote-margin-y, $blockquote-margin-y);
   @include font-size($blockquote-font-size);
 
   > :last-child {
@@ -94,9 +94,9 @@
 
 .blockquote-footer {
   margin-top: -$blockquote-margin-y;
-  margin-bottom: $blockquote-margin-y;
+  margin-bottom:var(--#{$variable-prefix}blockquote-margin-y, $blockquote-margin-y);
   @include font-size($blockquote-footer-font-size);
-  color: $blockquote-footer-color;
+  color:var(--#{$variable-prefix}blockquote-footer-color, $blockquote-footer-color);
 
   &::before {
     content: "\2014\00A0"; // em dash, nbsp
