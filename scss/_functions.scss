@@ -216,6 +216,11 @@ $_luminance-list: .0008 .001 .0011 .0013 .0015 .0017 .002 .0022 .0025 .0027 .003
 @function shift-color($color, $weight) {
   @return if($weight > 0, shade-color($color, $weight), tint-color($color, -$weight));
 }
+
+// Get dark mode colors
+@function dark($color) {
+    @return hsl(hue($color), saturation($color), 100% - lightness($color), alpha($color))
+}
 // scss-docs-end color-functions
 
 // Return valid calc
