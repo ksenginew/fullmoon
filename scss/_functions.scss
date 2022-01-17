@@ -300,3 +300,12 @@ $_luminance-list: .0008 .001 .0011 .0013 .0015 .0017 .002 .0022 .0025 .0027 .003
   }
   @return $result;
 }
+
+// CSS variables(from fullmoon)
+@function css-var($name, $value) {
+  @if $value == null {
+    @return null;
+  }
+
+  @return var($name, $value);
+}
