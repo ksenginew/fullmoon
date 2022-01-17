@@ -20,10 +20,10 @@
   flex-wrap: wrap; // allow us to do the line break for collapsing content
   align-items: center;
   justify-content: space-between; // space out brand from logo
-  padding-top: var(--#{$variable-prefix}navbar-padding-y, $navbar-padding-y);
-  padding-right: var(--#{$variable-prefix}navbar-padding-x, $navbar-padding-x); // default: null
-  padding-bottom: var(--#{$variable-prefix}navbar-padding-y, $navbar-padding-y);
-  padding-left: var(--#{$variable-prefix}navbar-padding-x, $navbar-padding-x); // default: null
+  padding-top: css-var(--#{$variable-prefix}navbar-padding-y, $navbar-padding-y);
+  padding-right: css-var(--#{$variable-prefix}navbar-padding-x, $navbar-padding-x); // default: null
+  padding-bottom: css-var(--#{$variable-prefix}navbar-padding-y, $navbar-padding-y);
+  padding-left: css-var(--#{$variable-prefix}navbar-padding-x, $navbar-padding-x); // default: null
   @include gradient-bg();
 
   // Because flex properties aren't inherited, we need to redeclare these first
@@ -54,9 +54,9 @@
 // Used for brand, project, or site names.
 
 .navbar-brand {
-  padding-top: var(--#{$variable-prefix}navbar-brand-padding-y, $navbar-brand-padding-y);
-  padding-bottom: var(--#{$variable-prefix}navbar-brand-padding-y, $navbar-brand-padding-y);
-  margin-right: var(--#{$variable-prefix}navbar-brand-margin-end, $navbar-brand-margin-end);
+  padding-top: css-var(--#{$variable-prefix}navbar-brand-padding-y, $navbar-brand-padding-y);
+  padding-bottom: css-var(--#{$variable-prefix}navbar-brand-padding-y, $navbar-brand-padding-y);
+  margin-right: css-var(--#{$variable-prefix}navbar-brand-margin-end, $navbar-brand-margin-end);
   @include font-size($navbar-brand-font-size);
   text-decoration: if($link-decoration == none, null, none);
   white-space: nowrap;
@@ -95,8 +95,8 @@
 //
 
 .navbar-text {
-  padding-top: var(--#{$variable-prefix}nav-link-padding-y, $nav-link-padding-y);
-  padding-bottom: var(--#{$variable-prefix}nav-link-padding-y, $nav-link-padding-y);
+  padding-top: css-var(--#{$variable-prefix}nav-link-padding-y, $nav-link-padding-y);
+  padding-bottom: css-var(--#{$variable-prefix}nav-link-padding-y, $nav-link-padding-y);
 }
 
 
@@ -118,7 +118,7 @@
 
 // Button for toggling the navbar when in its collapsed state
 .navbar-toggler {
-  padding: var(--#{$variable-prefix}navbar-toggler-padding-y, $navbar-toggler-padding-y) var(--#{$variable-prefix}navbar-toggler-padding-x, $navbar-toggler-padding-x);
+  padding: css-var(--#{$variable-prefix}navbar-toggler-padding-y, $navbar-toggler-padding-y) css-var(--#{$variable-prefix}navbar-toggler-padding-x, $navbar-toggler-padding-x);
   @include font-size($navbar-toggler-font-size);
   line-height: 1;
   background-color: transparent; // remove default button style
@@ -176,8 +176,8 @@
           }
 
           .nav-link {
-            padding-right: var(--#{$variable-prefix}navbar-nav-link-padding-x, $navbar-nav-link-padding-x);
-            padding-left: var(--#{$variable-prefix}navbar-nav-link-padding-x, $navbar-nav-link-padding-x);
+            padding-right: css-var(--#{$variable-prefix}navbar-nav-link-padding-x, $navbar-nav-link-padding-x);
+            padding-left: css-var(--#{$variable-prefix}navbar-nav-link-padding-x, $navbar-nav-link-padding-x);
           }
         }
 
@@ -236,37 +236,37 @@
 // Dark links against a light background
 .navbar-light {
   .navbar-brand {
-    color: var(--#{$variable-prefix}navbar-light-brand-color, $navbar-light-brand-color);
+    color: css-var(--#{$variable-prefix}navbar-light-brand-color, $navbar-light-brand-color);
 
     &:hover,
     &:focus {
-      color: var(--#{$variable-prefix}navbar-light-brand-hover-color, $navbar-light-brand-hover-color);
+      color: css-var(--#{$variable-prefix}navbar-light-brand-hover-color, $navbar-light-brand-hover-color);
     }
   }
 
   .navbar-nav {
     .nav-link {
-      color: var(--#{$variable-prefix}navbar-light-color, $navbar-light-color);
+      color: css-var(--#{$variable-prefix}navbar-light-color, $navbar-light-color);
 
       &:hover,
       &:focus {
-        color: var(--#{$variable-prefix}navbar-light-hover-color, $navbar-light-hover-color);
+        color: css-var(--#{$variable-prefix}navbar-light-hover-color, $navbar-light-hover-color);
       }
 
       &.disabled {
-        color: var(--#{$variable-prefix}navbar-light-disabled-color, $navbar-light-disabled-color);
+        color: css-var(--#{$variable-prefix}navbar-light-disabled-color, $navbar-light-disabled-color);
       }
     }
 
     .show > .nav-link,
     .nav-link.active {
-      color: var(--#{$variable-prefix}navbar-light-active-color, $navbar-light-active-color);
+      color: css-var(--#{$variable-prefix}navbar-light-active-color, $navbar-light-active-color);
     }
   }
 
   .navbar-toggler {
-    color: var(--#{$variable-prefix}navbar-light-color, $navbar-light-color);
-    border-color: var(--#{$variable-prefix}navbar-light-toggler-border-color, $navbar-light-toggler-border-color);
+    color: css-var(--#{$variable-prefix}navbar-light-color, $navbar-light-color);
+    border-color: css-var(--#{$variable-prefix}navbar-light-toggler-border-color, $navbar-light-toggler-border-color);
   }
 
   .navbar-toggler-icon {
@@ -274,12 +274,12 @@
   }
 
   .navbar-text {
-    color: var(--#{$variable-prefix}navbar-light-color, $navbar-light-color);
+    color: css-var(--#{$variable-prefix}navbar-light-color, $navbar-light-color);
 
     a,
     a:hover,
     a:focus  {
-      color: var(--#{$variable-prefix}navbar-light-active-color, $navbar-light-active-color);
+      color: css-var(--#{$variable-prefix}navbar-light-active-color, $navbar-light-active-color);
     }
   }
 }
@@ -287,37 +287,37 @@
 // White links against a dark background
 .navbar-dark {
   .navbar-brand {
-    color: var(--#{$variable-prefix}navbar-dark-brand-color, $navbar-dark-brand-color);
+    color: css-var(--#{$variable-prefix}navbar-dark-brand-color, $navbar-dark-brand-color);
 
     &:hover,
     &:focus {
-      color: var(--#{$variable-prefix}navbar-dark-brand-hover-color, $navbar-dark-brand-hover-color);
+      color: css-var(--#{$variable-prefix}navbar-dark-brand-hover-color, $navbar-dark-brand-hover-color);
     }
   }
 
   .navbar-nav {
     .nav-link {
-      color: var(--#{$variable-prefix}navbar-dark-color, $navbar-dark-color);
+      color: css-var(--#{$variable-prefix}navbar-dark-color, $navbar-dark-color);
 
       &:hover,
       &:focus {
-        color: var(--#{$variable-prefix}navbar-dark-hover-color, $navbar-dark-hover-color);
+        color: css-var(--#{$variable-prefix}navbar-dark-hover-color, $navbar-dark-hover-color);
       }
 
       &.disabled {
-        color: var(--#{$variable-prefix}navbar-dark-disabled-color, $navbar-dark-disabled-color);
+        color: css-var(--#{$variable-prefix}navbar-dark-disabled-color, $navbar-dark-disabled-color);
       }
     }
 
     .show > .nav-link,
     .nav-link.active {
-      color: var(--#{$variable-prefix}navbar-dark-active-color, $navbar-dark-active-color);
+      color: css-var(--#{$variable-prefix}navbar-dark-active-color, $navbar-dark-active-color);
     }
   }
 
   .navbar-toggler {
-    color: var(--#{$variable-prefix}navbar-dark-color, $navbar-dark-color);
-    border-color: var(--#{$variable-prefix}navbar-dark-toggler-border-color, $navbar-dark-toggler-border-color);
+    color: css-var(--#{$variable-prefix}navbar-dark-color, $navbar-dark-color);
+    border-color: css-var(--#{$variable-prefix}navbar-dark-toggler-border-color, $navbar-dark-toggler-border-color);
   }
 
   .navbar-toggler-icon {
@@ -325,11 +325,11 @@
   }
 
   .navbar-text {
-    color: var(--#{$variable-prefix}navbar-dark-color, $navbar-dark-color);
+    color: css-var(--#{$variable-prefix}navbar-dark-color, $navbar-dark-color);
     a,
     a:hover,
     a:focus {
-      color: var(--#{$variable-prefix}navbar-dark-active-color, $navbar-dark-active-color);
+      color: css-var(--#{$variable-prefix}navbar-dark-active-color, $navbar-dark-active-color);
     }
   }
 }
