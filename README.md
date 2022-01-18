@@ -28,12 +28,12 @@ CSS or JS, you can use jsDelivr.
 ```html
 <!-- Fullmoon CSS -->
 <link
-    href="https://cdn.jsdelivr.net/npm/fullmooncss@0.0.1/css/fullmoon.min.css"
+    href="https://cdn.jsdelivr.net/npm/fullmooncss@0.0.1/dist/css/fullmoon.min.css"
     rel="stylesheet"
 />
 
 <!-- Fullmoon JS -->
-<script src="https://cdn.jsdelivr.net/npm/fullmooncss@0.0.1/js/fullmoon.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fullmooncss@0.0.1/dist/js/fullmoon.umd.js"></script>
 ```
 
 **Pleast note**, the JS file should be placed at
