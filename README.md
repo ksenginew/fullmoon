@@ -28,12 +28,12 @@ CSS or JS, you can use jsDelivr.
 ```html
 <!-- Fullmoon CSS -->
 <link
-    href="https://cdn.jsdelivr.net/npm/fullmoon@0.0.1/css/fullmoon.min.css"
+    href="https://cdn.jsdelivr.net/npm/fullmooncss@0.0.1/css/fullmoon.min.css"
     rel="stylesheet"
 />
 
 <!-- Fullmoon JS -->
-<script src="https://cdn.jsdelivr.net/npm/fullmoon@0.0.1/js/fullmoon.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fullmooncss@0.0.1/js/fullmoon.umd.js"></script>
 ```
 
 **Pleast note**, the JS file should be placed at
@@ -42,9 +42,9 @@ the end of the `<body>` tag.
 ### Using a package manager
 
 ```
-npm install fullmoon
-# or pnpm add fullmoon
-# or yarn add fullmoon
+npm install fullmooncss
+# or pnpm add fullmooncss
+# or yarn add fullmooncss
 ```
 
 After installation, the required CSS and JS file
@@ -52,10 +52,10 @@ can be imported in the following way as a ES module.
 
 ```javascript
 // Include CSS file
-import 'fullmoon/dist/css/fullmoon.min.css';
+import 'fullmooncss/dist/css/fullmoon.min.css';
 
 // Import JS library
-import fullmoon from 'fullmoon';
+import fullmoon from 'fullmooncss';
 ```
 
 Or import it as a commonjs(default NodeJs modules)
@@ -63,10 +63,10 @@ module.
 
 ```javascript
 // Include CSS file
-require('fullmoon/dist/css/fullmoon.min.css');
+require('fullmooncss/dist/css/fullmoon.min.css');
 
 // Import JS library
-const fullmoon = require('fullmoon');
+const fullmoon = require('fullmooncss');
 ```
 
 ## Initialization
@@ -110,7 +110,7 @@ development, see the [develop branch](https://github.com/ksenginew/fullmoon/tree
 
 ## License
 
-fullmoon is licensed under the [MIT](https://github.com/ksenginew/fullmoon/license) license.
+Fullmoon is licensed under the [MIT](https://github.com/ksenginew/fullmoon/license) license.
 
 ## Copyright
 
