@@ -9,7 +9,7 @@
   border: css-var(--#{$variable-prefix}alert-border-width, $alert-border-width) solid css-var(--#{$variable-prefix}alert-border-color, transparent);
   @include border-radius($alert-border-radius);
   
-  background-color: css-var(--#{$variable-prefix}-alert-background-color);
+  background-color: var(--#{$variable-prefix}-alert-background-color, transparent);
   // Infima(https://infima.dev) adds following rules.
   // border-radius: var(--ifm-alert-border-radius);
   // box-shadow: var(--ifm-alert-shadow);
