@@ -45,14 +45,14 @@
 .input-group-text {
   display: flex;
   align-items: center;
-  padding: $input-group-addon-padding-y $input-group-addon-padding-x;
+  padding: css-var(--#{$variable-prefix}input-group-addon-padding-y, $input-group-addon-padding-y) css-var(--#{$variable-prefix}input-group-addon-padding-x, $input-group-addon-padding-x);
   @include font-size($input-font-size); // Match inputs
-  font-weight: $input-group-addon-font-weight;
-  line-height: $input-line-height;
-  color: $input-group-addon-color;
+  font-weight: css-var(--#{$variable-prefix}input-group-addon-font-weight, $input-group-addon-font-weight);
+  line-height: css-var(--#{$variable-prefix}input-line-height, $input-line-height);
+  color: css-var(--#{$variable-prefix}input-group-addon-color, $input-group-addon-color);
   text-align: center;
   white-space: nowrap;
-  background-color: $input-group-addon-bg;
+  background-color: css-var(--#{$variable-prefix}input-group-addon-bg, $input-group-addon-bg);
   border: $input-border-width solid $input-group-addon-border-color;
   @include border-radius($input-border-radius);
 }
@@ -67,7 +67,7 @@
 .input-group-lg > .form-select,
 .input-group-lg > .input-group-text,
 .input-group-lg > .btn {
-  padding: $input-padding-y-lg $input-padding-x-lg;
+  padding: css-var(--#{$variable-prefix}input-padding-y-lg, $input-padding-y-lg) css-var(--#{$variable-prefix}input-padding-x-lg, $input-padding-x-lg);
   @include font-size($input-font-size-lg);
   @include border-radius($input-border-radius-lg);
 }
@@ -76,7 +76,7 @@
 .input-group-sm > .form-select,
 .input-group-sm > .input-group-text,
 .input-group-sm > .btn {
-  padding: $input-padding-y-sm $input-padding-x-sm;
+  padding: css-var(--#{$variable-prefix}input-padding-y-sm, $input-padding-y-sm) css-var(--#{$variable-prefix}input-padding-x-sm, $input-padding-x-sm);
   @include font-size($input-font-size-sm);
   @include border-radius($input-border-radius-sm);
 }
