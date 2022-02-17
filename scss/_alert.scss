@@ -6,8 +6,14 @@
   position: relative;
   padding: css-var(--#{$variable-prefix}alert-padding-y, $alert-padding-y) css-var(--#{$variable-prefix}alert-padding-x, $alert-padding-x);
   margin-bottom: css-var(--#{$variable-prefix}alert-margin-bottom, $alert-margin-bottom);
-  border: $alert-border-width solid transparent;
+  border: css-var(--#{$variable-prefix}alert-border-width, $alert-border-width) solid css-var(--#{$variable-prefix}alert-border-color, transparent);
   @include border-radius($alert-border-radius);
+  
+  background-color: css-var(--#{$variable-prefix}-alert-background-color);
+  // Infima(https://infima.dev) adds following rules.
+  // border-radius: var(--ifm-alert-border-radius);
+  // box-shadow: var(--ifm-alert-shadow);
+  color: css-var(--#{$variable-prefix}alert-text-color, inherit);
 }
 
 // Headings for larger alerts
@@ -19,6 +25,9 @@
 // Provide class for links that match alerts
 .alert-link {
   font-weight: css-var(--#{$variable-prefix}alert-link-font-weight, $alert-link-font-weight);
+  // Added a trick to alert link color.
+  // color: shade-color($alert-color, 20%);
+  color: rgba(0, 0, 0, 0.8);
 }
 
 
@@ -51,7 +60,9 @@
     $alert-color: mix($value, color-contrast($alert-background), abs($alert-color-scale));
   }
   .alert-#{$state} {
-    @include alert-variant($alert-background, $alert-border, $alert-color);
+    --#{$variable-prefix}alert-text-color: $alert-color;
+    @include gradient-bg(null);
+    --#{$variable-prefix}alert-border-color: $alert-border;
   }
 }
 // scss-docs-end alert-modifiers
