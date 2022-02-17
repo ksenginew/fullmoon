@@ -18,15 +18,17 @@
   $disabled-border: $border,
   $disabled-color: color-contrast($disabled-background)
 ) {
-  color: $color;
-  @include gradient-bg($background);
-  border-color: $border;
+  --#{$variable-prefix}btn-text-color: $color;
+  --#{$variable-prefix}btn-background-color: $background;
+  @include gradient-bg(null);
+  --#{$variable-prefix}btn-border-color: $border;
   @include box-shadow($btn-box-shadow);
 
   &:hover {
-    color: $hover-color;
-    @include gradient-bg($hover-background);
-    border-color: $hover-border;
+    --#{$variable-prefix}btn-hover-text-color: $hover-color;
+    --#{$variable-prefix}btn-hover-background-color: $hover-background;
+    @include gradient-bg(null);
+    --#{$variable-prefix}btn-hover-border-color: $hover-border;
   }
 
   .btn-check:focus + &,
