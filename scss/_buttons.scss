@@ -7,15 +7,15 @@
   font-family: css-var(--#{$variable-prefix}btn-font-family, $btn-font-family);
   font-weight: css-var(--#{$variable-prefix}btn-font-weight, $btn-font-weight);
   line-height: css-var(--#{$variable-prefix}btn-line-height, $btn-line-height);
-  color: css-var(--#{$variable-prefix}body-color, $body-color);
+  color: css-var(--#{$variable-prefix}btn-text-color, $body-color);
   text-align: center;
   text-decoration: if($link-decoration == none, null, none);
   white-space: css-var(--#{$variable-prefix}btn-white-space, $btn-white-space);
   vertical-align: middle;
   cursor: if($enable-button-pointers, pointer, null);
   user-select: none;
-  background-color: transparent;
-  border: $btn-border-width solid transparent;
+  background-color: css-var(--#{$variable-prefix}btn-background-color, transparent);
+  border: css-var(--#{$variable-prefix}btn-border-width, $btn-border-width) solid css-var(--#{$variable-prefix}btn-border-color, transparent);
   @include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $btn-border-radius);
   @include transition($btn-transition);
 
