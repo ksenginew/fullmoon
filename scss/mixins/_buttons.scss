@@ -1,0 +1,70 @@
+// stylelint-disable custom-property-empty-line-before
+
+// Button variants
+//
+// Easily pump out default styles, as well as :hover, :focus, :active,
+// and disabled options for all buttons
+
+// scss-docs-start btn-variant-mixin
+@mixin button-variant(
+  $background,
+  $border,
+  $color: color-contrast($background),
+  $hover-background: if($color == $color-contrast-light, shade-color($background, $btn-hover-bg-shade-amount), tint-color($background, $btn-hover-bg-tint-amount)),
+  $hover-border: if($color == $color-contrast-light, shade-color($border, $btn-hover-border-shade-amount), tint-color($border, $btn-hover-border-tint-amount)),
+  $hover-color: color-contrast($hover-background),
+  $active-background: if($color == $color-contrast-light, shade-color($background, $btn-active-bg-shade-amount), tint-color($background, $btn-active-bg-tint-amount)),
+  $active-border: if($color == $color-contrast-light, shade-color($border, $btn-active-border-shade-amount), tint-color($border, $btn-active-border-tint-amount)),
+  $active-color: color-contrast($active-background),
+  $disabled-background: $background,
+  $disabled-border: $border,
+  $disabled-color: color-contrast($disabled-background)
+) {
+  --#{$variable-prefix}btn-color: #{$color};
+  --#{$variable-prefix}btn-bg: #{$background};
+  --#{$variable-prefix}btn-border-color: #{$border};
+  --#{$variable-prefix}btn-hover-color: #{$hover-color};
+  --#{$variable-prefix}btn-hover-bg: #{$hover-background};
+  --#{$variable-prefix}btn-hover-border-color: #{$hover-border};
+  --#{$variable-prefix}btn-focus-shadow-rgb: #{to-rgb(mix($color, $border, 15%))};
+  --#{$variable-prefix}btn-active-color: #{$active-color};
+  --#{$variable-prefix}btn-active-bg: #{$active-background};
+  --#{$variable-prefix}btn-active-border-color: #{$active-border};
+  --#{$variable-prefix}btn-active-shadow: #{$btn-active-box-shadow};
+  --#{$variable-prefix}btn-disabled-color: #{$disabled-color};
+  --#{$variable-prefix}btn-disabled-bg: #{$disabled-background};
+  --#{$variable-prefix}btn-disabled-border-color: #{$disabled-border};
+}
+// scss-docs-end btn-variant-mixin
+
+// scss-docs-start btn-outline-variant-mixin
+@mixin button-outline-variant(
+  $color,
+  $color-hover: color-contrast($color),
+  $active-background: $color,
+  $active-border: $color,
+  $active-color: color-contrast($active-background)
+) {
+  --#{$variable-prefix}btn-color: #{$color};
+  --#{$variable-prefix}btn-border-color: #{$color};
+  --#{$variable-prefix}btn-hover-color: #{$color-hover};
+  --#{$variable-prefix}btn-hover-bg: #{$active-background};
+  --#{$variable-prefix}btn-hover-border-color: #{$active-border};
+  --#{$variable-prefix}btn-focus-shadow-rgb: #{to-rgb($color)};
+  --#{$variable-prefix}btn-active-color: #{$active-color};
+  --#{$variable-prefix}btn-active-bg: #{$active-background};
+  --#{$variable-prefix}btn-active-border-color: #{$active-border};
+  --#{$variable-prefix}btn-active-shadow: #{$btn-active-box-shadow};
+  --#{$variable-prefix}btn-disabled-color: #{$color};
+  --#{$variable-prefix}btn-disabled-bg: transparent;
+  --#{$variable-prefix}gradient: none;
+}
+// scss-docs-end btn-outline-variant-mixin
+
+// scss-docs-start btn-size-mixin
+@mixin button-size($padding-y, $padding-x, $font-size, $border-radius) {
+  --#{$variable-prefix}btn-padding: #{$padding-y} #{$padding-x};
+  @include rfs($font-size, --#{$variable-prefix}btn-font-size);
+  --#{$variable-prefix}btn-border-radius: #{$border-radius};
+}
+// scss-docs-end btn-size-mixin
