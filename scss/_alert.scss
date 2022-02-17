@@ -31,6 +31,8 @@
 // Provide class for links that match alerts
 .alert-link {
   font-weight: $alert-link-font-weight;
+  // trick to automatically choose text color.
+  color: rgba(0, 0, 0, 0.8)
 }
 
 

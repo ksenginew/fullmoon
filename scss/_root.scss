@@ -7,14 +7,20 @@
 
   @each $color, $value in $colors {
     --#{$variable-prefix}#{$color}: #{$value};
+    --#{$variable-prefix}#{$color}-hue: hue($value);
+    --#{$variable-prefix}#{$color}-sat: round(lightness($value));
   }
 
   @each $color, $value in $grays {
     --#{$variable-prefix}gray-#{$color}: #{$value};
+    --#{$variable-prefix}gray-#{$color}-hue: hue($value);
+    --#{$variable-prefix}gray-#{$color}-sat: round(lightness($value));
   }
 
   @each $color, $value in $theme-colors {
     --#{$variable-prefix}#{$color}: #{$value};
+    --#{$variable-prefix}#{$color}-hue: hue($value);
+    --#{$variable-prefix}#{$color}-sat: round(lightness($value));
   }
 
   @each $color, $value in $theme-colors-rgb {
