@@ -59,7 +59,7 @@
   --fm-black-rgb: 0, 0, 0;
   --fm-body-color-rgb: 33, 37, 41;
   --fm-body-bg-rgb: 255, 255, 255;
-  --fm-font-sans-serif: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --fm-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --fm-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --fm-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
   --fm-body-font-family: var(--fm-font-sans-serif);
@@ -74,6 +74,12 @@
 *::before,
 *::after {
   box-sizing: border-box;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  :root {
+    scroll-behavior: smooth;
+  }
 }
 
 body {
@@ -111,17 +117,37 @@ h6, h5, h4, h3, h2, h1 {
 h1 {
   font-size: calc(1.375rem + 1.5vw);
 }
+@media (min-width: 1200px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+}
 
 h2 {
   font-size: calc(1.325rem + 0.9vw);
+}
+@media (min-width: 1200px) {
+  h2 {
+    font-size: 2rem;
+  }
 }
 
 h3 {
   font-size: calc(1.3rem + 0.6vw);
 }
+@media (min-width: 1200px) {
+  h3 {
+    font-size: 1.75rem;
+  }
+}
 
 h4 {
   font-size: calc(1.275rem + 0.3vw);
+}
+@media (min-width: 1200px) {
+  h4 {
+    font-size: 1.5rem;
+  }
 }
 
 h5 {
@@ -139,10 +165,8 @@ p {
 
 abbr[title],
 abbr[data-bs-original-title] {
-  -webkit-text-decoration: underline dotted;
   text-decoration: underline dotted;
   cursor: help;
-  -webkit-text-decoration-skip-ink: none;
   text-decoration-skip-ink: none;
 }
 
@@ -216,7 +240,6 @@ sup {
 
 a {
   color: var(--fm-link-color, #0d6efd);
-  -webkit-text-decoration: var(--fm-link-decoration, underline);
   text-decoration: var(--fm-link-decoration, underline);
 }
 a:hover {
@@ -318,10 +341,6 @@ button {
   border-radius: 0;
 }
 
-button:focus:not(.focus-visible) {
-  outline: 0;
-}
-
 button:focus:not(:focus-visible) {
   outline: 0;
 }
@@ -394,6 +413,11 @@ legend {
   font-size: calc(1.275rem + 0.3vw);
   line-height: inherit;
 }
+@media (min-width: 1200px) {
+  legend {
+    font-size: 1.5rem;
+  }
+}
 legend + * {
   clear: left;
 }
@@ -433,10 +457,6 @@ legend + * {
   padding: 0;
 }
 
-::-webkit-file-upload-button {
-  font: inherit;
-}
-
 ::file-selector-button {
   font: inherit;
 }
@@ -465,30 +485,6 @@ progress {
 
 [hidden] {
   display: none !important;
-}
-
-@media (min-width: 1200px) {
-  h1 {
-    font-size: 2.5rem;
-  }
-  h2 {
-    font-size: 2rem;
-  }
-  h3 {
-    font-size: 1.75rem;
-  }
-  h4 {
-    font-size: 1.5rem;
-  }
-  legend {
-    font-size: 1.5rem;
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  :root {
-    scroll-behavior: smooth;
-  }
 }
 
 /*# sourceMappingURL=fullmoon-reboot.css.map */
