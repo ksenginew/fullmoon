@@ -1,0 +1,10 @@
+$theme-colors: (
+  "primary":    hsl(220, 100%, 50%),
+  "secondary":  hsl(0, 0%, 50%),
+  "success":    hsl(150, 70%, 50%),
+  "info":       hsl(190, 90%, 50%),
+  "warning":    hsl(50, 100%, 50%),
+  "danger":     hsl(350, 70%, 50%),
+  "light":      hsl(210, 20%, 95%),
+  "dark":       hsl(210, 10%, 15%)
+) !default;
