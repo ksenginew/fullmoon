@@ -3,17 +3,17 @@
 // scss-docs-start progress-keyframes
 @if $enable-transitions {
   @keyframes progress-bar-stripes {
-    0% { background-position-x: $progress-height; }
+    0% { background-position-x: css-var(--#{$variable-prefix}progress-height, $progress-height); }
   }
 }
 // scss-docs-end progress-keyframes
 
 .progress {
   display: flex;
-  height: $progress-height;
+  height: css-var(--#{$variable-prefix}progress-height, $progress-height);
   overflow: hidden; // force rounded corners by cropping it
   @include font-size($progress-font-size);
-  background-color: $progress-bg;
+  background-color: css-var(--#{$variable-prefix}progress-bg, $progress-bg);
   @include border-radius($progress-border-radius);
   @include box-shadow($progress-box-shadow);
 }
@@ -23,16 +23,16 @@
   flex-direction: column;
   justify-content: center;
   overflow: hidden;
-  color: $progress-bar-color;
+  color: css-var(--#{$variable-prefix}progress-bar-color, $progress-bar-color);
   text-align: center;
   white-space: nowrap;
-  background-color: $progress-bar-bg;
+  background-color: css-var(--#{$variable-prefix}progress-bar-bg, $progress-bar-bg);
   @include transition($progress-bar-transition);
 }
 
 .progress-bar-striped {
   @include gradient-striped();
-  background-size: $progress-height $progress-height;
+  background-size: css-var(--#{$variable-prefix}progress-height, $progress-height) css-var(--#{$variable-prefix}progress-height, $progress-height);
 }
 
 @if $enable-transitions {

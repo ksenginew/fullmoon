@@ -120,8 +120,8 @@
 //
 
 .navbar-text {
-  padding-top: $nav-link-padding-y;
-  padding-bottom: $nav-link-padding-y;
+  padding-top: css-var(--#{$variable-prefix}nav-link-padding-y, $nav-link-padding-y);
+  padding-bottom: css-var(--#{$variable-prefix}nav-link-padding-y, $nav-link-padding-y);
   color: var(--#{$variable-prefix}navbar-color);
 
   a,

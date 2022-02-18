@@ -4,9 +4,9 @@
 
 .form-check {
   display: block;
-  min-height: $form-check-min-height;
-  padding-left: $form-check-padding-start;
-  margin-bottom: $form-check-margin-bottom;
+  min-height: css-var(--#{$variable-prefix}form-check-min-height, $form-check-min-height);
+  padding-left: css-var(--#{$variable-prefix}form-check-padding-start, $form-check-padding-start);
+  margin-bottom: css-var(--#{$variable-prefix}form-check-margin-bottom, $form-check-margin-bottom);
 
   .form-check-input {
     float: left;
@@ -15,7 +15,7 @@
 }
 
 .form-check-reverse {
-  padding-right: $form-check-padding-start;
+  padding-right: css-var(--#{$variable-prefix}form-check-padding-start, $form-check-padding-start);
   padding-left: 0;
   text-align: right;
 
@@ -27,15 +27,15 @@
 }
 
 .form-check-input {
-  width: $form-check-input-width;
-  height: $form-check-input-width;
+  width: css-var(--#{$variable-prefix}form-check-input-width, $form-check-input-width);
+  height: css-var(--#{$variable-prefix}form-check-input-width, $form-check-input-width);
   margin-top: ($line-height-base - $form-check-input-width) * .5; // line-height minus check height
   vertical-align: top;
-  background-color: $form-check-input-bg;
+  background-color: css-var(--#{$variable-prefix}form-check-input-bg, $form-check-input-bg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  border: $form-check-input-border;
+  border: css-var(--#{$variable-prefix}form-check-input-border, $form-check-input-border);
   appearance: none;
   color-adjust: exact; // Keep themed appearance for print
   @include transition($form-check-transition);
@@ -46,22 +46,22 @@
 
   &[type="radio"] {
     // stylelint-disable-next-line property-disallowed-list
-    border-radius: $form-check-radio-border-radius;
+    border-radius: css-var(--#{$variable-prefix}form-check-radio-border-radius, $form-check-radio-border-radius);
   }
 
   &:active {
-    filter: $form-check-input-active-filter;
+    filter: css-var(--#{$variable-prefix}form-check-input-active-filter, $form-check-input-active-filter);
   }
 
   &:focus {
-    border-color: $form-check-input-focus-border;
+    border-color: css-var(--#{$variable-prefix}form-check-input-focus-border, $form-check-input-focus-border);
     outline: 0;
-    box-shadow: $form-check-input-focus-box-shadow;
+    box-shadow: css-var(--#{$variable-prefix}form-check-input-focus-box-shadow, $form-check-input-focus-box-shadow);
   }
 
   &:checked {
-    background-color: $form-check-input-checked-bg-color;
-    border-color: $form-check-input-checked-border-color;
+    background-color: css-var(--#{$variable-prefix}form-check-input-checked-bg-color, $form-check-input-checked-bg-color);
+    border-color: css-var(--#{$variable-prefix}form-check-input-checked-border-color, $form-check-input-checked-border-color);
 
     &[type="checkbox"] {
       @if $enable-gradients {
@@ -81,8 +81,8 @@
   }
 
   &[type="checkbox"]:indeterminate {
-    background-color: $form-check-input-indeterminate-bg-color;
-    border-color: $form-check-input-indeterminate-border-color;
+    background-color: css-var(--#{$variable-prefix}form-check-input-indeterminate-bg-color, $form-check-input-indeterminate-bg-color);
+    border-color: css-var(--#{$variable-prefix}form-check-input-indeterminate-border-color, $form-check-input-indeterminate-border-color);
 
     @if $enable-gradients {
       background-image: escape-svg($form-check-input-indeterminate-bg-image), var(--#{$variable-prefix}gradient);
@@ -94,7 +94,7 @@
   &:disabled {
     pointer-events: none;
     filter: none;
-    opacity: $form-check-input-disabled-opacity;
+    opacity: css-var(--#{$variable-prefix}form-check-input-disabled-opacity, $form-check-input-disabled-opacity);
   }
 
   // Use disabled attribute in addition of :disabled pseudo-class
@@ -103,14 +103,14 @@
   &:disabled {
     ~ .form-check-label {
       cursor: default;
-      opacity: $form-check-label-disabled-opacity;
+      opacity: css-var(--#{$variable-prefix}form-check-label-disabled-opacity, $form-check-label-disabled-opacity);
     }
   }
 }
 
 .form-check-label {
-  color: $form-check-label-color;
-  cursor: $form-check-label-cursor;
+  color: css-var(--#{$variable-prefix}form-check-label-color, $form-check-label-color);
+  cursor: css-var(--#{$variable-prefix}form-check-label-cursor, $form-check-label-cursor);
 }
 
 //
@@ -118,10 +118,10 @@
 //
 
 .form-switch {
-  padding-left: $form-switch-padding-start;
+  padding-left: css-var(--#{$variable-prefix}form-switch-padding-start, $form-switch-padding-start);
 
   .form-check-input {
-    width: $form-switch-width;
+    width: css-var(--#{$variable-prefix}form-switch-width, $form-switch-width);
     margin-left: $form-switch-padding-start * -1;
     background-image: escape-svg($form-switch-bg-image);
     background-position: left center;
@@ -133,7 +133,7 @@
     }
 
     &:checked {
-      background-position: $form-switch-checked-bg-position;
+      background-position: css-var(--#{$variable-prefix}form-switch-checked-bg-position, $form-switch-checked-bg-position);
 
       @if $enable-gradients {
         background-image: escape-svg($form-switch-checked-bg-image), var(--#{$variable-prefix}gradient);
@@ -144,7 +144,7 @@
   }
 
   &.form-check-reverse {
-    padding-right: $form-switch-padding-start;
+    padding-right: css-var(--#{$variable-prefix}form-switch-padding-start, $form-switch-padding-start);
     padding-left: 0;
 
     .form-check-input {
@@ -156,7 +156,7 @@
 
 .form-check-inline {
   display: inline-block;
-  margin-right: $form-check-inline-margin-end;
+  margin-right: css-var(--#{$variable-prefix}form-check-inline-margin-end, $form-check-inline-margin-end);
 }
 
 .btn-check {
@@ -169,7 +169,7 @@
     + .btn {
       pointer-events: none;
       filter: none;
-      opacity: $form-check-btn-check-disabled-opacity;
+      opacity: css-var(--#{$variable-prefix}form-check-btn-check-disabled-opacity, $form-check-btn-check-disabled-opacity);
     }
   }
 }

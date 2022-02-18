@@ -31,7 +31,7 @@
   color: var(--#{$variable-prefix}btn-color);
   text-align: center;
   text-decoration: if($link-decoration == none, null, none);
-  white-space: $btn-white-space;
+  white-space: css-var(--#{$variable-prefix}btn-white-space, $btn-white-space);
   vertical-align: middle;
   cursor: if($enable-button-pointers, pointer, null);
   user-select: none;
@@ -134,11 +134,11 @@
   --#{$variable-prefix}btn-disabled-border-color: transparent;
   --#{$variable-prefix}btn-box-shadow: none;
 
-  text-decoration: $link-decoration;
+  text-decoration: css-var(--#{$variable-prefix}link-decoration, $link-decoration);
 
   &:hover,
   &:focus {
-    text-decoration: $link-hover-decoration;
+    text-decoration: css-var(--#{$variable-prefix}link-hover-decoration, $link-hover-decoration);
   }
 
   // No need for an active state here

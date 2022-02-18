@@ -48,14 +48,14 @@
     z-index: 3;
     color: var(--#{$variable-prefix}pagination-focus-color);
     background-color: var(--#{$variable-prefix}pagination-focus-bg);
-    outline: $pagination-focus-outline;
+    outline: css-var(--#{$variable-prefix}pagination-focus-outline, $pagination-focus-outline);
     box-shadow: var(--#{$variable-prefix}pagination-focus-box-shadow);
   }
 }
 
 .page-item {
   &:not(:first-child) .page-link {
-    margin-left: $pagination-margin-start;
+    margin-left: css-var(--#{$variable-prefix}pagination-margin-start, $pagination-margin-start);
   }
 
   @if $pagination-margin-start == (-$pagination-border-width) {

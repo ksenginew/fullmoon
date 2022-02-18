@@ -41,7 +41,7 @@
   // scss-docs-end dropdown-css-vars
 
   position: absolute;
-  z-index: $zindex-dropdown;
+  z-index: css-var(--#{$variable-prefix}zindex-dropdown, $zindex-dropdown);
   display: none; // none by default, but block on "open" of the menu
   min-width: var(--#{$variable-prefix}dropdown-min-width);
   padding: var(--#{$variable-prefix}dropdown-padding);
@@ -158,7 +158,7 @@
   width: 100%; // For `<button>`s
   padding: var(--#{$variable-prefix}dropdown-item-padding);
   clear: both;
-  font-weight: $font-weight-normal;
+  font-weight: css-var(--#{$variable-prefix}font-weight-normal, $font-weight-normal);
   color: var(--#{$variable-prefix}dropdown-link-color);
   text-align: inherit; // For `<button>`s
   text-decoration: if($link-decoration == none, null, none);

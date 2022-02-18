@@ -5,13 +5,13 @@
 .form-control {
   display: block;
   width: 100%;
-  padding: $input-padding-y $input-padding-x;
-  font-family: $input-font-family;
+  padding: css-var(--#{$variable-prefix}input-padding-y, $input-padding-y) css-var(--#{$variable-prefix}input-padding-x, $input-padding-x);
+  font-family: css-var(--#{$variable-prefix}input-font-family, $input-font-family);
   @include font-size($input-font-size);
-  font-weight: $input-font-weight;
-  line-height: $input-line-height;
-  color: $input-color;
-  background-color: $input-bg;
+  font-weight: css-var(--#{$variable-prefix}input-font-weight, $input-font-weight);
+  line-height: css-var(--#{$variable-prefix}input-line-height, $input-line-height);
+  color: css-var(--#{$variable-prefix}input-color, $input-color);
+  background-color: css-var(--#{$variable-prefix}input-bg, $input-bg);
   background-clip: padding-box;
   border: $input-border-width solid $input-border-color;
   appearance: none; // Fix appearance for date inputs in Safari
@@ -32,15 +32,15 @@
 
   // Customize the `:focus` state to imitate native WebKit styles.
   &:focus {
-    color: $input-focus-color;
-    background-color: $input-focus-bg;
-    border-color: $input-focus-border-color;
+    color: css-var(--#{$variable-prefix}input-focus-color, $input-focus-color);
+    background-color: css-var(--#{$variable-prefix}input-focus-bg, $input-focus-bg);
+    border-color: css-var(--#{$variable-prefix}input-focus-border-color, $input-focus-border-color);
     outline: 0;
     @if $enable-shadows {
       @include box-shadow($input-box-shadow, $input-focus-box-shadow);
     } @else {
       // Avoid using mixin so we can pass custom focus shadow properly
-      box-shadow: $input-focus-box-shadow;
+      box-shadow: css-var(--#{$variable-prefix}input-focus-box-shadow, $input-focus-box-shadow);
     }
   }
 
@@ -54,7 +54,7 @@
 
   // Placeholder
   &::placeholder {
-    color: $input-placeholder-color;
+    color: css-var(--#{$variable-prefix}input-placeholder-color, $input-placeholder-color);
     // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526.
     opacity: 1;
   }
@@ -66,30 +66,30 @@
   // don't honor that edge case; we style them as disabled anyway.
   &:disabled,
   &[readonly] {
-    background-color: $input-disabled-bg;
-    border-color: $input-disabled-border-color;
+    background-color: css-var(--#{$variable-prefix}input-disabled-bg, $input-disabled-bg);
+    border-color: css-var(--#{$variable-prefix}input-disabled-border-color, $input-disabled-border-color);
     // iOS fix for unreadable disabled content; see https://github.com/twbs/bootstrap/issues/11655.
     opacity: 1;
   }
 
   // File input buttons theming
   &::file-selector-button {
-    padding: $input-padding-y $input-padding-x;
+    padding: css-var(--#{$variable-prefix}input-padding-y, $input-padding-y) css-var(--#{$variable-prefix}input-padding-x, $input-padding-x);
     margin: (-$input-padding-y) (-$input-padding-x);
-    margin-inline-end: $input-padding-x;
-    color: $form-file-button-color;
+    margin-inline-end: css-var(--#{$variable-prefix}input-padding-x, $input-padding-x);
+    color: css-var(--#{$variable-prefix}form-file-button-color, $form-file-button-color);
     @include gradient-bg($form-file-button-bg);
     pointer-events: none;
     border-color: inherit;
     border-style: solid;
     border-width: 0;
-    border-inline-end-width: $input-border-width;
+    border-inline-end-width: css-var(--#{$variable-prefix}input-border-width, $input-border-width);
     border-radius: 0; // stylelint-disable-line property-disallowed-list
     @include transition($btn-transition);
   }
 
   &:hover:not(:disabled):not([readonly])::file-selector-button {
-    background-color: $form-file-button-hover-bg;
+    background-color: css-var(--#{$variable-prefix}form-file-button-hover-bg, $form-file-button-hover-bg);
   }
 }
 
@@ -103,8 +103,8 @@
   width: 100%;
   padding: $input-padding-y 0;
   margin-bottom: 0; // match inputs if this class comes on inputs with default margins
-  line-height: $input-line-height;
-  color: $input-plaintext-color;
+  line-height: css-var(--#{$variable-prefix}input-line-height, $input-line-height);
+  color: css-var(--#{$variable-prefix}input-plaintext-color, $input-plaintext-color);
   background-color: transparent;
   border: solid transparent;
   border-width: $input-border-width 0;
@@ -124,28 +124,28 @@
 // Repeated in `_input_group.scss` to avoid Sass extend issues.
 
 .form-control-sm {
-  min-height: $input-height-sm;
-  padding: $input-padding-y-sm $input-padding-x-sm;
+  min-height: css-var(--#{$variable-prefix}input-height-sm, $input-height-sm);
+  padding: css-var(--#{$variable-prefix}input-padding-y-sm, $input-padding-y-sm) css-var(--#{$variable-prefix}input-padding-x-sm, $input-padding-x-sm);
   @include font-size($input-font-size-sm);
   @include border-radius($input-border-radius-sm);
 
   &::file-selector-button {
-    padding: $input-padding-y-sm $input-padding-x-sm;
+    padding: css-var(--#{$variable-prefix}input-padding-y-sm, $input-padding-y-sm) css-var(--#{$variable-prefix}input-padding-x-sm, $input-padding-x-sm);
     margin: (-$input-padding-y-sm) (-$input-padding-x-sm);
-    margin-inline-end: $input-padding-x-sm;
+    margin-inline-end: css-var(--#{$variable-prefix}input-padding-x-sm, $input-padding-x-sm);
   }
 }
 
 .form-control-lg {
-  min-height: $input-height-lg;
-  padding: $input-padding-y-lg $input-padding-x-lg;
+  min-height: css-var(--#{$variable-prefix}input-height-lg, $input-height-lg);
+  padding: css-var(--#{$variable-prefix}input-padding-y-lg, $input-padding-y-lg) css-var(--#{$variable-prefix}input-padding-x-lg, $input-padding-x-lg);
   @include font-size($input-font-size-lg);
   @include border-radius($input-border-radius-lg);
 
   &::file-selector-button {
-    padding: $input-padding-y-lg $input-padding-x-lg;
+    padding: css-var(--#{$variable-prefix}input-padding-y-lg, $input-padding-y-lg) css-var(--#{$variable-prefix}input-padding-x-lg, $input-padding-x-lg);
     margin: (-$input-padding-y-lg) (-$input-padding-x-lg);
-    margin-inline-end: $input-padding-x-lg;
+    margin-inline-end: css-var(--#{$variable-prefix}input-padding-x-lg, $input-padding-x-lg);
   }
 }
 
@@ -154,23 +154,23 @@
 // stylelint-disable selector-no-qualifying-type
 textarea {
   &.form-control {
-    min-height: $input-height;
+    min-height: css-var(--#{$variable-prefix}input-height, $input-height);
   }
 
   &.form-control-sm {
-    min-height: $input-height-sm;
+    min-height: css-var(--#{$variable-prefix}input-height-sm, $input-height-sm);
   }
 
   &.form-control-lg {
-    min-height: $input-height-lg;
+    min-height: css-var(--#{$variable-prefix}input-height-lg, $input-height-lg);
   }
 }
 // stylelint-enable selector-no-qualifying-type
 
 .form-control-color {
-  width: $form-color-width;
+  width: css-var(--#{$variable-prefix}form-color-width, $form-color-width);
   height: auto; // Override fixed browser height
-  padding: $input-padding-y;
+  padding: css-var(--#{$variable-prefix}input-padding-y, $input-padding-y);
 
   &:not(:disabled):not([readonly]) {
     cursor: pointer;

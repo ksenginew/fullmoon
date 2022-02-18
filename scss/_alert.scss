@@ -30,7 +30,7 @@
 
 // Provide class for links that match alerts
 .alert-link {
-  font-weight: $alert-link-font-weight;
+  font-weight: css-var(--#{$variable-prefix}alert-link-font-weight, $alert-link-font-weight);
   // trick to automatically choose text color.
   color: rgba(0, 0, 0, 0.8)
 }
@@ -41,7 +41,7 @@
 // Expand the right padding and account for the close button's positioning.
 
 .alert-dismissible {
-  padding-right: $alert-dismissible-padding-r;
+  padding-right: css-var(--#{$variable-prefix}alert-dismissible-padding-r, $alert-dismissible-padding-r);
 
   // Adjust close link position
   .btn-close {
