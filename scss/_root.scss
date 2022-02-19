@@ -21,14 +21,14 @@
     --#{$variable-prefix}color-#{$color}-text: #{$contrast};
     @if $contrast == $color-contrast-light {
       @for $i from 1 through 19 {
-        $background: shade-color($value, $i * 500%);
+        $background: shade-color($value, $i * 5 *100%);
         --#{$variable-prefix}color-#{$color}-#{i * 50}: #{$background};
         --#{$variable-prefix}color-#{$color}-#{i * 50}-text: color-contrast($background);
       }
     }
     @else {
       @for $i from 1 through 19 {
-        $background: tint-color($value, $i * 500%);
+        $background: tint-color($value, $i * 5 *100%);
         --#{$variable-prefix}color-#{$color}-#{i * 50}: #{$background};
         --#{$variable-prefix}color-#{$color}-#{i * 50}-text: color-contrast($background);
       }
