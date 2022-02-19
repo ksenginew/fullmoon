@@ -484,7 +484,7 @@ address {
 
 ol,
 ul {
-  padding-right: 2rem;
+  padding-left: 2rem;
 }
 
 ol,
@@ -507,7 +507,7 @@ dt {
 
 dd {
   margin-bottom: 0.5rem;
-  margin-right: 0;
+  margin-left: 0;
 }
 
 blockquote {
@@ -622,7 +622,7 @@ caption {
   padding-top: css-var(--bs-table-cell-padding-y, 0.5rem);
   padding-bottom: css-var(--bs-table-cell-padding-y, 0.5rem);
   color: css-var(--bs-table-caption-color, #6c757d);
-  text-align: right;
+  text-align: left;
 }
 
 th {
@@ -651,7 +651,6 @@ button {
 }
 
 button:focus:not(.focus-visible) {
-  outline: 0;
   outline: 0;
 }
 
@@ -720,7 +719,7 @@ fieldset {
 }
 
 legend {
-  float: right;
+  float: left;
   width: 100%;
   padding: 0;
   margin-bottom: css-var(--bs-legend-margin-bottom, 0.5rem);
@@ -729,7 +728,7 @@ legend {
   line-height: inherit;
 }
 legend + * {
-  clear: right;
+  clear: left;
 }
 
 ::-webkit-datetime-edit-fields-wrapper,
@@ -751,12 +750,14 @@ legend + * {
   -webkit-appearance: textfield;
 }
 
+/* rtl:raw:
 [type="tel"],
 [type="url"],
 [type="email"],
 [type="number"] {
   direction: ltr;
 }
+*/
 ::-webkit-search-decoration {
   -webkit-appearance: none;
 }
@@ -819,4 +820,5 @@ progress {
     scroll-behavior: smooth;
   }
 }
-/*# sourceMappingURL=fullmoon-reboot.rtl.css.map */
+
+/*# sourceMappingURL=fullmoon-reboot.css.map */
