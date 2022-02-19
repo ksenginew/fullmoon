@@ -21,14 +21,12 @@
       @for $i from 1 through 19 {
         $background: shade-color($value, $i * 5%);
         --#{$variable-prefix}color-#{$color}-#{$i * 50}: #{$background};
-        --#{$variable-prefix}color-#{$color}-#{$i * 50}-text: #{color-contrast($background)};
       }
     }
     @else {
       @for $i from 1 through 19 {
         $background: tint-color($value, $i * 5%);
         --#{$variable-prefix}color-#{$color}-#{$i * 50}: #{$background};
-        --#{$variable-prefix}color-#{$color}-#{$i * 50}-text: #{color-contrast($background)};
       }
     }
   }

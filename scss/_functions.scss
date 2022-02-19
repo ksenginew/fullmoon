@@ -300,3 +300,7 @@ $_luminance-list: .0008 .001 .0011 .0013 .0015 .0017 .002 .0022 .0025 .0027 .003
   }
   @return $result;
 }
+
+@function css-var($name, $value) {
+  @return if($value == null, null, var($name, $value));
+}
