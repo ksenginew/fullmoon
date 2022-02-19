@@ -4,11 +4,13 @@
 
 .alert {
   // scss-docs-start alert-css-vars
-  --#{$variable-prefix}alert-bg: transparent;
+  --#{$variable-prefix}alert-bg: hsl(var(--#{$variable-prefix}alert-color-hue), var(--#{$variable-prefix}alert-color-sat), 90%);
   --#{$variable-prefix}alert-padding: #{$alert-padding-y $alert-padding-x};
   --#{$variable-prefix}alert-margin-bottom: #{$alert-margin-bottom};
-  --#{$variable-prefix}alert-color: inherit;
-  --#{$variable-prefix}alert-border-color: transparent;
+  --#{$variable-prefix}alert-color-hue: 0;
+  --#{$variable-prefix}alert-color-sat: 0%;
+  --#{$variable-prefix}alert-color: hsl(var(--#{$variable-prefix}alert-color-hue), var(--#{$variable-prefix}alert-color-sat), 30%);
+  --#{$variable-prefix}alert-border-color: hsl(var(--#{$variable-prefix}alert-color-hue), var(--#{$variable-prefix}alert-color-sat), 85%);
   --#{$variable-prefix}alert-border: #{$alert-border-width} solid var(--#{$variable-prefix}alert-border-color);
   --#{$variable-prefix}alert-border-radius: #{$alert-border-radius};
   // scss-docs-end alert-css-vars
@@ -58,15 +60,21 @@
 // Generate contextual modifier classes for colorizing the alert.
 
 @each $state, $value in $theme-colors {
-  $alert-background: shift-color($value, $alert-bg-scale);
-  $alert-border: shift-color($value, $alert-border-scale);
-  $alert-color: shift-color($value, $alert-color-scale);
+  // $alert-background: shift-color($value, $alert-bg-scale);
+  // $alert-border: shift-color($value, $alert-border-scale);
+  // $alert-color: shift-color($value, $alert-color-scale);
 
-  @if (contrast-ratio($alert-background, $alert-color) < $min-contrast-ratio) {
-    $alert-color: mix($value, color-contrast($alert-background), abs($alert-color-scale));
-  }
+  // @if (contrast-ratio($alert-background, $alert-color) < $min-contrast-ratio) {
+  //   $alert-color: mix($value, color-contrast($alert-background), abs($alert-color-scale));
+  // }
   .alert-#{$state} {
-    @include alert-variant(css-var(--#{$variable-prefix}alert-#{$state}-bg, $alert-background), css-var(--#{$variable-prefix}alert-#{$state}-border-color, $alert-border), css-var(--#{$variable-prefix}alert-#{$state}-color, $alert-color));
+    // @include alert-variant(css-var(--#{$variable-prefix}alert-#{$state}-bg, $alert-background), css-var(--#{$variable-prefix}alert-#{$state}-border-color, $alert-border), css-var(--#{$variable-prefix}alert-#{$state}-color, $alert-color));
+    --#{$variable-prefix}alert-color-hue: var(--#{$variable-prefix}#{$state}-hue);
+    --#{$variable-prefix}alert-color-sat: var(--#{$variable-prefix}#{$state}-sat);
+
+    @if $enable-gradients {
+      background-image: var(--#{$variable-prefix}gradient);
+    }
   }
 }
 // scss-docs-end alert-modifiers
